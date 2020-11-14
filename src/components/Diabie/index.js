@@ -1,13 +1,15 @@
 // == Import npm
 import React from 'react';
 
+import Header from 'src/components/Header';
+
 // == Import
 import './styles.scss';
 
 // == Composant
 const Diabie = () => (
   <div className="diabie">
-    <div>Header</div>
+    <Header />
     <div>Main</div>
     <div>Subscribe</div>
     <div>Footer</div>
