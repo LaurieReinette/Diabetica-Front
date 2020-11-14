@@ -1,8 +1,9 @@
 @import 'src/styles/vars';
 
-.header {
-  background-color: $mainColor;
+.main {
+  background-color: $lightColor;
   // height: 150px;
   font-size: 2em;
   // max-height: 150px;
+  padding-top: 1rem;
 }
