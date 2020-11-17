@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import Proptypes from 'prop-types';
 
 import Header from 'src/containers/Header';
+import Nav from 'src/containers/Nav';
 import Footer from 'src/components/Footer';
 import Main from 'src/components/Main';
 
@@ -19,6 +20,7 @@ const Diabetica = ({ fetchNavDatas }) => {
   return (
     <div className="diabetica">
       <Header />
+      <Nav />
       <Main />
       <Footer />
     </div>

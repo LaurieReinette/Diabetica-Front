@@ -1,11 +1,11 @@
 const initialState = {
-  // ici l'état initial
+  logged: false,
 };
 
-const nameForTheReducer = (state = initialState, action = {}) => {
+const authReducers = (state = initialState, action = {}) => {
   switch (action.type) {
     default: return state;
   }
 };
 
-export default nameForTheReducer;
+export default authReducers;
