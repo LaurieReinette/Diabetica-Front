@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { getNavDatas } from 'src/actions/main';
+import { fetchNavDatas } from 'src/actions/main';
 
 import Diabetica from 'src/components/Diabetica';
 
@@ -13,8 +13,8 @@ const mapStateToProps = (state) => ({
 // === mapDispatchToProps
 // si j'ai besoin de dispatcher une action vers le store
 const mapDispatchToProps = (dispatch) => ({
-  getNavDatas: () => {
-    dispatch(getNavDatas());
+  fetchNavDatas: () => {
+    dispatch(fetchNavDatas());
   },
 });
 

@@ -1,14 +1,14 @@
 import axios from 'axios';
-import { GET_NAV_DATAS } from 'src/actions/main';
+import { FETCH_NAV_DATAS, saveNavDatas } from 'src/actions/main';
 
 const mainMiddleware = (store) => (next) => (action) => {
-  console.log('on a intercepté une action dans le middleware: ', action);
   switch (action.type) {
-    case GET_NAV_DATAS:
-      axios.get('http://localhost:8000/api/navpages')
+    case FETCH_NAV_DATAS:
+      axios.get('https://diabeticaback.lauriereinette.fr/api/navpages')
         .then((response) => {
           // on dispatch une action pour pouvoir modifier le state
-          console.log(response);
+          store.dispatch(saveNavDatas(response.data));
+          console.log(response.data);
         })
         .catch((error) => {
           console.warn(error);

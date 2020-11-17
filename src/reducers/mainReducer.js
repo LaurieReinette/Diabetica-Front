@@ -1,5 +1,5 @@
 import {
-  GET_NAV_DATAS,
+  SAVE_NAV_DATAS,
 } from 'src/actions/main';
 
 const initialState = {
@@ -9,10 +9,10 @@ const initialState = {
 
 const mainReducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case GET_NAV_DATAS:
+    case SAVE_NAV_DATAS:
       return {
         ...state,
-        navDatas: action.navDatas,
+        navDatas: action.datas,
       };
     default: return state;
   }

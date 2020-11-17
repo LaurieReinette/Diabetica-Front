@@ -10,9 +10,9 @@ import Main from 'src/components/Main';
 import './styles.scss';
 
 // == Composant
-const Diabetica = ({ getNavDatas }) => {
+const Diabetica = ({ fetchNavDatas }) => {
   useEffect(() => {
-    getNavDatas();
+    fetchNavDatas();
     console.log('premier rendu');
   }, []);
 
@@ -26,7 +26,7 @@ const Diabetica = ({ getNavDatas }) => {
 };
 
 Diabetica.propTypes = {
-  getNavDatas: Proptypes.func.isRequired,
+  fetchNavDatas: Proptypes.func.isRequired,
 };
 
 // == Export
