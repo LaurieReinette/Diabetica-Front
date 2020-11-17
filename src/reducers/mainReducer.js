@@ -3,7 +3,6 @@ import {
 } from 'src/actions/main';
 
 const initialState = {
-  logged: false,
   navDatas: [],
 };
 
