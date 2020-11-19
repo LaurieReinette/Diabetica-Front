@@ -8,7 +8,7 @@ const initialState = {
   logged: false,
   username: 'test@test.fr',
   password: 'olaola',
-  backEndToken: '',
+  token: '',
 };
 
 const authReducers = (state = initialState, action = {}) => {
@@ -21,7 +21,7 @@ const authReducers = (state = initialState, action = {}) => {
       return {
         ...state,
         logged: true,
-        backEndToken: token,
+        token: action.token,
       };
     default: return state;
   }

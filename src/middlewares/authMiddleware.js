@@ -11,8 +11,9 @@ const authMiddleware = (store) => (next) => (action) => {
         password,
       })
         .then((response) => {
+          console.log(response.data.token);
           // on dispatch une action pour pouvoir modifier le state
-          store.dispatch(saveToken(response.data));
+          store.dispatch(saveToken(response.data.token));
         })
         .catch((error) => {
           console.warn(error);
