@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import { fetchNavDatas } from 'src/actions/main';
-
+import { sendAuth } from 'src/actions/authActions';
 import Diabetica from 'src/components/Diabetica';
 
 // === mapStateToProps
@@ -15,6 +15,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   fetchNavDatas: () => {
     dispatch(fetchNavDatas());
+  },
+  sendAuth: () => {
+    dispatch(sendAuth());
   },
 });
 

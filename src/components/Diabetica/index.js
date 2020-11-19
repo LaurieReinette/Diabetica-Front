@@ -11,10 +11,9 @@ import Main from 'src/components/Main';
 import './styles.scss';
 
 // == Composant
-const Diabetica = ({ fetchNavDatas }) => {
+const Diabetica = ({ sendAuth }) => {
   useEffect(() => {
-    fetchNavDatas();
-    console.log('premier rendu');
+    sendAuth();
   }, []);
 
   return (
@@ -28,7 +27,7 @@ const Diabetica = ({ fetchNavDatas }) => {
 };
 
 Diabetica.propTypes = {
-  fetchNavDatas: Proptypes.func.isRequired,
+  sendAuth: Proptypes.func.isRequired,
 };
 
 // == Export
