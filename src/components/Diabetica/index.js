@@ -2,10 +2,14 @@
 import React, { useEffect } from 'react';
 import Proptypes from 'prop-types';
 
+import { Switch, Route } from 'react-router-dom';
+
 import Header from 'src/containers/Header';
 import Nav from 'src/containers/Nav';
-import Footer from 'src/components/Footer';
+import Connexion from 'src/components/Connexion';
+import About from 'src/components/About';
 import Main from 'src/components/Main';
+import Footer from 'src/components/Footer';
 
 // == Import
 import './styles.scss';
@@ -20,7 +24,15 @@ const Diabetica = ({ sendAuth }) => {
     <div className="diabetica">
       <Header />
       <Nav />
-      <Main />
+      {/* <Main />
+      <Header /> */}
+      <Switch>
+        <Route exact path="/" component={Main} />
+        <Route path="/connexion-inscription" component={Connexion} />
+        <Route path="/a-propos" component={About} />
+        {/* <Route path="/" component={Page404} /> */}
+      </Switch>
+      {/* <Footer /> */}
       <Footer />
     </div>
   );
