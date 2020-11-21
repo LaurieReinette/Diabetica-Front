@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 // === on importe le composant de présentation
 import Connexion from 'src/components/Connexion';
 
+import { sendAuth } from 'src/actions/authActions';
+
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
 const mapStateToProps = (state) => ({
@@ -15,6 +17,9 @@ const mapStateToProps = (state) => ({
 // si j'ai besoin de dispatcher une action vers le store
 const mapDispatchToProps = (dispatch) => ({
   // nom de la prop à remplir: fonction qui dispatch l'action
+  sendAuth: () => {
+    dispatch(sendAuth());
+  },
 });
 
 // === création de l'assistant

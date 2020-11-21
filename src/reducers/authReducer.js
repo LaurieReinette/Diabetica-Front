@@ -6,7 +6,7 @@ import {
 
 const initialState = {
   logged: false,
-  username: 'tet@test.fr',
+  username: 'test@test.fr',
   password: 'olaola',
   token: '',
 };
