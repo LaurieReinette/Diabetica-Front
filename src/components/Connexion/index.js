@@ -9,11 +9,9 @@ const Connexion = () => (
     <h1>
       Connexion/Inscription
     </h1>
-    <p>
-      <form className="form-connexion">
-        <input type="email" name="connexion" id="connexion" />
-      </form>
-    </p>
+    <form className="form-connexion">
+      <input type="email" name="connexion" id="connexion" />
+    </form>
   </div>
 );
 

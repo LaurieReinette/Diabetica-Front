@@ -1,9 +1,20 @@
 @import 'src/styles/vars';
 
 .main {
-  background-color: $lightColor;
-  // height: 150px;
-  font-size: 2em;
-  // max-height: 150px;
-  padding-top: 1rem;
+  font-size: 1.5em;
+  padding-top: 10px;
+  margin: 10px;
+  // background-image: url(../../assets/images/appareil.jpg);
+  background-repeat: no-repeat;
+  background-size: 50%;
+  // height: 600px;
+  background-position: center;
+
+  .requirement{
+    background-color: lightgrey;
+    border: lightgrey 1px solid;
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
 }
