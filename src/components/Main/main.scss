@@ -9,6 +9,7 @@
   background-size: 50%;
   // height: 600px;
   background-position: center;
+  line-height: 2.5;
 
   .requirement{
     background-color: lightgrey;
@@ -16,5 +17,16 @@
     width: 70%;
     margin: 0 auto;
     margin-bottom: 20px;
+  }
+
+  .main-list{
+    list-style-type: circle;
+    // list-style: url('../../assets/images/bandelette.jpg');
+  }
+
+
+  .subscrire-go{
+    color: red;
+    font-size: 1.4em;
   }
 }

@@ -6,7 +6,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import Header from 'src/containers/Header';
 import Nav from 'src/containers/Nav';
-import Connexion from 'src/components/Connexion';
+import Connexion from 'src/containers/Connexion';
 import Account from 'src/components/Account';
 import About from 'src/components/About';
 import Main from 'src/components/Main';
