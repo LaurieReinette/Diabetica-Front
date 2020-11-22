@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 
 import './connexion.scss';
 
-const Connexion = ({ username, password, sendAuth, changeField, sendTestMail }) => {
+import Connection from 'src/containers/Connection';
+
+const Connexion = ({ username, password, sendAuth, changeField, sendTestMail, emailIsKnown, changeFieldPassword }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     sendTestMail();
@@ -12,21 +14,27 @@ const Connexion = ({ username, password, sendAuth, changeField, sendTestMail }) 
     console.log (evt.target.value);
     changeField(evt.target.value);
   };
+  const catchFieldPassword = (evt) => {
+    console.log (evt.target.value);
+    changeFieldPassword(evt.target.value);
+  };
 
   return (
     <div className="connexion">
-      <h1>
-        Connexion/Inscription
-      </h1>
-      <div className="connection">
+      <h2>
+        Connexion - Inscription
+      </h2>
+      <div className="connexion">
         <form className="form" onSubmit={handleSubmit}>
-          <label htmlFor="email">Entrer votre adresse mail: </label>
-          <input type="email" name="email" id="email" value={username} onChange={catchField} />
-          {/* <label htmlFor="password">Entrer votre adresse mail: </label>
-          <input type="password" name="password" id="password" value={password} /> */}
+          <div className="form-mail">
+            <label htmlFor="email">Entrer votre adresse mail: </label>
+            <input type="email" name="email" id="email" value={username} onChange={catchField} />
+          </div>
           <button type="submit"> Continuer</button>
         </form>
       </div>
+
+      {emailIsKnown && <Connection />}
     </div>
   );
 };
@@ -37,6 +45,7 @@ Connexion.propTypes = {
   sendAuth: PropTypes.func.isRequired,
   changeField: PropTypes.func.isRequired,
   sendTestMail: PropTypes.func.isRequired,
+  emailIsKnown: PropTypes.bool.isRequired,
 };
 
 export default Connexion;

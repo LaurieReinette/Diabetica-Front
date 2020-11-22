@@ -4,6 +4,7 @@ import {
   UPDATE_EMAIL_FIELD,
   TEST_EMAIL_KNOWN,
   SEND_TEST_MAIL,
+  UPDATE_PASSWORD_FIELD,
 
 } from 'src/actions/authActions';
 
@@ -41,7 +42,11 @@ const authReducers = (state = initialState, action = {}) => {
         ...state,
         emailIsKnown: action.newValue,
       };
-
+    case UPDATE_PASSWORD_FIELD:
+      return {
+        ...state,
+        password: action.newValue,
+      };
     default: return state;
   }
 };

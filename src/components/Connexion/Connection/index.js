@@ -3,27 +3,25 @@ import PropTypes from 'prop-types';
 
 import './connection.scss';
 
-const Connection = ({ username, password, sendAuth, changeField }) => {
+const Connection = ({ username, password, sendAuth, changeFieldPassword }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     sendAuth();
   };
-  const catchField = (evt) => {
+  const catchFieldPassword = (evt) => {
     console.log (evt.target.value);
-    changeField(evt.target.value);
+    changeFieldPassword(evt.target.value);
   };
 
   return (
-    <div className="Connection">
-      <h1>
-        Connection/Inscription
-      </h1>
+    <div className="connection">
+      <h1>Connexion - Votre mail est connu, entrez votre mot de passe</h1>
       <div className="connection">
         <form className="form" onSubmit={handleSubmit}>
-          <label htmlFor="email">Entrer votre adresse mail: </label>
-          <input type="email" name="email" id="email" value={username} onChange={catchField} />
-          <label htmlFor="password">Entrer votre mot de passe </label>
-          <input type="password" name="password" id="password" value={password} onChange={catchField} />
+          <div className="form-password">
+            <label htmlFor="password">Entrer votre mot de passe: </label>
+            <input type="password" name="password" id="password" value={password} onChange={catchFieldPassword} />
+          </div>
           <button type="submit"> Continuer</button>
         </form>
       </div>
@@ -36,6 +34,7 @@ Connection.propTypes = {
   password: PropTypes.string.isRequired,
   sendAuth: PropTypes.func.isRequired,
   changeField: PropTypes.func.isRequired,
+  changeFieldPassword: PropTypes.func.isRequired,
 };
 
 export default Connection;
