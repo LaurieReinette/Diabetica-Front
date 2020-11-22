@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './connexion.scss';
+import './subscribe.scss';
 
-const Connexion = ({ username, password, sendAuth, changeField, sendTestMail }) => {
+const Subscribe = ({ username, password, sendAuth, changeField, sendTestMail }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     sendTestMail();
@@ -14,9 +14,9 @@ const Connexion = ({ username, password, sendAuth, changeField, sendTestMail }) 
   };
 
   return (
-    <div className="connexion">
+    <div className="Subscribe">
       <h1>
-        Connexion/Inscription
+        Subscribe/Inscription
       </h1>
       <div className="connection">
         <form className="form" onSubmit={handleSubmit}>
@@ -31,7 +31,7 @@ const Connexion = ({ username, password, sendAuth, changeField, sendTestMail }) 
   );
 };
 
-Connexion.propTypes = {
+Subscribe.propTypes = {
   username: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   sendAuth: PropTypes.func.isRequired,
@@ -39,4 +39,4 @@ Connexion.propTypes = {
   sendTestMail: PropTypes.func.isRequired,
 };
 
-export default Connexion;
+export default Subscribe;

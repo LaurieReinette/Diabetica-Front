@@ -16,10 +16,7 @@ import Footer from 'src/components/Footer';
 import './styles.scss';
 
 // == Composant
-const Diabetica = ({ sendAuth }) => {
-  useEffect(() => {
-    sendAuth();
-  }, []);
+const Diabetica = () => {
 
   return (
     <div className="diabetica">
@@ -40,9 +37,9 @@ const Diabetica = ({ sendAuth }) => {
   );
 };
 
-Diabetica.propTypes = {
-  sendAuth: Proptypes.func.isRequired,
-};
+// Diabetica.propTypes = {
+//   sendAuth: Proptypes.func.isRequired,
+// };
 
 // == Export
 export default Diabetica;

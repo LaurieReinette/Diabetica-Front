@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 
 // === on importe le composant de présentation
-import Connexion from 'src/components/Connexion';
+import Connection from 'src/components/Connexion/Connection';
 
-import { sendAuth, updateEmailField, testEmailKnown, sendTestMail } from 'src/actions/authActions';
+import { sendAuth, updateEmailField, testEmailKnown, sendTestMail, updatePasswordField } from 'src/actions/authActions';
 
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
@@ -34,7 +34,10 @@ const mapDispatchToProps = (dispatch) => ({
   sendTestMail: () => {
     dispatch(sendTestMail());
   },
+  changeFieldPassword: (newValue) => {
+    dispatch(updatePasswordField(newValue));
+  },
 });
 
 // === création de l'assistant
-export default connect(mapStateToProps, mapDispatchToProps)(Connexion);
+export default connect(mapStateToProps, mapDispatchToProps)(Connection);

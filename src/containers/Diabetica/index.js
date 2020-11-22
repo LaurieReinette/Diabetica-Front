@@ -16,9 +16,6 @@ const mapDispatchToProps = (dispatch) => ({
   fetchNavDatas: () => {
     dispatch(fetchNavDatas());
   },
-  sendAuth: () => {
-    dispatch(sendAuth());
-  },
 });
 
 // === création de l'assistant

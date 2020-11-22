@@ -30,3 +30,40 @@
     font-size: 1.4em;
   }
 }
+.box {
+  position: relative;
+  }
+  .box-entered {
+  color: black;
+  }
+  .box-entering {
+  animation-name: example;
+  animation-duration: 0.30s;
+  }
+  @keyframes example {
+  0% {
+  color: black;
+  left: -300px;
+  top: 0px;
+  }
+  25% {
+  color: black;
+  left: -200px;
+  top: 0px;
+  }
+  50% {
+  color: black;
+  left: -100px;
+  top: 0px;
+  }
+  75% {
+  color: black;
+  left: -50px;
+  top: 0px;
+  }
+  100% {
+  color: black;
+  left: 0px;
+  top: 0px;
+  }
+  }
