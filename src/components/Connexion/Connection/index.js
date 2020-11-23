@@ -26,7 +26,7 @@ const Connection = ({
       <div className="connection-form">
         {logged && <Redirect to="/mon-compte" />}
         {!logged && (
-          <form className="form" onSubmit={handleSubmit}>
+          <form className="form" autoComplete="on" onSubmit={handleSubmit}>
             <div className="form-password">
               <label htmlFor="password">Entrer votre mot de passe: </label>
               <input type="password" name="password" id="password" value={password} onChange={catchFieldPassword} />
