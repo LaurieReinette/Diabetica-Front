@@ -10,6 +10,10 @@ export const TEST_EMAIL_KNOWN = 'TEST_EMAIL_KNOWN';
 
 export const SEND_TEST_MAIL = 'SEND_TEST_MAIL';
 
+export const FETCH_USER_DATAS = 'FETCH_USER_DATAS';
+
+export const SAVE_USER_DATAS = 'SAVE_USER_DATAS';
+
 // === action creators
 export const sendAuth = () => ({
   type: SEND_AUTH,
@@ -36,4 +40,12 @@ export const updatePasswordField = (newValue) => ({
 export const testEmailKnown = (newValue) => ({
   type: TEST_EMAIL_KNOWN,
   newValue,
+});
+export const saveUserDatas = (newValue) => ({
+  type: SAVE_USER_DATAS,
+  newValue,
+});
+
+export const fetchUserDatas = () => ({
+  type: FETCH_USER_DATAS,
 });

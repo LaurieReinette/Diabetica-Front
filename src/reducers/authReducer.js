@@ -5,6 +5,8 @@ import {
   TEST_EMAIL_KNOWN,
   SEND_TEST_MAIL,
   UPDATE_PASSWORD_FIELD,
+  FETCH_USER_DATAS,
+  SAVE_USER_DATAS,
 
 } from 'src/actions/authActions';
 
@@ -14,6 +16,7 @@ const initialState = {
   password: '',
   token: '',
   emailIsKnown: false,
+  user: [],
 };
 
 const authReducers = (state = initialState, action = {}) => {
@@ -29,7 +32,6 @@ const authReducers = (state = initialState, action = {}) => {
     case SAVE_TOKEN:
       return {
         ...state,
-        logged: true,
         token: action.token,
       };
     case UPDATE_EMAIL_FIELD:
@@ -46,6 +48,16 @@ const authReducers = (state = initialState, action = {}) => {
       return {
         ...state,
         password: action.newValue,
+      };
+    case FETCH_USER_DATAS:
+      return {
+        ...state,
+      };
+    case SAVE_USER_DATAS:
+      return {
+        ...state,
+        logged: true,
+        user: action.newValue,
       };
     default: return state;
   }

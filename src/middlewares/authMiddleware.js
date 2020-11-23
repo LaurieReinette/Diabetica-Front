@@ -1,5 +1,15 @@
 import axios from 'axios';
-import { SEND_AUTH, saveToken, TEST_EMAIL_KNOWN, testEmailKnown, SEND_TEST_MAIL } from 'src/actions/authActions';
+import {
+  SEND_AUTH,
+  saveToken,
+  TEST_EMAIL_KNOWN,
+  testEmailKnown,
+  SEND_TEST_MAIL,
+  saveUserDatas,
+  SAVE_USER_DATAS,
+  fetchUserDatas,
+  FETCH_USER_DATAS,
+} from 'src/actions/authActions';
 
 const authMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -14,6 +24,7 @@ const authMiddleware = (store) => (next) => (action) => {
           console.log(response.data.token);
           // on dispatch une action pour pouvoir modifier le state
           store.dispatch(saveToken(response.data.token));
+          store.dispatch(fetchUserDatas());
         })
         .catch((error) => {
           console.warn(error);
@@ -38,8 +49,21 @@ const authMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     }
+    case FETCH_USER_DATAS: {
+      const { token } = store.getState().authReducer;
+
+      axios.get('https://127.0.0.1:8000/api/user', { headers: {'Authorization' : `Bearer ${token}`} })
+        .then((response) => {
+          console.log(response.data);
+          store.dispatch(saveUserDatas(response.data));
+        })
+        .catch((error) => {
+          console.warn(error);
+        });
+      next(action);
+      break;
+    }
     default:
-      // on passe l'action au suivant (middleware suivant ou reducer)
       next(action);
   }
 };

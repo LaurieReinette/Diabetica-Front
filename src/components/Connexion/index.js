@@ -5,19 +5,23 @@ import './connexion.scss';
 
 import Connection from 'src/containers/Connection';
 
-const Connexion = ({ username, password, sendAuth, changeField, sendTestMail, emailIsKnown, changeFieldPassword }) => {
+const Connexion = ({
+  username,
+  changeField,
+  sendTestMail,
+  emailIsKnown,
+}) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     sendTestMail();
   };
   const catchField = (evt) => {
-    console.log (evt.target.value);
     changeField(evt.target.value);
   };
-  const catchFieldPassword = (evt) => {
-    console.log (evt.target.value);
-    changeFieldPassword(evt.target.value);
-  };
+  // const catchFieldPassword = (evt) => {
+  //   console.log (evt.target.value);
+  //   changeFieldPassword(evt.target.value);
+  // };
 
   return (
     <div className="connexion">
