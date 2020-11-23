@@ -10,6 +10,7 @@ const Connection = ({
   sendAuth,
   changeFieldPassword,
   logged,
+  loader,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -44,6 +45,7 @@ Connection.propTypes = {
   sendAuth: PropTypes.func.isRequired,
   logged: PropTypes.bool.isRequired,
   changeFieldPassword: PropTypes.func.isRequired,
+  loader: PropTypes.bool.isRequired,
 };
 
 export default Connection;

@@ -1,7 +1,7 @@
 @import 'src/styles/vars';
 
 .main {
-  font-size: 1.5em;
+  font-size: 2.1em;
   padding-top: 10px;
   margin: 10px;
   // background-image: url(../../assets/images/appareil.jpg);
@@ -9,7 +9,7 @@
   background-size: 50%;
   // height: 600px;
   background-position: center;
-  line-height: 2.5;
+  line-height: 1.6;
 
   .requirement{
     background-color: lightgrey;
@@ -38,7 +38,7 @@
   }
   .box-entering {
   animation-name: example;
-  animation-duration: 0.30s;
+  animation-duration: 1s;
   }
   @keyframes example {
   0% {

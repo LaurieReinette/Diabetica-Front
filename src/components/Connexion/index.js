@@ -4,12 +4,14 @@ import PropTypes from 'prop-types';
 import './connexion.scss';
 
 import Connection from 'src/containers/Connection';
+import Loader from 'src/components/Loader';
 
 const Connexion = ({
   username,
   changeField,
   sendTestMail,
   emailIsKnown,
+  loader,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -28,6 +30,7 @@ const Connexion = ({
       <h2>
         Connexion - Inscription
       </h2>
+      {!loader && (
       <div className="connexion">
         <form className="form" onSubmit={handleSubmit}>
           <div className="form-mail">
@@ -37,8 +40,9 @@ const Connexion = ({
           <button type="submit"> Continuer</button>
         </form>
       </div>
-
+      )}
       {emailIsKnown && <Connection />}
+      {loader && <Loader />}
     </div>
   );
 };
@@ -50,6 +54,7 @@ Connexion.propTypes = {
   changeField: PropTypes.func.isRequired,
   sendTestMail: PropTypes.func.isRequired,
   emailIsKnown: PropTypes.bool.isRequired,
+  loader: PropTypes.bool.isRequired,
 };
 
 export default Connexion;

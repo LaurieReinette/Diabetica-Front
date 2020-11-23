@@ -12,6 +12,7 @@ import {
 
 const initialState = {
   logged: false,
+  loader: false,
   username: '',
   password: '',
   token: '',
@@ -24,15 +25,18 @@ const authReducers = (state = initialState, action = {}) => {
     case SEND_AUTH:
       return {
         ...state,
+        loader: true,
       };
     case SEND_TEST_MAIL:
       return {
         ...state,
+        loader: true,
       };
     case SAVE_TOKEN:
       return {
         ...state,
         token: action.token,
+        loader: false,
       };
     case UPDATE_EMAIL_FIELD:
       return {
@@ -43,6 +47,7 @@ const authReducers = (state = initialState, action = {}) => {
       return {
         ...state,
         emailIsKnown: action.newValue,
+        loader: false,
       };
     case UPDATE_PASSWORD_FIELD:
       return {

@@ -7,7 +7,7 @@ import { Switch, Route } from 'react-router-dom';
 import Header from 'src/containers/Header';
 import Nav from 'src/containers/Nav';
 import Connexion from 'src/containers/Connexion';
-import Account from 'src/components/Account';
+import Account from 'src/containers/Account';
 import About from 'src/components/About';
 import Main from 'src/components/Main';
 import Footer from 'src/components/Footer';

@@ -2,26 +2,26 @@
 
 .header {
 
-  font-size: 2em;
+  font-size: 2.5em;
   padding: 10px;
   text-align: center;
   background: linear-gradient(178deg, #12f0d4, #4d38f0);
   background-size: 600% 600%;
 
-  // -webkit-animation: AnimationName 8s ease infinite;
-  // animation: AnimationName 8s ease infinite;
+  -webkit-animation: AnimationName 8s ease infinite;
+  animation: AnimationName 8s ease infinite;
 
   h1 {
-    font-size: 2.15em;
+    font-size: 2.8em;
   }
 }
-// @-webkit-keyframes AnimationName {
-//     0%{background-position:82% 0%}
-//     50%{background-position:19% 100%}
-//     100%{background-position:82% 0%}
-// }
-// @keyframes AnimationName {
-//     0%{background-position:82% 0%}
-//     50%{background-position:19% 100%}
-//     100%{background-position:82% 0%}
-// }
+@-webkit-keyframes AnimationName {
+    0%{background-position:82% 0%}
+    50%{background-position:19% 100%}
+    100%{background-position:82% 0%}
+}
+@keyframes AnimationName {
+    0%{background-position:82% 0%}
+    50%{background-position:19% 100%}
+    100%{background-position:82% 0%}
+}

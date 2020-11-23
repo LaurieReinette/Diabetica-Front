@@ -14,6 +14,7 @@ const mapStateToProps = (state) => ({
   emailIsKnown: state.authReducer.emailIsKnown,
   logged: state.authReducer.logged,
   user: state.authReducer.user,
+  loader: state.authReducer.loader,
   // nom de la prop à remplir : élément à récupérer dans le state
 });
 
