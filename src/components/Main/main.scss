@@ -1,9 +1,69 @@
 @import 'src/styles/vars';
 
 .main {
-  background-color: $lightColor;
-  // height: 150px;
-  font-size: 2em;
-  // max-height: 150px;
-  padding-top: 1rem;
+  font-size: 2.1em;
+  padding-top: 10px;
+  margin: 10px;
+  // background-image: url(../../assets/images/appareil.jpg);
+  background-repeat: no-repeat;
+  background-size: 50%;
+  // height: 600px;
+  background-position: center;
+  line-height: 1.6;
+
+  .requirement{
+    background-color: lightgrey;
+    border: lightgrey 1px solid;
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+
+  .main-list{
+    list-style-type: circle;
+    // list-style: url('../../assets/images/bandelette.jpg');
+  }
+
+
+  .subscrire-go{
+    color: red;
+    font-size: 1.4em;
+  }
 }
+.box {
+  position: relative;
+  }
+  .box-entered {
+  color: black;
+  }
+  .box-entering {
+  animation-name: example;
+  animation-duration: 1s;
+  }
+  @keyframes example {
+  0% {
+  color: black;
+  left: -300px;
+  top: 0px;
+  }
+  25% {
+  color: black;
+  left: -200px;
+  top: 0px;
+  }
+  50% {
+  color: black;
+  left: -100px;
+  top: 0px;
+  }
+  75% {
+  color: black;
+  left: -50px;
+  top: 0px;
+  }
+  100% {
+  color: black;
+  left: 0px;
+  top: 0px;
+  }
+  }

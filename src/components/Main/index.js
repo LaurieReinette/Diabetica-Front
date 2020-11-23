@@ -1,20 +1,31 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+
+import { Transition } from 'react-transition-group';
 
 import './main.scss';
 
 const Main = () => (
   <main className="main">
-    <h2> Avec diabetica je peux géré facilement mon diabète</h2>
-    Comment ?
-    <ul>
-      <li>Je crée un compte</li>
-      <li>J'entre mes glyémies, Diabetica m'informe si elles sont trop hautes ou trop basses</li>
-      <li>J'entre mes corrections</li>
-      <li>J'ai une vue d'ensemble de mes glycémies</li>
-      <li>Je peux envoyer mes résultats à mon médecin</li>
-    </ul>
-    <a href="#">Je m'inscris, c'est parti!</a>
+    <p className="requirement">
+      Ce site internet a été developpé à des fins purement éducatives
+      et n'est pas prévu pour servir de suivi aux personnes diabétiques
+    </p>
+    <h2> Avec Diabetica je peux gérer facilement mon diabète</h2>
+    <Transition timeout={8000} in={true} appear>
+      {status => (
+        <ul className={`box box-${status}`}>
+          <li>Je crée un compte</li>
+          <li>J'entre mes glyémies, Diabetica m'informe
+            si elles sont trop hautes ou trop basses
+          </li>
+          <li>J'ai une vue d'ensemble de mes glycémies</li>
+          <li>Je peux envoyer même envoyer mes résultats à mon médecin</li>
+        </ul>
+      )}
+    </Transition>
+    <Link className="subscrire-go" to="connexion-inscription"> Je m'inscris, c'est parti ! </Link>
 
   </main>
 );

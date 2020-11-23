@@ -3,7 +3,40 @@ import {
 } from 'src/actions/main';
 
 const initialState = {
-  navDatas: [],
+  navDatas: [
+    {
+      route: '/',
+      label: 'Accueil',
+      id: 1,
+    },
+    {
+      route: '/connexion-inscription',
+      label: 'Connexion / Créer un compte',
+      id: 2,
+    },
+    {
+      route: '/a-propos',
+      label: 'A propos',
+      id: 3,
+    },
+  ],
+  navDatasLogged: [
+    {
+      route: '/',
+      label: 'Accueil',
+      id: 4,
+    },
+    {
+      route: '/mon-compte',
+      label: 'Mon compte',
+      id: 5,
+    },
+    {
+      route: '/a-propos',
+      label: 'A propos',
+      id: 6,
+    },
+  ],
 };
 
 const mainReducer = (state = initialState, action = {}) => {
@@ -11,7 +44,6 @@ const mainReducer = (state = initialState, action = {}) => {
     case SAVE_NAV_DATAS:
       return {
         ...state,
-        navDatas: action.datas,
       };
     default: return state;
   }

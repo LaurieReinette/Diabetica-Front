@@ -1,0 +1,13 @@
+@import 'src/styles/vars';
+
+.connexion {
+  font-size: 1.5em;
+  margin: 20px;
+  #email{
+    font-size: 1em;
+  }
+  button{
+    font-size: 0.8em;
+    background-color: lightblue;
+  }
+}
