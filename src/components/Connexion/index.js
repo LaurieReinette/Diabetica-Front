@@ -30,7 +30,7 @@ const Connexion = ({
       <h2>
         Connexion - Inscription
       </h2>
-      {!loader && (
+      {!loader && !emailIsKnown && (
       <div className="connexion">
         <form className="form" onSubmit={handleSubmit}>
           <div className="form-mail">

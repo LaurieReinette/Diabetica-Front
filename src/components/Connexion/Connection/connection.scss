@@ -1,8 +1,14 @@
-.account {
-  h2 {
-    font-size: 2em;
+.connection {
+  font-size: 1.5em;
+  margin: 20px;
+  h1{
+    color: lightseagreen;
   }
-  h3{
-    font-size: 1.8em;
+  #password{
+    font-size: 1em;
+  }
+  button{
+    font-size: 0.8em;
+    background-color: lightblue;
   }
 }

@@ -1,3 +1,15 @@
+.loader {
+  position: absolute;
+  left:0px;
+  top:0px;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(15, 255, 243, 0.3);
+}
+.Loader-logos{
+  position: relative;
+  top: 30%;
+}
 .lds-ellipsis {
   display: inline-block;
   position: relative;

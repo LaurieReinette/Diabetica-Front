@@ -2,7 +2,8 @@
   font-size: 1.6em;
   text-align: center;
   padding: 10px;
-
+  .nav-active{
+  text-decoration: underline;  
+  }
   // background: rgb(98,195,237);
-  // background: linear-gradient(157deg, rgba(98,195,237,1) 0%, rgba(0,212,255,1) 53%, rgba(26,109,180,1) 100%);
 }

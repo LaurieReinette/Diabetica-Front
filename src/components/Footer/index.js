@@ -17,7 +17,7 @@ const Footer = () => (
       </a>
     </div>
 
-    <p>
+    <p className="coyright">
       Copyright 2020 - Laurie Reinette
     </p>
   </footer>
