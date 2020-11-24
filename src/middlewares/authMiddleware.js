@@ -9,6 +9,7 @@ import {
   SAVE_USER_DATAS,
   fetchUserDatas,
   FETCH_USER_DATAS,
+  startRegistration,
 } from 'src/actions/authActions';
 
 const authMiddleware = (store) => (next) => (action) => {
@@ -42,6 +43,7 @@ const authMiddleware = (store) => (next) => (action) => {
           console.log(response.data.known);
           // on dispatch une action pour pouvoir modifier le state
           store.dispatch(testEmailKnown(response.data.known));
+          store.disptach(startRegistration(response.data.known));
         })
         .catch((error) => {
           console.warn(error);

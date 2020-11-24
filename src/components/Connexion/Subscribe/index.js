@@ -15,10 +15,10 @@ const Subscribe = ({ username, password, sendAuth, changeField, sendTestMail }) 
 
   return (
     <div className="Subscribe">
-      <h1>
-        Subscribe/Inscription
-      </h1>
-      <div className="connection">
+      <h2>
+        C'est parti, je crée un compte
+      </h2>
+      <div className="subscrire">
         <form className="form" onSubmit={handleSubmit}>
           <label htmlFor="email">Entrer votre adresse mail: </label>
           <input type="email" name="email" id="email" value={username} onChange={catchField} />

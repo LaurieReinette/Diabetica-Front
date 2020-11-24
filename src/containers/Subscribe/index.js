@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 // === on importe le composant de présentation
-import Connexion from 'src/components/Connexion';
+import Subscribe from 'src/components/Connexion/Subscribe';
 
 import { sendAuth, updateEmailField, testEmailKnown, sendTestMail } from 'src/actions/authActions';
 
@@ -14,7 +14,6 @@ const mapStateToProps = (state) => ({
   emailIsKnown: state.authReducer.emailIsKnown,
   logged: state.authReducer.logged,
   loader: state.authReducer.loader,
-  startRegistration: state.authReducer.startRegistration,
   // nom de la prop à remplir : élément à récupérer dans le state
 });
 
@@ -23,20 +22,20 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   // nom de la prop à remplir: fonction qui dispatch l'action
   // action qui sert à lancer l'authentification dans le middleware
-  sendAuth: () => {
-    dispatch(sendAuth());
-  },
-  // actoin qui gère le changement de valeur du champ email
-  changeFieldEmail: (newValue) => {
-    dispatch(updateEmailField(newValue));
-  },
-  testEmailKnown: (newValue) => {
-    dispatch(testEmailKnown(newValue));
-  },
-  sendTestMail: () => {
-    dispatch(sendTestMail());
-  },
+  // sendAuth: () => {
+  //   dispatch(sendAuth());
+  // },
+  // // actoin qui gère le changement de valeur du champ email
+  // changeFieldEmail: (newValue) => {
+  //   dispatch(updateEmailField(newValue));
+  // },
+  // testEmailKnown: (newValue) => {
+  //   dispatch(testEmailKnown(newValue));
+  // },
+  // sendTestMail: () => {
+  //   dispatch(sendTestMail());
+  // },
 });
 
 // === création de l'assistant
-export default connect(mapStateToProps, mapDispatchToProps)(Connexion);
+export default connect(mapStateToProps, mapDispatchToProps)(Subscribe);
