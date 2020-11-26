@@ -17,7 +17,7 @@ const initialState = {
   password: '',
   token: '',
   emailIsKnown: false,
-  user: [],
+  user: {},
 };
 
 const authReducers = (state = initialState, action = {}) => {

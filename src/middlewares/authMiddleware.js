@@ -13,25 +13,6 @@ import {
 
 const authMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
-    case SEND_AUTH: {
-      const { username, password } = store.getState().authReducer;
-
-      axios.post('https://127.0.0.1:8000/api/login_check', {
-        username,
-        password,
-      })
-        .then((response) => {
-          console.log(response.data.token);
-          // on dispatch une action pour pouvoir modifier le state
-          store.dispatch(saveToken(response.data.token));
-          store.dispatch(fetchUserDatas());
-        })
-        .catch((error) => {
-          console.warn(error);
-        });
-      next(action);
-      break;
-    }
     case SEND_TEST_MAIL: {
       const { username } = store.getState().authReducer;
 
@@ -49,8 +30,27 @@ const authMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     }
+    case SEND_AUTH: {
+      const { username, password } = store.getState().authReducer;
+
+      axios.post('https://127.0.0.1:8000/api/login_check', {
+        username,
+        password,
+      })
+        .then((response) => {
+          console.log(response.data.token);
+          localStorage.setItem('token', response.data.token);
+          store.dispatch(saveToken(response.data.token));
+          store.dispatch(fetchUserDatas());
+        })
+        .catch((error) => {
+          console.warn(error);
+        });
+      next(action);
+      break;
+    }
     case FETCH_USER_DATAS: {
-      const { token } = store.getState().authReducer;
+      const token = localStorage.getItem('token');
 
       axios.get('https://127.0.0.1:8000/api/user', { headers: {'Authorization' : `Bearer ${token}`} })
         .then((response) => {

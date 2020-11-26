@@ -16,14 +16,17 @@ import Footer from 'src/components/Footer';
 import './styles.scss';
 
 // == Composant
-const Diabetica = () => {
-
+const Diabetica = ({ fetchUserDatas }) => {
+  // useEffect(() => {
+  //   const token = localStorage.getItem('token');
+  //   if (token) {
+  //     fetchUserDatas();
+  //   }
+  // }, []);
   return (
     <div className="diabetica">
       <Header />
       <Nav />
-      {/* <Main />
-      <Header /> */}
       <Switch>
         <Route exact path="/" component={Main} />
         <Route path="/connexion-inscription" component={Connexion} />
@@ -31,15 +34,14 @@ const Diabetica = () => {
         <Route path="/mon-compte" component={Account} />
         {/* <Route path="/" component={Page404} /> */}
       </Switch>
-      {/* <Footer /> */}
       <Footer />
     </div>
   );
 };
 
-// Diabetica.propTypes = {
-//   sendAuth: Proptypes.func.isRequired,
-// };
+Diabetica.propTypes = {
+  fetchUserDatas: Proptypes.func.isRequired,
+};
 
 // == Export
 export default Diabetica;

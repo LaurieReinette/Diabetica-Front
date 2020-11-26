@@ -9,7 +9,15 @@ const Nav = ({ navDatas, logged, navDatasLogged }) => {
     return (
       <nav className="nav">
         {navDatas.map((navData) => (
-          <NavLink className="nav-item" activeClassName="nav-active" key={navData.id} to={navData.route}>  --  {navData.label}  --   </NavLink>
+          <NavLink
+            className="nav-item"
+            activeClassName="nav-active"
+            key={navData.id}
+            to={navData.route}
+            exact
+          >
+            {navData.label}
+          </NavLink>
         ))}
       </nav>
     );
@@ -17,7 +25,15 @@ const Nav = ({ navDatas, logged, navDatasLogged }) => {
   return (
     <nav className="nav">
       {navDatasLogged.map((navData) => (
-        <NavLink className="nav-item" activeClassName="nav-active" key={navData.id} to={navData.route}> {navData.label} </NavLink>
+        <NavLink
+          className="nav-item"
+          activeClassName="nav-active"
+          key={navData.id}
+          to={navData.route}
+          exact
+        >
+          {navData.label}
+        </NavLink>
       ))}
     </nav>
   );

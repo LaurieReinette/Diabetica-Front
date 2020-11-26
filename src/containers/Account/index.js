@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 // === on importe le composant de présentation
 import Account from 'src/components/Account';
 
+import { fetchUserDatas} from 'src/actions/authActions';
+
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
 const mapStateToProps = (state) => ({
@@ -13,7 +15,9 @@ const mapStateToProps = (state) => ({
 // === mapDispatchToProps
 // si j'ai besoin de dispatcher une action vers le store
 const mapDispatchToProps = (dispatch) => ({
-  // nom de la prop à remplir: fonction qui dispatch l'action
+  fetchUserDatas: () => {
+    dispatch(fetchUserDatas());
+  },
 });
 
 // === création de l'assistant
