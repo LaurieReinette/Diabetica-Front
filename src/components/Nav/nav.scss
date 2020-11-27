@@ -2,8 +2,12 @@
   font-size: 1.6em;
   text-align: center;
   padding: 10px;
+  a{
+    display: inline-block;
+    margin-left: 10px;
+  }
   .nav-active{
-  text-decoration: underline;  
+    background-color: aqua; 
   }
   // background: rgb(98,195,237);
 }

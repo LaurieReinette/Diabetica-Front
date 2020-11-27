@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 // === on importe le composant de présentation
 import Subscribe from 'src/components/Connexion/Subscribe';
 
-import { sendAuth, updateEmailField, testEmailKnown, sendTestMail } from 'src/actions/authActions';
+import { changeFieldPasswordNew, changeFieldPasswordCheck } from 'src/actions/authActions';
 
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
@@ -14,6 +14,8 @@ const mapStateToProps = (state) => ({
   emailIsKnown: state.authReducer.emailIsKnown,
   logged: state.authReducer.logged,
   loader: state.authReducer.loader,
+  passwordNew: state.authReducer.passwordNew,
+  passwordCheck: state.authReducer.passwordCheck,
   // nom de la prop à remplir : élément à récupérer dans le state
 });
 
@@ -26,12 +28,16 @@ const mapDispatchToProps = (dispatch) => ({
   //   dispatch(sendAuth());
   // },
   // // actoin qui gère le changement de valeur du champ email
-  // changeFieldEmail: (newValue) => {
-  //   dispatch(updateEmailField(newValue));
-  // },
+  changeFieldPasswordNew: (newValue) => {
+    dispatch(changeFieldPasswordNew(newValue));
+  },
+  changeFieldPasswordCheck: (newValue) => {
+    dispatch(changeFieldPasswordCheck(newValue));
+  },
   // testEmailKnown: (newValue) => {
   //   dispatch(testEmailKnown(newValue));
   // },
+  
   // sendTestMail: () => {
   //   dispatch(sendTestMail());
   // },

@@ -8,6 +8,8 @@ import {
   FETCH_USER_DATAS,
   SAVE_USER_DATAS,
   START_REGISTRATION,
+  CREATE_ACCOUNT,
+  SEND_CREATE_ACCOUNT,
 
 } from 'src/actions/authActions';
 
@@ -20,6 +22,15 @@ const initialState = {
   emailIsKnown: false,
   user: [],
   startRegistration: false,
+  passwordNew: '',
+  passwordCheck: '',
+  firstname: '',
+  lastname: '',
+  targetMin: '',
+  targetMax: '',
+  diabetesType: '',
+  doctorEmail: '',
+  doctorName: '',
 };
 
 const authReducers = (state = initialState, action = {}) => {
@@ -70,6 +81,17 @@ const authReducers = (state = initialState, action = {}) => {
       return {
         ...state,
         startRegistration: !action.newValue,
+      };
+    case SEND_CREATE_ACCOUNT:
+      return {
+        ...state,
+        loader: true,
+      };
+    case CREATE_ACCOUNT:
+      return {
+        ...state,
+        loader: false,
+        user: action.newValue,
       };
     default: return state;
   }

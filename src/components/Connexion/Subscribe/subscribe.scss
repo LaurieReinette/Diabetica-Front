@@ -1,7 +1,15 @@
 @import 'src/styles/vars';
 
-.connexion {
+.subscribe {
   font-size: 1.1em;
   // max-height: 150px;
   margin: 20px;
+  form {
+    label {
+      display: inline-block;
+    }
+    input {
+      display: inline-block;
+    }
+  }
 }

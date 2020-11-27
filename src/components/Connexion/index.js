@@ -38,7 +38,7 @@ const Connexion = ({
         <form className="form" onSubmit={handleSubmit}>
           <div className="form-mail">
             <label htmlFor="email">Entrer votre adresse mail: </label>
-            <input type="email" name="email" id="email" value={username} onChange={catchFieldEmail} />
+            <input type="email" name="email" id="email" value={username} onChange={catchFieldEmail} required />
           </div>
           <button type="submit"> Continuer</button>
         </form>
