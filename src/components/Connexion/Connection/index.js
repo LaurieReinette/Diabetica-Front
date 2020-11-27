@@ -34,7 +34,6 @@ const Connection = ({
             <button type="submit"> Continuer</button>
           </form>
         )}
-
       </div>
     </div>
   );

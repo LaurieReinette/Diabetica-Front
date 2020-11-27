@@ -4,21 +4,24 @@ import PropTypes from 'prop-types';
 import './connexion.scss';
 
 import Connection from 'src/containers/Connection';
+import Subscribe from 'src/containers/Subscribe';
+
 import Loader from 'src/components/Loader';
 
 const Connexion = ({
   username,
-  changeField,
+  changeFieldEmail,
   sendTestMail,
   emailIsKnown,
   loader,
+  startRegistration,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     sendTestMail();
   };
-  const catchField = (evt) => {
-    changeField(evt.target.value);
+  const catchFieldEmail = (evt) => {
+    changeFieldEmail(evt.target.value);
   };
   // const catchFieldPassword = (evt) => {
   //   console.log (evt.target.value);
@@ -35,7 +38,7 @@ const Connexion = ({
         <form className="form" onSubmit={handleSubmit}>
           <div className="form-mail">
             <label htmlFor="email">Entrer votre adresse mail: </label>
-            <input type="email" name="email" id="email" value={username} onChange={catchField} />
+            <input type="email" name="email" id="email" value={username} onChange={catchFieldEmail} />
           </div>
           <button type="submit"> Continuer</button>
         </form>
@@ -43,6 +46,7 @@ const Connexion = ({
       )}
       {emailIsKnown && <Connection />}
       {loader && <Loader />}
+      {!loader && startRegistration && <Subscribe /> }
     </div>
   );
 };
@@ -51,10 +55,11 @@ Connexion.propTypes = {
   username: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   sendAuth: PropTypes.func.isRequired,
-  changeField: PropTypes.func.isRequired,
+  changeFieldEmail: PropTypes.func.isRequired,
   sendTestMail: PropTypes.func.isRequired,
   emailIsKnown: PropTypes.bool.isRequired,
   loader: PropTypes.bool.isRequired,
+  startRegistration: PropTypes.bool.isRequired,
 };
 
 export default Connexion;

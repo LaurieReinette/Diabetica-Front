@@ -14,6 +14,8 @@ export const FETCH_USER_DATAS = 'FETCH_USER_DATAS';
 
 export const SAVE_USER_DATAS = 'SAVE_USER_DATAS';
 
+export const START_REGISTRATION = 'START_REGISTRATION';
+
 // === action creators
 export const sendAuth = () => ({
   type: SEND_AUTH,
@@ -48,4 +50,9 @@ export const saveUserDatas = (newValue) => ({
 
 export const fetchUserDatas = () => ({
   type: FETCH_USER_DATAS,
+});
+
+export const startRegistration = (newValue) => ({
+  type: START_REGISTRATION,
+  newValue,
 });

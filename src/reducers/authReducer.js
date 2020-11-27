@@ -7,6 +7,7 @@ import {
   UPDATE_PASSWORD_FIELD,
   FETCH_USER_DATAS,
   SAVE_USER_DATAS,
+  START_REGISTRATION,
 
 } from 'src/actions/authActions';
 
@@ -18,6 +19,7 @@ const initialState = {
   token: '',
   emailIsKnown: false,
   user: [],
+  startRegistration: false,
 };
 
 const authReducers = (state = initialState, action = {}) => {
@@ -63,6 +65,11 @@ const authReducers = (state = initialState, action = {}) => {
         ...state,
         logged: true,
         user: action.newValue,
+      };
+    case START_REGISTRATION:
+      return {
+        ...state,
+        startRegistration: !action.newValue,
       };
     default: return state;
   }
