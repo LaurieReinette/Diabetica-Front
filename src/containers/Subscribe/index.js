@@ -3,7 +3,19 @@ import { connect } from 'react-redux';
 // === on importe le composant de présentation
 import Subscribe from 'src/components/Connexion/Subscribe';
 
-import { changeFieldPasswordNew, changeFieldPasswordCheck } from 'src/actions/authActions';
+import {
+  changeFieldPasswordNew,
+  changeFieldPasswordCheck,
+  changeFieldFirstname,
+  changeFieldLastname,
+  changeFieldTreatment,
+  changeFieldTargetMin,
+  changeFieldTargetMax,
+  changeFieldDoctorName,
+  changeFieldDoctorEmail,
+  createAccount,
+
+} from 'src/actions/authActions';
 
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
@@ -16,31 +28,49 @@ const mapStateToProps = (state) => ({
   loader: state.authReducer.loader,
   passwordNew: state.authReducer.passwordNew,
   passwordCheck: state.authReducer.passwordCheck,
+  firstname: state.authReducer.firstname,
+  lastname: state.authReducer.lastname,
+  treatment: state.authReducer.treatment,
+  targetMin: state.authReducer.targetMin,
+  targetMax: state.authReducer.targetMax,
+  doctorName: state.authReducer.doctorName,
+  doctorEmail: state.authReducer.doctorEmail,
+
   // nom de la prop à remplir : élément à récupérer dans le state
 });
 
-// === mapDispatchToProps
-// si j'ai besoin de dispatcher une action vers le store
 const mapDispatchToProps = (dispatch) => ({
-  // nom de la prop à remplir: fonction qui dispatch l'action
-  // action qui sert à lancer l'authentification dans le middleware
-  // sendAuth: () => {
-  //   dispatch(sendAuth());
-  // },
-  // // actoin qui gère le changement de valeur du champ email
   changeFieldPasswordNew: (newValue) => {
     dispatch(changeFieldPasswordNew(newValue));
   },
   changeFieldPasswordCheck: (newValue) => {
     dispatch(changeFieldPasswordCheck(newValue));
   },
-  // testEmailKnown: (newValue) => {
-  //   dispatch(testEmailKnown(newValue));
-  // },
+  changeFieldFirstname: (newValue) => {
+    dispatch(changeFieldFirstname(newValue));
+  },
+  changeFieldLastname: (newValue) => {
+    dispatch(changeFieldLastname(newValue));
+  },
+  changeFieldTreatment: (newValue) => {
+    dispatch(changeFieldTreatment(newValue));
+  },
+  changeFieldTargetMin: (newValue) => {
+    dispatch(changeFieldTargetMin(newValue));
+  },
+  changeFieldTargetMax: (newValue) => {
+    dispatch(changeFieldTargetMax(newValue));
+  },
+  changeFieldDoctorName: (newValue) => {
+    dispatch(changeFieldDoctorName(newValue));
+  },
+  changeFieldDoctorEmail: (newValue) => {
+    dispatch(changeFieldDoctorEmail(newValue));
+  },
+  sendCreateAccount: (newValue) => {
+    dispatch(createAccount(newValue));
+  },
   
-  // sendTestMail: () => {
-  //   dispatch(sendTestMail());
-  // },
 });
 
 // === création de l'assistant

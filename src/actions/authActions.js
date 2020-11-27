@@ -24,6 +24,19 @@ export const CHANGE_FIELD_PASSWORDNEW = 'CHANGE_FIELD_PASSWORDNEW';
 
 export const CHANGE_FIELD_PASSWORDCHECK = 'CHANGE_FIELD_PASSWORDCHECK';
 
+export const CHANGE_FIELD_FIRSTNAME = 'CHANGE_FIELD_FIRSTNAME';
+
+export const CHANGE_FIELD_LASTNAME = 'CHANGE_FIELD_LASTNAME';
+
+export const CHANGE_FIELD_TREATMENT = 'CHANGE_FIELD_TREATMENT';
+
+export const CHANGE_FIELD_TARGETMIN = 'CHANGE_FIELD_TARGETMIN';
+
+export const CHANGE_FIELD_TARGETMAX = 'CHANGE_FIELD_TARGETMAX';
+
+export const CHANGE_FIELD_DOCTORNAME = 'CHANGE_FIELD_DOCTORNAME';
+
+export const CHANGE_FIELD_DOCTOREMAIL = 'CHANGE_FIELD_DOCTOREMAIL';
 
 // === action creators
 export const sendAuth = () => ({
@@ -85,3 +98,37 @@ export const changeFieldPasswordCheck = (newValue) => ({
   newValue,
 });
 
+export const changeFieldFirstname = (newValue) => ({
+  type: CHANGE_FIELD_FIRSTNAME,
+  newValue,
+});
+
+export const changeFieldLastname = (newValue) => ({
+  type: CHANGE_FIELD_LASTNAME,
+  newValue,
+});
+
+export const changeFieldTreatment = (newValue) => ({
+  type: CHANGE_FIELD_TREATMENT,
+  newValue,
+});
+
+export const changeFieldTargetMin = (newValue) => ({
+  type: CHANGE_FIELD_TARGETMIN,
+  newValue,
+});
+
+export const changeFieldTargetMax = (newValue) => ({
+  type: CHANGE_FIELD_TARGETMAX,
+  newValue,
+});
+
+export const changeFieldDoctorName = (newValue) => ({
+  type: CHANGE_FIELD_DOCTORNAME,
+  newValue,
+});
+
+export const changeFieldDoctorEmail = (newValue) => ({
+  type: CHANGE_FIELD_DOCTOREMAIL,
+  newValue,
+});

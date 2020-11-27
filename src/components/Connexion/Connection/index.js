@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 
 import './connection.scss';
 
-import { Redirect } from 'react-router-dom';
 
 const Connection = ({
   password,

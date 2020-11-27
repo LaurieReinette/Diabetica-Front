@@ -10,7 +10,15 @@ import {
   START_REGISTRATION,
   CREATE_ACCOUNT,
   SEND_CREATE_ACCOUNT,
-
+  CHANGE_FIELD_PASSWORDNEW,
+  CHANGE_FIELD_PASSWORDCHECK,
+  CHANGE_FIELD_FIRSTNAME,
+  CHANGE_FIELD_LASTNAME,
+  CHANGE_FIELD_TREATMENT,
+  CHANGE_FIELD_TARGETMIN,
+  CHANGE_FIELD_TARGETMAX,
+  CHANGE_FIELD_DOCTORNAME,
+  CHANGE_FIELD_DOCTOREMAIL,
 } from 'src/actions/authActions';
 
 const initialState = {
@@ -28,7 +36,7 @@ const initialState = {
   lastname: '',
   targetMin: '',
   targetMax: '',
-  diabetesType: '',
+  treatment: '',
   doctorEmail: '',
   doctorName: '',
 };
@@ -91,7 +99,53 @@ const authReducers = (state = initialState, action = {}) => {
       return {
         ...state,
         loader: false,
+        logged: true,
         user: action.newValue,
+      };
+    case CHANGE_FIELD_PASSWORDNEW:
+      return {
+        ...state,
+        passwordNew: action.newValue,
+      };
+    case CHANGE_FIELD_PASSWORDCHECK:
+      return {
+        ...state,
+        passwordCheck: action.newValue,
+      };
+    case CHANGE_FIELD_FIRSTNAME:
+      return {
+        ...state,
+        firstname: action.newValue,
+      };
+    case CHANGE_FIELD_LASTNAME:
+      return {
+        ...state,
+        lastname: action.newValue,
+      };
+    case CHANGE_FIELD_TREATMENT:
+      return {
+        ...state,
+        treatment: action.newValue,
+      };
+    case CHANGE_FIELD_TARGETMIN:
+      return {
+        ...state,
+        targetMin: action.newValue,
+      };
+    case CHANGE_FIELD_TARGETMAX:
+      return {
+        ...state,
+        targetMax: action.newValue,
+      };
+    case CHANGE_FIELD_DOCTORNAME:
+      return {
+        ...state,
+        doctorName: action.newValue,
+      };
+    case CHANGE_FIELD_DOCTOREMAIL:
+      return {
+        ...state,
+        doctorEmail: action.newValue,
       };
     default: return state;
   }

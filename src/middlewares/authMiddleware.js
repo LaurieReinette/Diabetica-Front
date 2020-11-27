@@ -75,11 +75,11 @@ const authMiddleware = (store) => (next) => (action) => {
       const { lastname } = store.getState().authReducer;
       const { targetMin } = store.getState().authReducer;
       const { targetMax } = store.getState().authReducer;
-      const { diabetesType } = store.getState().authReducer;
+      const { treatment } = store.getState().authReducer;
       const { doctorName } = store.getState().authReducer;
       const { doctorEmail } = store.getState().authReducer;
-
-      axios.post('https://127.0.0.1:8000/api/login/check-email', {
+      console.log(action);
+      axios.post('https://127.0.0.1:8000/api/login/signup', {
         email: username,
         password: passwordNew,
         checkPassword: passwordCheck,
@@ -87,13 +87,13 @@ const authMiddleware = (store) => (next) => (action) => {
         lastname,
         targetMin,
         targetMax,
-        diabetesType,
+        treatment,
         doctorEmail,
         doctorName,
       })
         .then((response) => {
-          console.log(response.data.known);
-          // on dispatch une action pour pouvoir modifier le state
+          console.log(response.data);
+          store.dispatch(createAccount(response.data));
         })
         .catch((error) => {
           console.warn(error);
