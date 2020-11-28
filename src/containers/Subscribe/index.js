@@ -14,6 +14,7 @@ import {
   changeFieldDoctorName,
   changeFieldDoctorEmail,
   createAccount,
+  sendCreateAccount,
 
 } from 'src/actions/authActions';
 
@@ -67,10 +68,12 @@ const mapDispatchToProps = (dispatch) => ({
   changeFieldDoctorEmail: (newValue) => {
     dispatch(changeFieldDoctorEmail(newValue));
   },
-  sendCreateAccount: (newValue) => {
+  sendCreateAccount: () => {
+    dispatch(sendCreateAccount());
+  },
+  createAccount: (newValue) => {
     dispatch(createAccount(newValue));
   },
-  
 });
 
 // === création de l'assistant

@@ -99,7 +99,6 @@ const authReducers = (state = initialState, action = {}) => {
       return {
         ...state,
         loader: false,
-        logged: true,
         user: action.newValue,
       };
     case CHANGE_FIELD_PASSWORDNEW:

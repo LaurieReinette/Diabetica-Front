@@ -48,6 +48,7 @@ const Subscribe = ({
     changeFieldTreatment(evt.target.value);
   };
   const catchFieldTargetMin = (evt) => {
+    console.log(targetMin);
     changeFieldTargetMin(evt.target.value);
   };
   const catchFieldTargetMax = (evt) => {
@@ -66,7 +67,7 @@ const Subscribe = ({
         C'est parti, je crée un compte
       </h2>
       {logged && <Redirect to="/mon-compte" />}
-      {!loader && (
+      {!logged && (
       <div className="subscrire">
         <form className="form" onSubmit={handleSubmit}>
           <div>

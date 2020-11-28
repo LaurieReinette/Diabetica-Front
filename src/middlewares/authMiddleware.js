@@ -14,6 +14,9 @@ import {
   createAccount,
 } from 'src/actions/authActions';
 
+import { stringToFloatAndReplaceComaByPoint } from 'src/utils/functions';
+import { sendAuth } from '../actions/authActions';
+
 const authMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case SEND_TEST_MAIL: {
@@ -23,8 +26,6 @@ const authMiddleware = (store) => (next) => (action) => {
         email: username,
       })
         .then((response) => {
-          console.log(response.data.known);
-          // on dispatch une action pour pouvoir modifier le state
           store.dispatch(testEmailKnown(response.data.known));
           store.dispatch(startRegistration(response.data.known));
         })
@@ -58,8 +59,8 @@ const authMiddleware = (store) => (next) => (action) => {
 
       axios.get('https://127.0.0.1:8000/api/user', { headers: {'Authorization' : `Bearer ${token}`} })
         .then((response) => {
-          console.log(response.data);
           store.dispatch(saveUserDatas(response.data));
+          store.dispatch(sendAuth());
         })
         .catch((error) => {
           console.warn(error);
@@ -78,15 +79,15 @@ const authMiddleware = (store) => (next) => (action) => {
       const { treatment } = store.getState().authReducer;
       const { doctorName } = store.getState().authReducer;
       const { doctorEmail } = store.getState().authReducer;
-      console.log(action);
+
       axios.post('https://127.0.0.1:8000/api/login/signup', {
         email: username,
         password: passwordNew,
         checkPassword: passwordCheck,
         firstname,
         lastname,
-        targetMin,
-        targetMax,
+        targetMin: stringToFloatAndReplaceComaByPoint(targetMin),
+        targetMax: stringToFloatAndReplaceComaByPoint(targetMax),
         treatment,
         doctorEmail,
         doctorName,
