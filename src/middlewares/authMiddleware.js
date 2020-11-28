@@ -60,7 +60,6 @@ const authMiddleware = (store) => (next) => (action) => {
       axios.get('https://127.0.0.1:8000/api/user', { headers: {'Authorization' : `Bearer ${token}`} })
         .then((response) => {
           store.dispatch(saveUserDatas(response.data));
-          store.dispatch(sendAuth());
         })
         .catch((error) => {
           console.warn(error);
@@ -95,6 +94,7 @@ const authMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           console.log(response.data);
           store.dispatch(createAccount(response.data));
+          store.dispatch(sendAuth());
         })
         .catch((error) => {
           console.warn(error);

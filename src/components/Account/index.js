@@ -55,7 +55,7 @@ Account.propTypes = {
     target_min: PropTypes.number.isRequired,
     target_max: PropTypes.number.isRequired,
     doctor_name: PropTypes.string.isRequired,
-    diabetes_type: PropTypes.string.isRequired,
+    treatment: PropTypes.string.isRequired,
     doctor_email: PropTypes.string.isRequired,
     created_at: PropTypes.string.isRequired,
   }).isRequired,
