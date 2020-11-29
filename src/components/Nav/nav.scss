@@ -1,5 +1,5 @@
 .nav {
-  font-size: 1.6em;
+  font-size: 1.6rem;
   text-align: center;
   padding: 10px;
   a{
@@ -8,6 +8,13 @@
   }
   .nav-active{
     background-color: aqua; 
+  }
+  button {
+    background-color: lightcoral;
+    font-size: 1.6rem;
+    margin-left: 10px;
+    font-family: 'Dosis', sans-serif;
+    display: inline-block;
   }
   // background: rgb(98,195,237);
 }

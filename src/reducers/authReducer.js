@@ -20,6 +20,7 @@ import {
   CHANGE_FIELD_TARGETMAX,
   CHANGE_FIELD_DOCTORNAME,
   CHANGE_FIELD_DOCTOREMAIL,
+  HANDLE_LOGOUT,
 } from 'src/actions/authActions';
 
 const initialState = {
@@ -40,6 +41,7 @@ const initialState = {
   treatment: '',
   doctorEmail: '',
   doctorName: '',
+  logout: false,
 };
 
 const authReducers = (state = initialState, action = {}) => {
@@ -152,6 +154,28 @@ const authReducers = (state = initialState, action = {}) => {
       return {
         ...state,
         doctorEmail: action.newValue,
+      };
+    case HANDLE_LOGOUT:
+      return {
+        ...state,
+        logged: false,
+        loader: false,
+        username: '',
+        password: '',
+        token: '',
+        emailIsKnown: false,
+        user: [],
+        startRegistration: false,
+        passwordNew: '',
+        passwordCheck: '',
+        firstname: '',
+        lastname: '',
+        targetMin: '',
+        targetMax: '',
+        treatment: '',
+        doctorEmail: '',
+        doctorName: '',
+        logout: true,
       };
     default: return state;
   }

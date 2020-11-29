@@ -40,6 +40,8 @@ export const CHANGE_FIELD_DOCTORNAME = 'CHANGE_FIELD_DOCTORNAME';
 
 export const CHANGE_FIELD_DOCTOREMAIL = 'CHANGE_FIELD_DOCTOREMAIL';
 
+export const HANDLE_LOGOUT = 'HANDLE_LOGOUT';
+
 // === action creators
 export const sendAuth = () => ({
   type: SEND_AUTH,
@@ -138,4 +140,8 @@ export const changeFieldDoctorName = (newValue) => ({
 export const changeFieldDoctorEmail = (newValue) => ({
   type: CHANGE_FIELD_DOCTOREMAIL,
   newValue,
+});
+
+export const handleLogout = () => ({
+  type: HANDLE_LOGOUT,
 });
