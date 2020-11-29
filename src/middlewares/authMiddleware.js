@@ -16,6 +16,8 @@ import {
 
 import {
   saveError,
+  getErrorDetectedFalse,
+  emptyErrors,
 } from 'src/actions/errorActions';
 
 import { stringToFloatAndReplaceComaByPoint } from 'src/utils/functions';
@@ -48,12 +50,14 @@ const authMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           store.dispatch(saveToken(response.data.token));
           store.dispatch(fetchUserDatas());
+          store.dispatch(getErrorDetectedFalse());
+          store.dispatch(emptyErrors());
         })
         .catch((error) => {
-          console.warn(error.response);
           if (error.response.status === 401) {
             store.dispatch(saveError('Le mot de passe n\'est pas bon, veuillez réessayer'));
           }
+          // Le mot de passe n\'est pas bon, veuillez réessayer
           store.dispatch(getLoaderFalse());
         });
       next(action);

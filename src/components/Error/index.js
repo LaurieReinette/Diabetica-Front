@@ -8,13 +8,16 @@ import './error.scss';
 
 const Error = ({ error }) => (
   <div className="error">
-    <p> {error} </p>
+    <p> {error.map((errorToDisplay) => (
+      errorToDisplay
+    ))}
+    </p>
   </div>
 
 );
 
 Error.propTypes = {
-  error: PropTypes.string.isRequired,
+  error: PropTypes.array.isRequired,
 };
 
 export default Error;
