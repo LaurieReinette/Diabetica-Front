@@ -17,7 +17,7 @@ import Error from 'src/containers/Error';
 import './styles.scss';
 
 // == Composant
-const Diabetica = ({ logged, error, errorDetected }) => {
+const Diabetica = ({ logged, errorDetected }) => {
   const truc = 'machine';
   return (
     <div className="diabetica">
@@ -38,7 +38,7 @@ const Diabetica = ({ logged, error, errorDetected }) => {
 
 Diabetica.propTypes = {
   logged: PropTypes.bool.isRequired,
-  error: PropTypes.string.isRequired,
+  errorDetected: PropTypes.bool.isRequired,
 };
 
 // == Export
