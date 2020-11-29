@@ -1,6 +1,6 @@
 // == Import npm
 import React, { useEffect } from 'react';
-import Proptypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import { Switch, Route } from 'react-router-dom';
 
@@ -11,35 +11,35 @@ import Account from 'src/containers/Account';
 import About from 'src/components/About';
 import Main from 'src/components/Main';
 import Footer from 'src/components/Footer';
+import Error from 'src/containers/Error';
 
 // == Import
 import './styles.scss';
 
 // == Composant
-const Diabetica = () => {
-
+const Diabetica = ({ logged, error, errorDetected }) => {
+  const truc = 'machine';
   return (
     <div className="diabetica">
       <Header />
       <Nav />
-      {/* <Main />
-      <Header /> */}
+      {errorDetected && <Error />}
       <Switch>
         <Route exact path="/" component={Main} />
         <Route path="/connexion-inscription" component={Connexion} />
         <Route path="/a-propos" component={About} />
-        <Route path="/mon-compte" component={Account} />
+        {logged && <Route path="/mon-compte" component={Account} /> }
         {/* <Route path="/" component={Page404} /> */}
       </Switch>
-      {/* <Footer /> */}
       <Footer />
     </div>
   );
 };
 
-// Diabetica.propTypes = {
-//   sendAuth: Proptypes.func.isRequired,
-// };
+Diabetica.propTypes = {
+  logged: PropTypes.bool.isRequired,
+  error: PropTypes.string.isRequired,
+};
 
 // == Export
 export default Diabetica;

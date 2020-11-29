@@ -48,7 +48,6 @@ const Subscribe = ({
     changeFieldTreatment(evt.target.value);
   };
   const catchFieldTargetMin = (evt) => {
-    console.log(targetMin);
     changeFieldTargetMin(evt.target.value);
   };
   const catchFieldTargetMax = (evt) => {

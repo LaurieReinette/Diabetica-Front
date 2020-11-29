@@ -23,10 +23,7 @@ const Connexion = ({
   const catchFieldEmail = (evt) => {
     changeFieldEmail(evt.target.value);
   };
-  // const catchFieldPassword = (evt) => {
-  //   console.log (evt.target.value);
-  //   changeFieldPassword(evt.target.value);
-  // };
+
 
   return (
     <div className="connexion">

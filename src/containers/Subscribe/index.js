@@ -36,6 +36,8 @@ const mapStateToProps = (state) => ({
   targetMax: state.authReducer.targetMax,
   doctorName: state.authReducer.doctorName,
   doctorEmail: state.authReducer.doctorEmail,
+  errorDetected: state.errorReducer.errorDetected,
+  error: state.errorReducer.error,
 
   // nom de la prop à remplir : élément à récupérer dans le state
 });

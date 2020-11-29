@@ -2,6 +2,7 @@ import {
   SEND_AUTH,
   SAVE_TOKEN,
   UPDATE_EMAIL_FIELD,
+  GET_LOADER_FALSE,
   TEST_EMAIL_KNOWN,
   SEND_TEST_MAIL,
   UPDATE_PASSWORD_FIELD,
@@ -47,6 +48,11 @@ const authReducers = (state = initialState, action = {}) => {
       return {
         ...state,
         loader: true,
+      };
+    case GET_LOADER_FALSE:
+      return {
+        ...state,
+        loader: false,
       };
     case SEND_TEST_MAIL:
       return {

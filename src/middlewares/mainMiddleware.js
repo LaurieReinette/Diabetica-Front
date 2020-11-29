@@ -6,9 +6,6 @@ const mainMiddleware = (store) => (next) => (action) => {
     // case FETCH_NAV_DATAS:
     //   axios.get('https://diabeticaback.lauriereinette.fr/api/navpages')
     //     .then((response) => {
-    //       // on dispatch une action pour pouvoir modifier le state
-    //       store.dispatch(saveNavDatas(response.data));
-    //       console.log(response.data);
     //     })
     //     .catch((error) => {
     //       console.warn(error);

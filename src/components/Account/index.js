@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import './account.scss';
 
 const Account = ({ user }) => {
-console.log('tata');
   return (
     <main className="account">
       <h2>MON COMPTE DIABETICA</h2>

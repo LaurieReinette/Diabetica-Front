@@ -2,20 +2,23 @@ import axios from 'axios';
 import {
   SEND_AUTH,
   saveToken,
-  TEST_EMAIL_KNOWN,
   testEmailKnown,
   SEND_TEST_MAIL,
   saveUserDatas,
-  SAVE_USER_DATAS,
   fetchUserDatas,
   FETCH_USER_DATAS,
   startRegistration,
   SEND_CREATE_ACCOUNT,
   createAccount,
+  sendAuth,
+  getLoaderFalse,
 } from 'src/actions/authActions';
 
+import {
+  saveError,
+} from 'src/actions/errorActions';
+
 import { stringToFloatAndReplaceComaByPoint } from 'src/utils/functions';
-import { sendAuth } from '../actions/authActions';
 
 const authMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -43,13 +46,15 @@ const authMiddleware = (store) => (next) => (action) => {
         password,
       })
         .then((response) => {
-          console.log(response.data.token);
-          // on dispatch une action pour pouvoir modifier le state
           store.dispatch(saveToken(response.data.token));
           store.dispatch(fetchUserDatas());
         })
         .catch((error) => {
-          console.warn(error);
+          console.warn(error.response);
+          if (error.response.status === 401) {
+            store.dispatch(saveError('Le mot de passe n\'est pas bon, veuillez réessayer'));
+          }
+          store.dispatch(getLoaderFalse());
         });
       next(action);
       break;
@@ -92,7 +97,6 @@ const authMiddleware = (store) => (next) => (action) => {
         doctorName,
       })
         .then((response) => {
-          console.log(response.data);
           store.dispatch(createAccount(response.data));
           store.dispatch(sendAuth());
         })
