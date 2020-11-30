@@ -36,6 +36,8 @@ const authMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.warn(error);
+          store.dispatch(saveError('L\'adresse mail n\' pas valide'));
+          store.dispatch(getLoaderFalse());
         });
       next(action);
       break;
@@ -57,7 +59,6 @@ const authMiddleware = (store) => (next) => (action) => {
           if (error.response.status === 401) {
             store.dispatch(saveError('Le mot de passe n\'est pas bon, veuillez réessayer'));
           }
-          // Le mot de passe n\'est pas bon, veuillez réessayer
           store.dispatch(getLoaderFalse());
         });
       next(action);
@@ -72,6 +73,8 @@ const authMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.warn(error);
+          store.dispatch(saveError('Une erreur s\'est produite, veuillez réessayer'));
+          store.dispatch(getLoaderFalse());
         });
       next(action);
       break;
@@ -106,6 +109,8 @@ const authMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.warn(error);
+          store.dispatch(saveError('Une erreur s\'est produite, veuillez réessayer'));
+          store.dispatch(getLoaderFalse());
         });
       next(action);
       break;
