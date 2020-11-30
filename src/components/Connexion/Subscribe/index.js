@@ -48,7 +48,6 @@ const Subscribe = ({
     changeFieldTreatment(evt.target.value);
   };
   const catchFieldTargetMin = (evt) => {
-    console.log(targetMin);
     changeFieldTargetMin(evt.target.value);
   };
   const catchFieldTargetMax = (evt) => {
@@ -79,6 +78,7 @@ const Subscribe = ({
                 id="passwordNew"
                 value={passwordNew}
                 onChange={catchFieldpasswordNew}
+                required
               />
             </label>
           </div>
@@ -91,6 +91,7 @@ const Subscribe = ({
                 id="passwordCheck"
                 value={passwordCheck}
                 onChange={catchFieldpasswordCheck}
+                required
               />
             </label>
           </div>
@@ -103,6 +104,7 @@ const Subscribe = ({
                 id="firstname"
                 value={firstname}
                 onChange={catchFieldFirstname}
+                required
               />
             </label>
           </div>
@@ -118,7 +120,7 @@ const Subscribe = ({
               />
             </label>
           </div>
-          <p>Type de traitement</p>
+          <p className="treatment-type-form">Type de traitement</p>
           <div>
             <label htmlFor="treatment-yes">
               Insulino Requiérent
@@ -129,6 +131,7 @@ const Subscribe = ({
                 value="Insulino-requiérent"
                 checked={treatment === 'Insulino-requiérent'}
                 onChange={catchTreatment}
+                required
               />
             </label>
           </div>
@@ -142,12 +145,13 @@ const Subscribe = ({
                 value="Non insulino-requiérent"
                 checked={treatment === 'Non insulino-requiérent'}
                 onChange={catchTreatment}
+                required
               />
             </label>
           </div>
           <div>
             <label htmlFor="targetMin">
-              Glycémie minimum recommandée par mon médecin
+              Glycémie maximale recommandée par mon médecin
               <input
                 type="number"
                 step="0.10"
@@ -155,17 +159,19 @@ const Subscribe = ({
                 id="targetMin"
                 value={targetMin}
                 onChange={catchFieldTargetMin}
+                required
               />
             </label>
           </div>
           <div>
-            <label htmlFor="targetMax">Glycémie maximale recommandée par mon médecin 
+            <label htmlFor="targetMax">Glycémie maximale recommandée par mon médecin
               <input
                 type="number"
                 step="0.10"
                 id="targetMax"
                 value={targetMax}
                 onChange={catchFieldTargetMax}
+                required
               />
             </label>
           </div>

@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import './account.scss';
 
 const Account = ({ user }) => {
-console.log('tata');
   return (
     <main className="account">
       <h2>MON COMPTE DIABETICA</h2>
@@ -55,7 +54,7 @@ Account.propTypes = {
     target_min: PropTypes.number.isRequired,
     target_max: PropTypes.number.isRequired,
     doctor_name: PropTypes.string.isRequired,
-    treatment: PropTypes.string.isRequired,
+    // treatment: PropTypes.string.isRequired,
     doctor_email: PropTypes.string.isRequired,
     created_at: PropTypes.string.isRequired,
   }).isRequired,

@@ -1,5 +1,7 @@
 export const SEND_AUTH = 'SEND_AUTH';
 
+export const GET_LOADER_FALSE = 'GET_LOADER_FALSE';
+
 export const SAVE_TOKEN = 'SAVE_TOKEN';
 
 export const UPDATE_EMAIL_FIELD = 'UPDATE_EMAIL_FIELD';
@@ -38,9 +40,16 @@ export const CHANGE_FIELD_DOCTORNAME = 'CHANGE_FIELD_DOCTORNAME';
 
 export const CHANGE_FIELD_DOCTOREMAIL = 'CHANGE_FIELD_DOCTOREMAIL';
 
+export const HANDLE_LOGOUT = 'HANDLE_LOGOUT';
+
 // === action creators
 export const sendAuth = () => ({
   type: SEND_AUTH,
+});
+
+
+export const getLoaderFalse = () => ({
+  type: GET_LOADER_FALSE,
 });
 
 export const sendTestMail = () => ({
@@ -131,4 +140,8 @@ export const changeFieldDoctorName = (newValue) => ({
 export const changeFieldDoctorEmail = (newValue) => ({
   type: CHANGE_FIELD_DOCTOREMAIL,
   newValue,
+});
+
+export const handleLogout = () => ({
+  type: HANDLE_LOGOUT,
 });

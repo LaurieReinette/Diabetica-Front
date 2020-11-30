@@ -3,7 +3,12 @@ import { connect } from 'react-redux';
 // === on importe le composant de présentation
 import Connexion from 'src/components/Connexion';
 
-import { sendAuth, updateEmailField, testEmailKnown, sendTestMail } from 'src/actions/authActions';
+import {
+  sendAuth,
+  updateEmailField,
+  testEmailKnown,
+  sendTestMail,
+} from 'src/actions/authActions';
 
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
@@ -15,6 +20,8 @@ const mapStateToProps = (state) => ({
   logged: state.authReducer.logged,
   loader: state.authReducer.loader,
   startRegistration: state.authReducer.startRegistration,
+  errorDetected: state.errorReducer.errorDetected,
+  error: state.errorReducer.error,
   // nom de la prop à remplir : élément à récupérer dans le state
 });
 

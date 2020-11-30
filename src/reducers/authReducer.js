@@ -2,6 +2,7 @@ import {
   SEND_AUTH,
   SAVE_TOKEN,
   UPDATE_EMAIL_FIELD,
+  GET_LOADER_FALSE,
   TEST_EMAIL_KNOWN,
   SEND_TEST_MAIL,
   UPDATE_PASSWORD_FIELD,
@@ -19,6 +20,7 @@ import {
   CHANGE_FIELD_TARGETMAX,
   CHANGE_FIELD_DOCTORNAME,
   CHANGE_FIELD_DOCTOREMAIL,
+  HANDLE_LOGOUT,
 } from 'src/actions/authActions';
 
 const initialState = {
@@ -39,6 +41,7 @@ const initialState = {
   treatment: '',
   doctorEmail: '',
   doctorName: '',
+  logout: false,
 };
 
 const authReducers = (state = initialState, action = {}) => {
@@ -47,6 +50,11 @@ const authReducers = (state = initialState, action = {}) => {
       return {
         ...state,
         loader: true,
+      };
+    case GET_LOADER_FALSE:
+      return {
+        ...state,
+        loader: false,
       };
     case SEND_TEST_MAIL:
       return {
@@ -146,6 +154,28 @@ const authReducers = (state = initialState, action = {}) => {
       return {
         ...state,
         doctorEmail: action.newValue,
+      };
+    case HANDLE_LOGOUT:
+      return {
+        ...state,
+        logged: false,
+        loader: false,
+        username: '',
+        password: '',
+        token: '',
+        emailIsKnown: false,
+        user: [],
+        startRegistration: false,
+        passwordNew: '',
+        passwordCheck: '',
+        firstname: '',
+        lastname: '',
+        targetMin: '',
+        targetMax: '',
+        treatment: '',
+        doctorEmail: '',
+        doctorName: '',
+        logout: true,
       };
     default: return state;
   }

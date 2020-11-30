@@ -7,6 +7,8 @@ import Account from 'src/components/Account';
 // si j'ai besoin de lire des informations dans le state
 const mapStateToProps = (state) => ({
   user: state.authReducer.user,
+  errorDetected: state.errorReducer.errorDetected,
+  error: state.errorReducer.error,
   // nom de la prop à remplir : élément à récupérer dans le state
 });
 

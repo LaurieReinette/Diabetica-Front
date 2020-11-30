@@ -1,10 +1,16 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import './nav.scss';
 
-const Nav = ({ navDatas, logged, navDatasLogged }) => {
+const Nav = ({
+  navDatas,
+  logged,
+  navDatasLogged,
+  handleLogout,
+  logout,
+}) => {
   if (logged === false) {
     return (
       <nav className="nav">
@@ -23,19 +29,28 @@ const Nav = ({ navDatas, logged, navDatasLogged }) => {
     );
   }
   return (
-    <nav className="nav">
-      {navDatasLogged.map((navData) => (
-        <NavLink
-          className="nav-item"
-          activeClassName="nav-active"
-          key={navData.id}
-          to={navData.route}
-          exact
-        >
-          {navData.label}
-        </NavLink>
-      ))}
-    </nav>
+    <div>
+      <nav className="nav">
+        {navDatasLogged.map((navData) => (
+          <NavLink
+            className="nav-item"
+            activeClassName="nav-active"
+            key={navData.id}
+            to={navData.route}
+            exact
+          >
+            {navData.label}
+          </NavLink>
+        ))}
+        <button
+          type="button"
+          className="login-form-button"
+          onClick={handleLogout}
+        >   Déconnexion
+        </button>
+      </nav>
+      {logout && <Redirect to="/connexion-inscription" />}
+    </div>
   );
 };
 Nav.propTypes = {
@@ -54,5 +69,7 @@ Nav.propTypes = {
     }).isRequired,
   ).isRequired,
   logged: PropTypes.bool.isRequired,
+  handleLogout: PropTypes.func.isRequired,
+  logout: PropTypes.bool.isRequired,
 };
 export default Nav;

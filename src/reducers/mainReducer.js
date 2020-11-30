@@ -36,6 +36,11 @@ const initialState = {
       label: 'A propos',
       id: 6,
     },
+    // {
+    //   route: '/deconnexion',
+    //   label: 'Deconnexion',
+    //   id: 7,
+    // },
   ],
 };
 
