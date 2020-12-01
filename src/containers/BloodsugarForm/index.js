@@ -10,7 +10,7 @@ import { sendBloodsugar, updateBloodsugarField, hideBloodsugarForm } from 'src/a
 const mapStateToProps = (state) => ({
   // nom de la prop à remplir : élément à récupérer dans le state
   date: state.userReducer.date,
-  hour: state.userReducer.hour,
+  time: state.userReducer.time,
   rate: state.userReducer.rate,
   correction: state.userReducer.correction,
   displayBloodsugarFormBool: state.userReducer.displayBloodsugarFormBool,

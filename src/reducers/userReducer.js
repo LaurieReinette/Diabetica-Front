@@ -1,11 +1,12 @@
 import {
   DISPLAY_BLOODSUGAR_FORM,
   HIDE_BLOODSUGAR_FORM,
+  UPDATE_BLOODSUGAR_FIELD,
 } from 'src/actions/userActions';
 
 const initialState = {
   date: '',
-  hour: '',
+  time: '',
   rate: '',
   correction: '',
   displayBloodsugarFormBool: false,
@@ -13,6 +14,12 @@ const initialState = {
 
 const mainReducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    case UPDATE_BLOODSUGAR_FIELD:
+      return {
+        ...state,
+        [action.name]: action.newValue,
+      };
+
     case DISPLAY_BLOODSUGAR_FORM:
       return {
         ...state,

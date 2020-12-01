@@ -8,19 +8,19 @@ import './bloodsugarform.scss';
 
 const BloodsugarForm = ({
   date,
-  hour,
+  time,
   rate,
   correction,
   changeField,
-  handleLogin,
+  handleSendBloodsugar,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    handleLogin();
+    handleSendBloodsugar();
   };
 
   return (
-    <div className="login-form">
+    <div className="bloodsugarForm">
       <form className="login-form-element" onSubmit={handleSubmit}>
         <Field
           name="date"
@@ -30,11 +30,11 @@ const BloodsugarForm = ({
           value={date}
         />
         <Field
-          name="hour"
-          type="hour"
+          name="time"
+          type="time"
           placeholder="Heure"
           onChange={changeField}
-          value={hour}
+          value={time}
         />
         <Field
           name="rate"
@@ -64,9 +64,9 @@ const BloodsugarForm = ({
 
 BloodsugarForm.propTypes = {
   date: PropTypes.string.isRequired,
-  hour: PropTypes.string.isRequired,
+  time: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
-  handleLogin: PropTypes.func.isRequired,
+  handleSendBloodsugar: PropTypes.func.isRequired,
   rate: PropTypes.string.isRequired,
   correction: PropTypes.string.isRequired,
 };

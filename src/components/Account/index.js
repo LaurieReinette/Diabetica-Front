@@ -15,15 +15,16 @@ const Account = ({ user, displayBloodsugarFormBool, displayBloodsugarForm }) => 
     <main className="account">
       <h2>Mon compte Diabetica</h2>
       <h3>Bienvenue {user.firstname} {user.lastname} </h3>
-      <button
-        type="button"
-        className="display-button"
-        onClick={displayBloodsugarForm}
-      >
-        {innerHtmlButton}
-      </button>
-      { displayBloodsugarFormBool && <BloodsugarForm /> }
-
+      <div className="display-bloodsugar">
+        <button
+          type="button"
+          className="display-button"
+          onClick={displayBloodsugarForm}
+        >
+          {innerHtmlButton}
+        </button>
+        { displayBloodsugarFormBool && <BloodsugarForm /> }
+      </div>
       <div className="table-users">
         <div className="account-last-bloodsugar">Mes dernières glycémies</div>
         <table cellSpacing="0">
@@ -62,7 +63,6 @@ Account.propTypes = {
         date: PropTypes.string.isRequired,
         time: PropTypes.string.isRequired,
         correction: PropTypes.string.isRequired,
-        corrected: PropTypes.bool.isRequired,
       }).isRequired,
     ).isRequired,
     lastname: PropTypes.string.isRequired,
