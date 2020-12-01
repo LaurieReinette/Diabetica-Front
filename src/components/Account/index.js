@@ -1,13 +1,29 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
+import BloodsugarForm from 'src/containers/BloodsugarForm';
+
 import './account.scss';
 
-const Account = ({ user }) => {
+const Account = ({ user, displayBloodsugarFormBool, displayBloodsugarForm }) => {
+  const tata = 'tata';
+  let innerHtmlButton = 'Ajouter une glycémie';
+  if (displayBloodsugarFormBool === true) {
+    innerHtmlButton = 'Fermer';
+  }
   return (
     <main className="account">
-      <h2>MON COMPTE DIABETICA</h2>
+      <h2>Mon compte Diabetica</h2>
       <h3>Bienvenue {user.firstname} {user.lastname} </h3>
+      <button
+        type="button"
+        className="display-button"
+        onClick={displayBloodsugarForm}
+      >
+        {innerHtmlButton}
+      </button>
+      { displayBloodsugarFormBool && <BloodsugarForm /> }
+
       <div className="table-users">
         <div className="account-last-bloodsugar">Mes dernières glycémies</div>
         <table cellSpacing="0">
@@ -58,6 +74,9 @@ Account.propTypes = {
     doctor_email: PropTypes.string.isRequired,
     created_at: PropTypes.string.isRequired,
   }).isRequired,
+  displayBloodsugarForm: PropTypes.func.isRequired,
+  displayBloodsugarFormBool: PropTypes.bool.isRequired,
+
 };
 
 export default Account;

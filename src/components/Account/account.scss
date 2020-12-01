@@ -8,9 +8,21 @@ $padding: 10px;
   margin: 10px;
   font-size: 2rem;
   margin-bottom: 30px;
+
+  h2, h3 {
+     margin: 15px;
+  }
+
+  .display-button{
+     background-color: lightskyblue;
+     font-size: 1.5rem;
+     font-family: 'Dosis', sans-serif;
+     margin: 10px;
+  }
   table {
     width: 100%;
-    text-transform: capitalize;    
+    text-transform: capitalize;
+    margin: 15px;
     td, th { 
        color: darken($baseColor, 10%);
        padding: $padding; 
