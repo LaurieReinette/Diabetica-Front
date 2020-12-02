@@ -1,15 +1,31 @@
 @import 'src/styles/vars';
 
 .subscribe {
-  font-size: 1.1em;
-  // max-height: 150px;
+  font-size: 1.6rem;
   margin: 20px;
+  h2 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
   form {
+    font-size: 2rem;
     label {
       display: inline-block;
+      margin: 5px 0;
+      
     }
     input {
       display: inline-block;
+      margin-right: 6px;
+      font-size: 1.7rem;
+      background-color: rgb(196, 213, 236, 0.6);
+    }
+    #targetMin, #targetMax {
+      width: 80px;
+    }
+    button {
+      font-size: 1.7rem;
+      margin: 15px 0;
     }
   }
 }

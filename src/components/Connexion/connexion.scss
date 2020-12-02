@@ -1,17 +1,19 @@
 @import 'src/styles/vars';
 
 .connexion {
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   margin: 20px;
   #email{
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     margin-left: 10px;
+    height: 35px;
 
   }
   button{
     margin-left: 10px;
     font-family: 'Dosis', sans-serif;
-    font-size: 1.3em;
+    font-size: 1.2em;
     background-color: lightblue;
+
   }
 }

@@ -17,7 +17,11 @@ $padding: 10px;
   h2, h3 {
      margin: 15px;
   }
-
+  .account-last-bloodsugars {
+   font-size: 2.4rem;
+   margin: 10px;
+   margin-bottom: 20px;
+}
   .display-button{
      background-color: lightskyblue;
      font-size: 1.5rem;
@@ -25,42 +29,21 @@ $padding: 10px;
      margin: 10px;
   }
   table {
-    width: 100%;
+    width: 80%;
+    margin: 0 auto;
     text-transform: capitalize;
-    margin: 15px;
-    td, th { 
-       color: darken($baseColor, 10%);
-       padding: $padding; 
-    }
-    
-    td {
-       text-align: center;
-       vertical-align: middle;
-       
-       &:last-child {
-          font-size: 0.95em;
-          line-height: 1.4;
-          text-align: left;
-       }
-    }
-    
-    th { 
-       background-color: lighten($baseColor, 50%);
-       font-weight: 300;
-    }
-    
-   //  tr {     
-   //     &:nth-child(2n) { background-color: white; }
-   //     &:nth-child(2n+1) { background-color: lighten($baseColor, 55%) }
-   //  }
+
    .bloodsugar-ok {
       background-color: lightgreen;
+      padding: 10px;
    }
    .bloodsugar-high {
       background-color: rgba(255, 0, 0, 0.7);
+      padding: 10px;
    }
    .bloodsugar-low {
       background-color: rgba(248, 137, 33, 0.7);
+      padding: 10px;
    }
  }
  

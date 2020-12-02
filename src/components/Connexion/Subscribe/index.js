@@ -65,13 +65,14 @@ const Subscribe = ({
       <h2>
         C'est parti, je crée un compte
       </h2>
+      <p>* champ obligatoire</p>
       {logged && <Redirect to="/mon-compte" />}
       {!logged && (
-      <div className="subscrire">
+      <div className="subscrire-div">
         <form className="form" onSubmit={handleSubmit}>
           <div>
             <label htmlFor="passwordNew">
-              Entrer votre mot de passe:
+              Entrer votre mot de passe*
               <input
                 type="password"
                 name="passwordNew"
@@ -84,7 +85,7 @@ const Subscribe = ({
           </div>
           <div>
             <label htmlFor="passwordCheck">
-              Confirmez votre mot de passe:
+              Confirmez votre mot de passe*
               <input
                 type="password"
                 name="passwordCheck"
@@ -97,7 +98,7 @@ const Subscribe = ({
           </div>
           <div>
             <label htmlFor="firstname">
-              Prénom
+              Prénom*
               <input
                 type="text"
                 name="firstname"
@@ -110,7 +111,7 @@ const Subscribe = ({
           </div>
           <div>
             <label htmlFor="lastname">
-              Nom de famille
+              Nom de famille*
               <input
                 type="text"
                 name="lastname"
@@ -120,7 +121,7 @@ const Subscribe = ({
               />
             </label>
           </div>
-          <p className="treatment-type-form">Type de traitement</p>
+          <p className="treatment-type-form">Type de traitement*</p>
           <div>
             <label htmlFor="treatment-yes">
               Insulino Requiérent
@@ -131,7 +132,6 @@ const Subscribe = ({
                 value="Insulino-requiérent"
                 checked={treatment === 'Insulino-requiérent'}
                 onChange={catchTreatment}
-                required
               />
             </label>
           </div>
@@ -145,13 +145,12 @@ const Subscribe = ({
                 value="Non insulino-requiérent"
                 checked={treatment === 'Non insulino-requiérent'}
                 onChange={catchTreatment}
-                required
               />
             </label>
           </div>
           <div>
-            <label htmlFor="targetMin">
-              Glycémie maximale recommandée par mon médecin
+            <label htmlFor="targetMin" className="targetMin">
+              Glycémie miminimale recommandée par mon médecin (g/L)*
               <input
                 type="number"
                 step="0.10"
@@ -164,7 +163,8 @@ const Subscribe = ({
             </label>
           </div>
           <div>
-            <label htmlFor="targetMax">Glycémie maximale recommandée par mon médecin
+            <label htmlFor="targetMax" className="targetMax">
+              Glycémie maximale recommandée par mon médecin (g/L)*
               <input
                 type="number"
                 step="0.10"
@@ -209,7 +209,6 @@ const Subscribe = ({
 };
 
 Subscribe.propTypes = {
-  // changeField: PropTypes.func.isRequired,
   sendCreateAccount: PropTypes.func.isRequired,
   passwordNew: PropTypes.string.isRequired,
   loader: PropTypes.bool.isRequired,

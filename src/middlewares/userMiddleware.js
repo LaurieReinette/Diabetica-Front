@@ -28,7 +28,7 @@ const userMiddleware = (store) => (next) => (action) => {
       const { rate } = store.getState().userReducer;
       const { correction } = store.getState().userReducer;
 
-      axios.post('https://127.0.0.1:8000/api/user/bloodsugar/add', {
+      axios.post('https://diabeticaback.lauriereinette.fr/api/user/bloodsugar/add', {
         date,
         time,
         rate: stringToFloatAndReplaceComaByPoint(rate),
@@ -37,13 +37,11 @@ const userMiddleware = (store) => (next) => (action) => {
         headers: {'Authorization' : `Bearer ${token}`},
       })
         .then((response) => {
-          console.log(response.data);
           store.dispatch(saveBloodsugars(response.data));
           store.dispatch(emptyBloodsugarForm());
         })
         .catch((error) => {
           console.warn(error);
-          console.log(date, time);
           store.dispatch(saveError('Une erreur s\'est produite, veuillez rééssayer'));
           store.dispatch(getLoaderFalse());
         });

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-
+import classNames from 'classnames';
 import BloodsugarForm from 'src/containers/BloodsugarForm';
 
 import './account.scss';
@@ -31,7 +31,7 @@ const Account = ({
         { displayBloodsugarFormBool && <BloodsugarForm /> }
       </div>
       <div className="table-users">
-        <div className="account-last-bloodsugar">Mes dernières glycémies</div>
+        <div className="account-last-bloodsugars">Mes dernières glycémies</div>
         <table cellSpacing="0">
           <thead>
             <tr>
@@ -44,9 +44,9 @@ const Account = ({
           </thead>
           <tbody>
             {bloodsugars.map((bloodsugar) => (
-              <tr key={bloodsugar.id}>
-                <td>{bloodsugar.date}</td>
-                <td>{bloodsugar.time}</td>
+              <tr key={bloodsugar.id} className={classNames({ 'bloodsugar-ok': bloodsugar.normal, 'bloodsugar-high': bloodsugar.high, 'bloodsugar-low': bloodsugar.low })}>
+                <td>{bloodsugar.dateString}</td>
+                <td>{bloodsugar.timeString}</td>
                 <td>{bloodsugar.rate}</td>
                 <td>{bloodsugar.correction}</td>
                 <td> {bloodsugar.normality} </td>
@@ -69,7 +69,12 @@ Account.propTypes = {
         rate: PropTypes.number.isRequired,
         date: PropTypes.string.isRequired,
         time: PropTypes.string.isRequired,
+        dateString: PropTypes.string.isRequired,
+        timeString: PropTypes.string.isRequired,
         correction: PropTypes.string.isRequired,
+        high: PropTypes.bool.isRequired,
+        low: PropTypes.bool.isRequired,
+        normal: PropTypes.bool.isRequired,
       }).isRequired,
     ).isRequired,
     lastname: PropTypes.string.isRequired,
@@ -81,6 +86,20 @@ Account.propTypes = {
     doctor_email: PropTypes.string.isRequired,
     created_at: PropTypes.string.isRequired,
   }).isRequired,
+  bloodsugars: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      rate: PropTypes.number.isRequired,
+      date: PropTypes.string.isRequired,
+      time: PropTypes.string.isRequired,
+      dateString: PropTypes.string.isRequired,
+      timeString: PropTypes.string.isRequired,
+      correction: PropTypes.string.isRequired,
+      high: PropTypes.bool.isRequired,
+      low: PropTypes.bool.isRequired,
+      normal: PropTypes.bool.isRequired,
+    }).isRequired,
+  ).isRequired,
   displayBloodsugarForm: PropTypes.func.isRequired,
   displayBloodsugarFormBool: PropTypes.bool.isRequired,
 

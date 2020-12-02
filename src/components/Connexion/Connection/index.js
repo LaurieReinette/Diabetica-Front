@@ -28,10 +28,18 @@ const Connection = ({
         {!logged && (
           <form className="form" autoComplete="on" onSubmit={handleSubmit}>
             <div className="form-password">
-              <label htmlFor="password">Entrer votre mot de passe: </label>
-              <input type="password" name="password" id="password" value={password} onChange={catchFieldPassword} />
+              <label htmlFor="password">
+                Entrer votre mot de passe:
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  value={password}
+                  onChange={catchFieldPassword}
+                />
+              </label>
+              <button type="submit"> Continuer</button>
             </div>
-            <button type="submit"> Continuer</button>
           </form>
         )}
       </div>
