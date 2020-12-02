@@ -12,6 +12,7 @@ const mapStateToProps = (state) => ({
   errorDetected: state.errorReducer.errorDetected,
   error: state.errorReducer.error,
   displayBloodsugarFormBool: state.userReducer.displayBloodsugarFormBool,
+  bloodsugars: state.userReducer.bloodsugars,
   // nom de la prop à remplir : élément à récupérer dans le state
 });
 

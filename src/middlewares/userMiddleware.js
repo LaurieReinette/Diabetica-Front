@@ -13,7 +13,11 @@ import {
 
 import { stringToFloatAndReplaceComaByPoint } from 'src/utils/functions';
 
-import { SEND_BLOODSUGAR } from '../actions/userActions';
+import {
+  SEND_BLOODSUGAR,
+  emptyBloodsugarForm,
+  saveBloodsugars,
+} from '../actions/userActions';
 
 const userMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -34,10 +38,12 @@ const userMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           console.log(response.data);
-          store.dispatch(saveUserDatas(response.data));
+          store.dispatch(saveBloodsugars(response.data));
+          store.dispatch(emptyBloodsugarForm());
         })
         .catch((error) => {
           console.warn(error);
+          console.log(date, time);
           store.dispatch(saveError('Une erreur s\'est produite, veuillez rééssayer'));
           store.dispatch(getLoaderFalse());
         });

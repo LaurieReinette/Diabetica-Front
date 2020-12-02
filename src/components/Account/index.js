@@ -5,12 +5,17 @@ import BloodsugarForm from 'src/containers/BloodsugarForm';
 
 import './account.scss';
 
-const Account = ({ user, displayBloodsugarFormBool, displayBloodsugarForm }) => {
-  const tata = 'tata';
+const Account = ({
+  user,
+  bloodsugars,
+  displayBloodsugarFormBool,
+  displayBloodsugarForm,
+}) => {
   let innerHtmlButton = 'Ajouter une glycémie';
   if (displayBloodsugarFormBool === true) {
     innerHtmlButton = 'Fermer';
   }
+
   return (
     <main className="account">
       <h2>Mon compte Diabetica</h2>
@@ -34,15 +39,17 @@ const Account = ({ user, displayBloodsugarFormBool, displayBloodsugarForm }) => 
               <td>Heure</td>
               <td>Taux (g/L)</td>
               <td>Correction</td>
+              <td>Commentaires</td>
             </tr>
           </thead>
           <tbody>
-            {user.bloodsugars.map((bloodsugar) => (
+            {bloodsugars.map((bloodsugar) => (
               <tr key={bloodsugar.id}>
                 <td>{bloodsugar.date}</td>
                 <td>{bloodsugar.time}</td>
                 <td>{bloodsugar.rate}</td>
                 <td>{bloodsugar.correction}</td>
+                <td> {bloodsugar.normality} </td>
               </tr>
             ))}
           </tbody>

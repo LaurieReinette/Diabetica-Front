@@ -49,10 +49,19 @@ $padding: 10px;
        font-weight: 300;
     }
     
-    tr {     
-       &:nth-child(2n) { background-color: white; }
-       &:nth-child(2n+1) { background-color: lighten($baseColor, 55%) }
-    }
+   //  tr {     
+   //     &:nth-child(2n) { background-color: white; }
+   //     &:nth-child(2n+1) { background-color: lighten($baseColor, 55%) }
+   //  }
+   .bloodsugar-ok {
+      background-color: lightgreen;
+   }
+   .bloodsugar-high {
+      background-color: rgba(255, 0, 0, 0.7);
+   }
+   .bloodsugar-low {
+      background-color: rgba(248, 137, 33, 0.7);
+   }
  }
  
  @media screen and (max-width: 700px) {   

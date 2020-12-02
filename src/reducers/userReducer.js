@@ -1,7 +1,8 @@
 import {
   DISPLAY_BLOODSUGAR_FORM,
-  HIDE_BLOODSUGAR_FORM,
+  EMPTY_BLOODSUGAR_FORM,
   UPDATE_BLOODSUGAR_FIELD,
+  SAVE_BLOODSUGARS,
 } from 'src/actions/userActions';
 
 const initialState = {
@@ -10,9 +11,10 @@ const initialState = {
   rate: '',
   correction: '',
   displayBloodsugarFormBool: false,
+  bloodsugars: [],
 };
 
-const mainReducer = (state = initialState, action = {}) => {
+const userReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case UPDATE_BLOODSUGAR_FIELD:
       return {
@@ -25,13 +27,21 @@ const mainReducer = (state = initialState, action = {}) => {
         ...state,
         displayBloodsugarFormBool: !state.displayBloodsugarFormBool,
       };
-    case HIDE_BLOODSUGAR_FORM:
+    case EMPTY_BLOODSUGAR_FORM:
       return {
         ...state,
-        displayBloodsugarFormBool: false,
+        date: '',
+        time: '',
+        rate: '',
+        correction: '',
+      };
+    case SAVE_BLOODSUGARS:
+      return {
+        ...state,
+        bloodsugars: action.datas,
       };
     default: return state;
   }
 };
 
-export default mainReducer;
+export default userReducer;

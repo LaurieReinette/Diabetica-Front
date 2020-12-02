@@ -3,7 +3,10 @@ import { connect } from 'react-redux';
 // === on importe le composant de présentation
 import BloodsugarForm from 'src/components/Account/BloodsugarForm';
 
-import { sendBloodsugar, updateBloodsugarField, hideBloodsugarForm } from 'src/actions/userActions';
+import {
+  sendBloodsugar,
+  updateBloodsugarField,
+} from 'src/actions/userActions';
 
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
@@ -25,9 +28,6 @@ const mapDispatchToProps = (dispatch) => ({
   },
   handleSendBloodsugar: () => {
     dispatch(sendBloodsugar());
-  },
-  hideBloodsugarForm: () => {
-    dispatch(hideBloodsugarForm());
   },
 
 });

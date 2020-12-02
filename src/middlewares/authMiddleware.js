@@ -15,6 +15,10 @@ import {
 } from 'src/actions/authActions';
 
 import {
+  saveBloodsugars,
+} from 'src/actions/userActions';
+
+import {
   saveError,
   getErrorDetectedFalse,
   emptyErrors,
@@ -36,7 +40,7 @@ const authMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.warn(error);
-          store.dispatch(saveError('L\'adresse mail n\' pas valide'));
+          store.dispatch(saveError('L\'adresse mail n\'est pas valide'));
           store.dispatch(getLoaderFalse());
         });
       next(action);
@@ -70,6 +74,16 @@ const authMiddleware = (store) => (next) => (action) => {
       axios.get('https://127.0.0.1:8000/api/user', { headers: {'Authorization' : `Bearer ${token}`} })
         .then((response) => {
           store.dispatch(saveUserDatas(response.data));
+        })
+        .catch((error) => {
+          console.warn(error);
+          store.dispatch(saveError('Une erreur s\'est produite, veuillez réessayer'));
+          store.dispatch(getLoaderFalse());
+        });
+      axios.get('https://127.0.0.1:8000/api/user/fetch-bloodsugars', { headers: {'Authorization' : `Bearer ${token}`} })
+        .then((response) => {
+          console.log(response.data);
+          store.dispatch(saveBloodsugars(response.data));
         })
         .catch((error) => {
           console.warn(error);
