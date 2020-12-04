@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import Header from 'src/containers/Header';
 import Nav from 'src/containers/Nav';
@@ -17,7 +17,11 @@ import Error from 'src/containers/Error';
 import './styles.scss';
 
 // == Composant
-const Diabetica = ({ logged, errorDetected }) => {
+const Diabetica = ({
+  logged,
+  errorDetected,
+  logout,
+}) => {
   const truc = 'machine';
   return (
     <div className="diabetica">
@@ -30,6 +34,7 @@ const Diabetica = ({ logged, errorDetected }) => {
         <Route path="/a-propos" component={About} />
         {logged && <Route path="/mon-compte" component={Account} /> }
         {/* <Route path="/" component={Page404} /> */}
+        {logout && <Redirect to="/" />}
       </Switch>
       <Footer />
     </div>

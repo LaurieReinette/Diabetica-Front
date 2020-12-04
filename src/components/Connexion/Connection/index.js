@@ -11,6 +11,7 @@ const Connection = ({
   changeFieldPassword,
   logged,
   loader,
+  logout,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();

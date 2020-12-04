@@ -9,7 +9,6 @@ const Nav = ({
   logged,
   navDatasLogged,
   handleLogout,
-  logout,
 }) => {
   if (logged === false) {
     return (
@@ -49,7 +48,6 @@ const Nav = ({
         >   Déconnexion
         </button>
       </nav>
-      {logout && <Redirect to="/connexion-inscription" />}
     </div>
   );
 };

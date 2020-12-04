@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
+
 import classNames from 'classnames';
+
 import BloodsugarForm from 'src/containers/BloodsugarForm';
 import ConfirmedDeleteBloodsugar from 'src/containers/ConfirmedDeleteBloodsugar';
 import trash from 'src/assets/images/trash.png';

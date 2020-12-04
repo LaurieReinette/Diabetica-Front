@@ -18,7 +18,9 @@ const mapStateToProps = (state) => ({
   displayBloodsugarFormBool: state.userReducer.displayBloodsugarFormBool,
   bloodsugars: state.userReducer.bloodsugars,
   bloodsugarId: state.userReducer.bloodsugarId,
-  displayConfirmDeleteBloodsugar: state.userReducer.displayConfirmDeleteBloodsugar
+  displayConfirmDeleteBloodsugar: state.userReducer.displayConfirmDeleteBloodsugar,
+  logout: state.authReducer.logout,
+
   // nom de la prop à remplir : élément à récupérer dans le state
 });
 

@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 
-import { fetchNavDatas } from 'src/actions/main';
 import Diabetica from 'src/components/Diabetica';
 
 // === mapStateToProps
@@ -9,6 +8,7 @@ const mapStateToProps = (state) => ({
   logged: state.authReducer.logged,
   errorDetected: state.errorReducer.errorDetected,
   error: state.errorReducer.error,
+  logout: state.authReducer.logout,
 
   // nom de la prop à remplir : élément à récupérer dans le state
 });
