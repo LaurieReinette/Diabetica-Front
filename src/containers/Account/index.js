@@ -3,7 +3,11 @@ import { connect } from 'react-redux';
 // === on importe le composant de présentation
 import Account from 'src/components/Account';
 
-import { displayBloodsugarForm } from 'src/actions/userActions';
+import {
+  displayBloodsugarForm,
+  editBloodsugarId,
+  sendDeleteBloodsugar,
+} from 'src/actions/userActions';
 
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
@@ -13,6 +17,7 @@ const mapStateToProps = (state) => ({
   error: state.errorReducer.error,
   displayBloodsugarFormBool: state.userReducer.displayBloodsugarFormBool,
   bloodsugars: state.userReducer.bloodsugars,
+  bloodsugarId: state.userReducer.bloodsugarId,
   // nom de la prop à remplir : élément à récupérer dans le state
 });
 
@@ -22,7 +27,13 @@ const mapDispatchToProps = (dispatch) => ({
   displayBloodsugarForm: () => {
     dispatch(displayBloodsugarForm());
   },
-
+  editBloodsugarId: (bloodsugarId) => {
+    dispatch(editBloodsugarId(bloodsugarId));
+  },
+  sendDeleteBloodsugar: () => {
+    dispatch(sendDeleteBloodsugar());
+  },
+  
 });
 
 // === création de l'assistant

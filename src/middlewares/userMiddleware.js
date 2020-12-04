@@ -17,6 +17,8 @@ import {
   SEND_BLOODSUGAR,
   emptyBloodsugarForm,
   saveBloodsugars,
+  sendDeleteBloodsugar,
+  DELETE_BLOODSUGAR,
 } from '../actions/userActions';
 
 const userMiddleware = (store) => (next) => (action) => {
@@ -39,6 +41,24 @@ const userMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           store.dispatch(saveBloodsugars(response.data));
           store.dispatch(emptyBloodsugarForm());
+        })
+        .catch((error) => {
+          console.warn(error);
+          store.dispatch(saveError('Une erreur s\'est produite, veuillez rééssayer'));
+          store.dispatch(getLoaderFalse());
+        });
+      next(action);
+      break;
+    }
+    case DELETE_BLOODSUGAR: {
+      const { token } = store.getState().authReducer;
+      const { bloodsugarId } = store.getState().userReducer;
+
+      axios.delete(`https://diabeticaback.lauriereinette.fr/api/delete/${bloodsugarId}`, {
+        headers: {'Authorization' : `Bearer ${token}`},
+      })
+        .then((response) => {
+          store.dispatch(saveBloodsugars(response.data));
         })
         .catch((error) => {
           console.warn(error);

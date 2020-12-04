@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import BloodsugarForm from 'src/containers/BloodsugarForm';
 
+import trash from 'src/assets/images/trash.png';
+import edition from 'src/assets/images/edition.png';
+
 import './account.scss';
 
 const Account = ({
@@ -10,11 +13,23 @@ const Account = ({
   bloodsugars,
   displayBloodsugarFormBool,
   displayBloodsugarForm,
+  editBloodsugarId,
+  sendDeleteBloodsugar,
 }) => {
   let innerHtmlButton = 'Ajouter une glycémie';
   if (displayBloodsugarFormBool === true) {
     innerHtmlButton = 'Fermer';
   }
+
+  // const editBloodsugar = (bloodsugarId) => {
+  //   editBloodsugar(bloodsugarId);
+  // };
+  const deleteBloodsugar = (bloodsugarId) => {
+    console.log('coucou');
+    console.log(bloodsugarId);
+    editBloodsugarId(bloodsugarId);
+    sendDeleteBloodsugar();
+  };
 
   return (
     <main className="account">
@@ -40,6 +55,8 @@ const Account = ({
               <td>Taux (g/L)</td>
               <td>Normalité</td>
               <td>Correction</td>
+              <td></td>
+              <td></td>
             </tr>
           </thead>
           <tbody>
@@ -50,6 +67,16 @@ const Account = ({
                 <td>{bloodsugar.rate}</td>
                 <td> {bloodsugar.normality} </td>
                 <td>{bloodsugar.correction}</td>
+                <td>
+                  <button type="button">
+                    <img src={edition} alt="editer la glycémie" />
+                  </button>
+                </td>
+                <td>
+                  <button type="button" onClick={() => deleteBloodsugar(bloodsugar.id)}>
+                    <img src={trash} alt="supprimer la glycémie" />
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
@@ -102,6 +129,9 @@ Account.propTypes = {
   ).isRequired,
   displayBloodsugarForm: PropTypes.func.isRequired,
   displayBloodsugarFormBool: PropTypes.bool.isRequired,
+  editBloodsugarId: PropTypes.func.isRequired,
+  sendDeleteBloodsugar:  PropTypes.func.isRequired,
+
 
 };
 

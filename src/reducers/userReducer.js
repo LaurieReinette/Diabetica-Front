@@ -3,6 +3,7 @@ import {
   EMPTY_BLOODSUGAR_FORM,
   UPDATE_BLOODSUGAR_FIELD,
   SAVE_BLOODSUGARS,
+  EDIT_BLOODSUGAR,
 } from 'src/actions/userActions';
 
 const initialState = {
@@ -12,6 +13,7 @@ const initialState = {
   correction: '',
   displayBloodsugarFormBool: false,
   bloodsugars: [],
+  bloodsugarId: 0,
 };
 
 const userReducer = (state = initialState, action = {}) => {
@@ -39,6 +41,11 @@ const userReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         bloodsugars: action.datas,
+      };
+    case EDIT_BLOODSUGAR:
+      return {
+        ...state,
+        bloodsugarId: action.bloodsugarId,
       };
     default: return state;
   }
