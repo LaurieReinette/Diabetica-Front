@@ -12,8 +12,8 @@
   button{
     margin-left: 10px;
     font-family: 'Dosis', sans-serif;
-    font-size: 1.2em;
-    background-color: lightblue;
-
+    font-size: 1.2rem;
+    background-color: $blue;
+    border-radius: 1rem;
   }
 }

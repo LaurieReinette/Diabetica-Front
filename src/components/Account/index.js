@@ -38,8 +38,8 @@ const Account = ({
               <td>Date</td>
               <td>Heure</td>
               <td>Taux (g/L)</td>
+              <td>Normalité</td>
               <td>Correction</td>
-              <td>Commentaires</td>
             </tr>
           </thead>
           <tbody>
@@ -48,8 +48,8 @@ const Account = ({
                 <td>{bloodsugar.dateString}</td>
                 <td>{bloodsugar.timeString}</td>
                 <td>{bloodsugar.rate}</td>
-                <td>{bloodsugar.correction}</td>
                 <td> {bloodsugar.normality} </td>
+                <td>{bloodsugar.correction}</td>
               </tr>
             ))}
           </tbody>

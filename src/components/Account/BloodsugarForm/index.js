@@ -55,7 +55,7 @@ const BloodsugarForm = ({
           type="submit"
           className="login-form-button"
         >
-          OK
+          Ajouter
         </button>
       </form>
     </div>

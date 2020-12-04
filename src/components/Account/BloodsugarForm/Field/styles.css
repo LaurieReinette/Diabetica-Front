@@ -1,6 +1,8 @@
 .field {
   margin: .3em;
   position: relative;
+  font-family: 'Dosis', sans-serif;
+
 }
 .field-input {
   width: 100%;

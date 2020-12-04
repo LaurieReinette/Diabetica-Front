@@ -14,56 +14,27 @@
   .requirement{
     background-color: lightgrey;
     border: lightgrey 1px solid;
-    width: 70%;
-    margin: 0 auto;
-    margin-bottom: 20px;
+    width: 50%;
+    margin: 10px auto;
+    border-radius: 1rem;
+    padding: 6px;
   }
 
   .main-list{
     list-style-type: circle;
-    // list-style: url('../../assets/images/bandelette.jpg');
   }
 
 
   .subscrire-go{
     color: red;
     font-size: 1.4em;
+    border-radius: 1rem;
+    background-color: rgba($color: #fd0000, $alpha: 0.2);
+    padding: 10px;
+    &:hover{
+      color: black;
+      background-color: rgba($color: #fd0000, $alpha: 0.6);
+    }
   }
+
 }
-.box {
-  position: relative;
-  }
-  .box-entered {
-  color: black;
-  }
-  .box-entering {
-  animation-name: example;
-  animation-duration: 1s;
-  }
-  @keyframes example {
-  0% {
-  color: black;
-  left: -300px;
-  top: 0px;
-  }
-  25% {
-  color: black;
-  left: -200px;
-  top: 0px;
-  }
-  50% {
-  color: black;
-  left: -100px;
-  top: 0px;
-  }
-  75% {
-  color: black;
-  left: -50px;
-  top: 0px;
-  }
-  100% {
-  color: black;
-  left: 0px;
-  top: 0px;
-  }
-  }

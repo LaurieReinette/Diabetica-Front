@@ -1,21 +1,23 @@
 @import 'src/styles/vars';
 
 .header {
-
-  font-size: 2.5em;
+  width: 100%;
+  font-size: 2.5rem;
   padding: 10px;
   text-align: center;
-  background: linear-gradient(178deg, #12f0d4, #0c9ef3);
-  background-size: 600% 600%;
-
-  -webkit-animation: AnimationName 5s ease infinite;
-  animation: AnimationName 5s ease infinite;
-  margin-bottom: 10px;
-  box-shadow: 0px 7px 2px 2px rgba(50, 50, 50, 0.5);
-
+  background: linear-gradient(178deg,$blue,$red);
+  background-size: 400% 400%;
+  
+  -webkit-animation: AnimationName 6.5s ease infinite;
+  animation: AnimationName 6.5s ease infinite;
+  
   h1 {
-    font-size: 2.2em;
+    font-size: 1.8em;
+    // margin-left: -80px;
   }
+  .diabetica-logo{
+    width: 80px;
+}
 }
 @-webkit-keyframes AnimationName {
     0%{background-position:82% 0%}
