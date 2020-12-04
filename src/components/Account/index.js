@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import BloodsugarForm from 'src/containers/BloodsugarForm';
-
+import ConfirmedDeleteBloodsugar from 'src/containers/ConfirmedDeleteBloodsugar';
 import trash from 'src/assets/images/trash.png';
 import edition from 'src/assets/images/edition.png';
 
@@ -13,8 +13,10 @@ const Account = ({
   bloodsugars,
   displayBloodsugarFormBool,
   displayBloodsugarForm,
-  editBloodsugarId,
+  editBloodsugarIdToDelete,
   sendDeleteBloodsugar,
+  confirmedDeleteBloodsugar,
+  displayConfirmDeleteBloodsugar,
 }) => {
   let innerHtmlButton = 'Ajouter une glycémie';
   if (displayBloodsugarFormBool === true) {
@@ -25,16 +27,13 @@ const Account = ({
   //   editBloodsugar(bloodsugarId);
   // };
   const deleteBloodsugar = (bloodsugarId) => {
-    console.log('coucou');
-    console.log(bloodsugarId);
-    editBloodsugarId(bloodsugarId);
-    sendDeleteBloodsugar();
+    editBloodsugarIdToDelete(bloodsugarId);
   };
-
   return (
     <main className="account">
       <h2>Mon compte Diabetica</h2>
       <h3>Bienvenue {user.firstname} {user.lastname} </h3>
+      {displayConfirmDeleteBloodsugar && <ConfirmedDeleteBloodsugar />}
       <div className="display-bloodsugar">
         <button
           type="button"
@@ -129,8 +128,8 @@ Account.propTypes = {
   ).isRequired,
   displayBloodsugarForm: PropTypes.func.isRequired,
   displayBloodsugarFormBool: PropTypes.bool.isRequired,
-  editBloodsugarId: PropTypes.func.isRequired,
-  sendDeleteBloodsugar:  PropTypes.func.isRequired,
+  editBloodsugarIdToDelete: PropTypes.func.isRequired,
+  sendDeleteBloodsugar: PropTypes.func.isRequired,
 
 
 };

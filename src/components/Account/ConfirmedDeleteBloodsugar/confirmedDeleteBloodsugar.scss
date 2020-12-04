@@ -1,0 +1,22 @@
+.confirmedDeleteBloodsugar {
+  position: absolute;
+  left:0px;
+  top:0px;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(15, 255, 243, 0.85);
+  text-transform: none;
+  text-shadow: black 2px 0 10px;
+
+  .card {
+    position: relative;
+    // left:50%;
+    top:50%;
+    button {
+      font-size: 1.3rem;
+      padding: 8px;
+      margin: 5px;
+    }
+
+  }
+}
