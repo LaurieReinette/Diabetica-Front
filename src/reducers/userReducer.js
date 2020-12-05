@@ -7,6 +7,7 @@ import {
   DISPLAY_CONFIRM_DELETE_BLOODSUGAR,
   DELETE_BLOODSUGAR,
   HIDE_CONFIRM_DELETE_BLOODSUGAR,
+  EDIT_BLOODSUGAR_INSTATE,
 } from 'src/actions/userActions';
 
 const initialState = {
@@ -17,6 +18,7 @@ const initialState = {
   displayBloodsugarFormBool: false,
   bloodsugars: [],
   bloodsugarId: 0,
+  bloodsugarToEdit: [],
   displayConfirmDeleteBloodsugar: false,
 
 };
@@ -63,8 +65,13 @@ const userReducer = (state = initialState, action = {}) => {
         ...state,
         displayConfirmDeleteBloodsugar: false,
       };
+    case EDIT_BLOODSUGAR_INSTATE:
+      return {
+        ...state,
+        bloodsugarToEdit: action.bloodsugar,
+      };
     default: return state;
   }
 };
-
+// action.bloodsugar
 export default userReducer;

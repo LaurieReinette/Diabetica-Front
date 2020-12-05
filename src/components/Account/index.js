@@ -20,15 +20,18 @@ const Account = ({
   sendDeleteBloodsugar,
   confirmedDeleteBloodsugar,
   displayConfirmDeleteBloodsugar,
+  bloodsugarToEdit,
+  editBloodsugarInState,
 }) => {
   let innerHtmlButton = 'Ajouter une glycémie';
   if (displayBloodsugarFormBool === true) {
     innerHtmlButton = 'Fermer';
   }
 
-  // const editBloodsugar = (bloodsugarId) => {
-  //   editBloodsugar(bloodsugarId);
-  // };
+  const editBloodsugar = (bloodsugar) => {
+    console.log(bloodsugar);
+    editBloodsugarInState(bloodsugar);
+  };
   const deleteBloodsugar = (bloodsugarId) => {
     editBloodsugarIdToDelete(bloodsugarId);
   };
@@ -70,7 +73,7 @@ const Account = ({
                 <td> {bloodsugar.normality} </td>
                 <td>{bloodsugar.correction}</td>
                 <td>
-                  <button type="button">
+                  <button type="button" onClick={() => editBloodsugar(bloodsugar)}>
                     <img src={edition} alt="editer la glycémie" />
                   </button>
                 </td>
