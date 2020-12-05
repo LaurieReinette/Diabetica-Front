@@ -5,6 +5,8 @@ import { Redirect } from 'react-router-dom';
 import classNames from 'classnames';
 
 import BloodsugarForm from 'src/containers/BloodsugarForm';
+import BloodsugarFormEdition from 'src/containers/BloodsugarFormEdition';
+
 import ConfirmedDeleteBloodsugar from 'src/containers/ConfirmedDeleteBloodsugar';
 import trash from 'src/assets/images/trash.png';
 import edition from 'src/assets/images/edition.png';
@@ -29,7 +31,6 @@ const Account = ({
   }
 
   const editBloodsugar = (bloodsugar) => {
-    console.log(bloodsugar);
     editBloodsugarInState(bloodsugar);
   };
   const deleteBloodsugar = (bloodsugarId) => {
