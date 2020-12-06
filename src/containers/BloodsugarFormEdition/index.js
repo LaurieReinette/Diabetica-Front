@@ -19,6 +19,7 @@ const mapStateToProps = (state) => ({
   correction: state.userReducer.correction,
   displayBloodsugarFormBool: state.userReducer.displayBloodsugarFormBool,
   hideEditBloodsugarForm: state.userReducer.hideEditBloodsugarForm,
+  bloodsugarToEdit: state.userReducer.bloodsugarToEdit,
 });
 
 // === mapDispatchToProps

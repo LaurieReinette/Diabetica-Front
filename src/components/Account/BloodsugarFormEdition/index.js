@@ -14,6 +14,7 @@ const BloodsugarFormEdition = ({
   changeField,
   handleSendBloodsugar,
   hideEditBloodsugarForm,
+  bloodsugarToEdit,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();

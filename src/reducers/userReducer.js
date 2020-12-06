@@ -18,7 +18,7 @@ const initialState = {
   displayBloodsugarFormBool: false,
   bloodsugars: [],
   bloodsugarId: 0,
-  bloodsugarToEdit: [],
+  bloodsugarToEdit: {},
   displayConfirmDeleteBloodsugar: false,
   displayEditBloodsugar: false,
 
@@ -35,6 +35,10 @@ const userReducer = (state = initialState, action = {}) => {
     case DISPLAY_BLOODSUGAR_FORM:
       return {
         ...state,
+        date: '',
+        time: '',
+        rate: '',
+        correction: '',
         displayBloodsugarFormBool: !state.displayBloodsugarFormBool,
       };
     case EMPTY_BLOODSUGAR_FORM:
@@ -70,6 +74,10 @@ const userReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         bloodsugarToEdit: action.bloodsugar,
+        date: '1999-02-02',
+        time: '10:10',
+        rate: action.bloodsugar.rate,
+        correction: action.bloodsugar.correction,
         displayEditBloodsugar: true,
         displayBloodsugarFormBool: false,
       };
