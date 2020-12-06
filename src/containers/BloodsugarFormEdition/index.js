@@ -6,6 +6,7 @@ import BloodsugarFormEdition from 'src/components/Account/BloodsugarFormEdition'
 import {
   sendBloodsugar,
   updateBloodsugarField,
+  hideEditBloodsugarForm,
 } from 'src/actions/userActions';
 
 // === mapStateToProps
@@ -17,6 +18,7 @@ const mapStateToProps = (state) => ({
   rate: state.userReducer.rate,
   correction: state.userReducer.correction,
   displayBloodsugarFormBool: state.userReducer.displayBloodsugarFormBool,
+  hideEditBloodsugarForm: state.userReducer.hideEditBloodsugarForm,
 });
 
 // === mapDispatchToProps
@@ -29,7 +31,9 @@ const mapDispatchToProps = (dispatch) => ({
   handleSendBloodsugar: () => {
     dispatch(sendBloodsugar());
   },
-
+  hideEditBloodsugarForm: () => {
+    dispatch(hideEditBloodsugarForm());
+  },
 });
 
 // === création de l'assistant

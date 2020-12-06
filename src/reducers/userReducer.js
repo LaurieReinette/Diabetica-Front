@@ -4,10 +4,10 @@ import {
   UPDATE_BLOODSUGAR_FIELD,
   SAVE_BLOODSUGARS,
   EDIT_REDUCER_BLOODSUGAR_TO_DELETE,
-  DISPLAY_CONFIRM_DELETE_BLOODSUGAR,
   DELETE_BLOODSUGAR,
   HIDE_CONFIRM_DELETE_BLOODSUGAR,
   EDIT_BLOODSUGAR_INSTATE,
+  HIDE_EDIT_BLOODSUGAR_FORM,
 } from 'src/actions/userActions';
 
 const initialState = {
@@ -20,6 +20,7 @@ const initialState = {
   bloodsugarId: 0,
   bloodsugarToEdit: [],
   displayConfirmDeleteBloodsugar: false,
+  displayEditBloodsugar: false,
 
 };
 
@@ -69,6 +70,13 @@ const userReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         bloodsugarToEdit: action.bloodsugar,
+        displayEditBloodsugar: true,
+        displayBloodsugarFormBool: false,
+      };
+    case HIDE_EDIT_BLOODSUGAR_FORM:
+      return {
+        ...state,
+        displayEditBloodsugar: false,
       };
     default: return state;
   }

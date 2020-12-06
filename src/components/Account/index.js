@@ -24,6 +24,7 @@ const Account = ({
   displayConfirmDeleteBloodsugar,
   bloodsugarToEdit,
   editBloodsugarInState,
+  displayEditBloodsugar,
 }) => {
   let innerHtmlButton = 'Ajouter une glycémie';
   if (displayBloodsugarFormBool === true) {
@@ -49,7 +50,8 @@ const Account = ({
         >
           {innerHtmlButton}
         </button>
-        { displayBloodsugarFormBool && <BloodsugarForm /> }
+        {displayBloodsugarFormBool && <BloodsugarForm /> }
+        {displayEditBloodsugar && <BloodsugarFormEdition /> }
       </div>
       <div className="table-users">
         <div className="account-last-bloodsugars">Mes dernières glycémies</div>

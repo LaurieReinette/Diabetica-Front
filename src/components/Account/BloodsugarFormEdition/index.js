@@ -13,51 +13,63 @@ const BloodsugarFormEdition = ({
   correction,
   changeField,
   handleSendBloodsugar,
+  hideEditBloodsugarForm,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleSendBloodsugar();
   };
-
+  const hideForm = () => {
+    hideEditBloodsugarForm();
+  };
   return (
-    <div className="bloodsugarForm">
-      <form className="login-form-element" onSubmit={handleSubmit}>
-        <Field
-          name="date"
-          placeholder="Date"
-          type="date"
-          onChange={changeField}
-          value={date}
-        />
-        <Field
-          name="time"
-          type="time"
-          placeholder="Heure"
-          onChange={changeField}
-          value={time}
-        />
-        <Field
-          name="rate"
-          type="number"
-          step="0.10"
-          placeholder="Taux"
-          onChange={changeField}
-          value={rate}
-        />
-        <Field
-          name="correction"
-          type="text"
-          placeholder="Correction effectuée"
-          onChange={changeField}
-          value={correction}
-        />
-        <button
-          type="submit"
-          className="login-form-button"
-        >
-          Ajouter
-        </button>
-      </form>
+    <div className="bloodsugarFormEdition">
+      <div className="bloodsugarForm">
+        <form className="login-form-element" onSubmit={handleSubmit}>
+          <Field
+            name="date"
+            placeholder="Date"
+            type="date"
+            onChange={changeField}
+            value={date}
+          />
+          <Field
+            name="time"
+            type="time"
+            placeholder="Heure"
+            onChange={changeField}
+            value={time}
+          />
+          <Field
+            name="rate"
+            type="number"
+            step="0.10"
+            placeholder="Taux"
+            onChange={changeField}
+            value={rate}
+          />
+          <Field
+            name="correction"
+            type="text"
+            placeholder="Correction effectuée"
+            onChange={changeField}
+            value={correction}
+          />
+          <button
+            type="submit"
+            className="login-form-button"
+          >
+            Ajouter
+          </button>
+          <button
+            type="button"
+            className="login-form-button"
+            onClick ={hideForm}
+          >
+            Fermer
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
