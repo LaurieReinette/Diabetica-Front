@@ -21,7 +21,9 @@
   }
 
   .main-list{
+    width: 90%;
     list-style-type: circle;
+    margin: 10px auto;
   }
 
 
@@ -38,18 +40,31 @@
   }
 
   @media screen and (min-width: 769px) and (max-width: 1200px) {   
-  
+    font-size: 1.5rem;
+
+    .requirement{
+      width: 80%;
+    }
 
   }
   
   
   @media screen and (min-width: 481px) and (max-width: 768px) {   
+    font-size: 1.5rem;
 
+    .requirement{
+      width: 90%;
+    }
    
   }
  
 
   @media screen and (max-width: 480px) {
+    font-size: 1.5rem;
 
+    .requirement{
+      width: 90%;
+    }
+    
   }
 }

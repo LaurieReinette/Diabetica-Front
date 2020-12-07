@@ -14,4 +14,43 @@
     font-size: 1.7rem;
     background-color:$blue;
   }
+
+  @media screen and (min-width: 769px) and (max-width: 1200px) {   
+    font-size: 1.5rem;
+    #password{
+      font-size: 1.7rem;
+      width: 90%;
+      margin: 15px;
+    }
+    button{
+      font-size: 1.6rem;
+    }
+
+  }
+  
+  
+  @media screen and (min-width: 481px) and (max-width: 768px) {   
+    font-size: 1.5rem;
+    #password{
+      font-size: 1.7rem;
+      width: 90%;
+      margin: 15px;
+    }
+    button{
+      font-size: 1.6rem;
+    }   
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 1.5rem;
+    #password{
+      font-size: 1.7rem;
+      width: 90%;
+      margin: 15px;
+    }
+    button{
+      font-size: 1.6rem;
+    }
+    
+  }
 }

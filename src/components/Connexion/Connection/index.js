@@ -23,7 +23,6 @@ const Connection = ({
 
   return (
     <div className="connection">
-      <h1>Entrez maintenant votre mot de passe</h1>
       <div className="connection-form">
         {logged && <Redirect to="/mon-compte" />}
         {!logged && (
