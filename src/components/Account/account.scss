@@ -6,6 +6,21 @@
   margin: 0 auto;
 //   margin: 10px;
   margin-bottom: 30px;
+  .targets{
+     font-weight: bold;;
+  }
+   p{
+      margin: 15px auto;
+   }
+  .button-sendbloodsugars{
+   margin: 5px;
+   padding: 3px 5px;
+   font-family: 'Dosis', sans-serif;
+   font-size: 1.2rem;
+   border-radius: 1rem;
+   background-color: rgba($color: $blue, $alpha: 0.9);
+
+  }
 
    .display-bloodsugar{
       // border: lightsteelblue 2px solid;
@@ -15,7 +30,6 @@
    }
   h2, h3 {
      margin: 15px;
-     width: 100%;
 
   }
   .account-last-bloodsugars {
@@ -38,6 +52,9 @@
     width: 80%;
     margin: 0 auto;
     text-transform: capitalize;
+    img{
+       width: 25px;
+    }
    td {
       height: 60px;
       padding-right: 10px;

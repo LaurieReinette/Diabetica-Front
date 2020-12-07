@@ -8,6 +8,7 @@ import {
   editBloodsugarIdToDelete,
   sendDeleteBloodsugar,
   editBloodsugarInState,
+  sendBloodsugarsToDoctor,
 } from 'src/actions/userActions';
 
 // === mapStateToProps
@@ -22,8 +23,8 @@ const mapStateToProps = (state) => ({
   displayConfirmDeleteBloodsugar: state.userReducer.displayConfirmDeleteBloodsugar,
   logout: state.authReducer.logout,
   bloodsugarToEdit: state.userReducer.bloodsugarToEdit,
-  displayEditBloodsugar: state.userReducer.displayEditBloodsugar
-
+  displayEditBloodsugar: state.userReducer.displayEditBloodsugar,
+  displayInformationsModal: state.userReducer.displayInformationsModal,
   // nom de la prop à remplir : élément à récupérer dans le state
 });
 
@@ -42,6 +43,10 @@ const mapDispatchToProps = (dispatch) => ({
   editBloodsugarInState: (bloodsugar) => {
     dispatch(editBloodsugarInState(bloodsugar));
   },
+  sendBloodsugarsToDoctor: () => {
+    dispatch(sendBloodsugarsToDoctor());
+  },
+  
 });
 
 // === création de l'assistant

@@ -20,6 +20,8 @@ import {
   DELETE_BLOODSUGAR,
   SEND_BLOODSUGAR_EDIT,
   hideEditBloodsugarForm,
+  SEND_BLOODSUGARS_TO_DOCTOR,
+  writeInformationsModal,
 } from '../actions/userActions';
 
 const userMiddleware = (store) => (next) => (action) => {
@@ -71,6 +73,7 @@ const userMiddleware = (store) => (next) => (action) => {
           store.dispatch(saveBloodsugars(response.data));
           store.dispatch(emptyBloodsugarForm());
           store.dispatch(hideEditBloodsugarForm());
+          store.dispatch(writeInformationsModal('Glycémie modifidiée'));
         })
         .catch((error) => {
           console.warn(error);
@@ -89,6 +92,24 @@ const userMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           store.dispatch(saveBloodsugars(response.data));
+        })
+        .catch((error) => {
+          console.warn(error);
+          store.dispatch(saveError('Une erreur s\'est produite, veuillez rééssayer'));
+          store.dispatch(getLoaderFalse());
+        });
+      next(action);
+      break;
+    }
+    case SEND_BLOODSUGARS_TO_DOCTOR: {
+      const { token } = store.getState().authReducer;
+
+      axios.get('https://diabeticaback.lauriereinette.fr/api/bloodsugar/sendtodoctor', {
+        headers: {'Authorization' : `Bearer ${token}`},
+      })
+        .then((response) => {
+          console.log('email envoyé');
+          store.dispatch(writeInformationsModal('Email envoyé'));
         })
         .catch((error) => {
           console.warn(error);

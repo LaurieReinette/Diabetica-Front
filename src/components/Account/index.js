@@ -6,8 +6,9 @@ import classNames from 'classnames';
 
 import BloodsugarForm from 'src/containers/BloodsugarForm';
 import BloodsugarFormEdition from 'src/containers/BloodsugarFormEdition';
-
 import ConfirmedDeleteBloodsugar from 'src/containers/ConfirmedDeleteBloodsugar';
+import InformationsModal from 'src/containers/InformationsModal';
+
 import trash from 'src/assets/images/trash.png';
 import edition from 'src/assets/images/edition.png';
 
@@ -25,6 +26,8 @@ const Account = ({
   bloodsugarToEdit,
   editBloodsugarInState,
   displayEditBloodsugar,
+  sendBloodsugarsToDoctor,
+  displayInformationsModal,
 }) => {
   let innerHtmlButton = 'Ajouter une glycémie';
   if (displayBloodsugarFormBool === true) {
@@ -37,10 +40,27 @@ const Account = ({
   const deleteBloodsugar = (bloodsugarId) => {
     editBloodsugarIdToDelete(bloodsugarId);
   };
+  const handleClickSendBloodsugarsToDoctor = () => {
+    sendBloodsugarsToDoctor();
+  };
   return (
     <main className="account">
       <h2>Mon compte Diabetica</h2>
       <h3>Bienvenue {user.firstname} {user.lastname} </h3>
+      <p>
+        Mes glycémies doivent être entre: <span className="targets">{user.target_min} et {user.target_max}</span>
+      </p>
+      <p>
+        Mon médécin référent: Docteur {user.doctor_name}
+        <button
+          type="button"
+          onClick={handleClickSendBloodsugarsToDoctor}
+          className="button-sendbloodsugars"
+        >
+          Envoyer mes glycémies à mon médecin
+        </button>
+      </p>
+      {displayInformationsModal && <InformationsModal />}
       {displayConfirmDeleteBloodsugar && <ConfirmedDeleteBloodsugar />}
       <div className="display-bloodsugar">
         <button
