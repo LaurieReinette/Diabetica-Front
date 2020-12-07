@@ -12,13 +12,13 @@ const BloodsugarFormEdition = ({
   rate,
   correction,
   changeField,
-  handleSendBloodsugar,
+  sendBloodsugarEdit,
   hideEditBloodsugarForm,
   bloodsugarToEdit,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    handleSendBloodsugar();
+    sendBloodsugarEdit();
   };
   const hideForm = () => {
     hideEditBloodsugarForm();
@@ -79,8 +79,10 @@ BloodsugarFormEdition.propTypes = {
   date: PropTypes.string.isRequired,
   time: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
-  handleSendBloodsugar: PropTypes.func.isRequired,
-  rate: PropTypes.string.isRequired,
+  rate: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
   correction: PropTypes.string.isRequired,
 };
 

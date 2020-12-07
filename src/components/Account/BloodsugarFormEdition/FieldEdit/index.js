@@ -44,7 +44,10 @@ const FieldEdit = ({
 };
 
 FieldEdit.propTypes = {
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
   type: PropTypes.string,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
@@ -53,7 +56,6 @@ FieldEdit.propTypes = {
 
 // Valeurs par défaut pour les props
 FieldEdit.defaultProps = {
-  value: '',
   type: 'text',
 };
 

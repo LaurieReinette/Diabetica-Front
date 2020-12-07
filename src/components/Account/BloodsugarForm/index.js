@@ -67,7 +67,10 @@ BloodsugarForm.propTypes = {
   time: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
   handleSendBloodsugar: PropTypes.func.isRequired,
-  rate: PropTypes.string.isRequired,
+  rate: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
   correction: PropTypes.string.isRequired,
 };
 

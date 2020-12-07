@@ -7,6 +7,7 @@ import {
   sendBloodsugar,
   updateBloodsugarField,
   hideEditBloodsugarForm,
+  sendBloodsugarEdit,
 } from 'src/actions/userActions';
 
 // === mapStateToProps
@@ -34,6 +35,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   hideEditBloodsugarForm: () => {
     dispatch(hideEditBloodsugarForm());
+  },
+  sendBloodsugarEdit: () => {
+    dispatch(sendBloodsugarEdit());
   },
 });
 

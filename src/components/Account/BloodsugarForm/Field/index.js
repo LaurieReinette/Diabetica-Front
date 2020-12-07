@@ -44,7 +44,10 @@ const Field = ({
 };
 
 Field.propTypes = {
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
   type: PropTypes.string,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
@@ -53,7 +56,6 @@ Field.propTypes = {
 
 // Valeurs par défaut pour les props
 Field.defaultProps = {
-  value: '',
   type: 'text',
 };
 
