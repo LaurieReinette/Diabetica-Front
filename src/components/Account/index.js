@@ -70,8 +70,8 @@ const Account = ({
           <tbody>
             {bloodsugars.map((bloodsugar) => (
               <tr key={bloodsugar.id} className={classNames({ 'bloodsugar-ok': bloodsugar.normal, 'bloodsugar-high': bloodsugar.high, 'bloodsugar-low': bloodsugar.low })}>
-                <td>{bloodsugar.dateString}</td>
-                <td>{bloodsugar.timeString}</td>
+                <td>{bloodsugar.dateSentence}</td>
+                <td>{bloodsugar.timeSentence}</td>
                 <td>{bloodsugar.rate}</td>
                 <td> {bloodsugar.normality} </td>
                 <td>{bloodsugar.correction}</td>

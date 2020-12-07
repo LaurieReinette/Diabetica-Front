@@ -60,12 +60,12 @@ const BloodsugarFormEdition = ({
             type="submit"
             className="login-form-button"
           >
-            Ajouter
+            Modifier
           </button>
           <button
             type="button"
             className="login-form-button"
-            onClick ={hideForm}
+            onClick={hideForm}
           >
             Fermer
           </button>
