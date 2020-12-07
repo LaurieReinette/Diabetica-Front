@@ -44,6 +44,7 @@ const userMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           store.dispatch(saveBloodsugars(response.data));
           store.dispatch(emptyBloodsugarForm());
+          store.dispatch(getErrorDetectedFalse());
         })
         .catch((error) => {
           console.warn(error);
@@ -74,6 +75,7 @@ const userMiddleware = (store) => (next) => (action) => {
           store.dispatch(emptyBloodsugarForm());
           store.dispatch(hideEditBloodsugarForm());
           store.dispatch(writeInformationsModal('Glycémie modifidiée'));
+          store.dispatch(getErrorDetectedFalse());
         })
         .catch((error) => {
           console.warn(error);
@@ -92,6 +94,7 @@ const userMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           store.dispatch(saveBloodsugars(response.data));
+          store.dispatch(getErrorDetectedFalse());
         })
         .catch((error) => {
           console.warn(error);
@@ -110,6 +113,7 @@ const userMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           console.log('email envoyé');
           store.dispatch(writeInformationsModal('Email envoyé'));
+          store.dispatch(getErrorDetectedFalse());
         })
         .catch((error) => {
           console.warn(error);
