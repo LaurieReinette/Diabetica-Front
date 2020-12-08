@@ -1,9 +1,9 @@
 @import 'src/styles/vars';
 
 .account {
-  width: 90%;
+  width: 100%;
   font-size: 2rem;
-  margin: 0 auto;
+//   margin: 0 auto;
 //   margin: 10px;
   margin-bottom: 30px;
   .targets{
@@ -49,6 +49,7 @@
   }
   table {
     text-transform: capitalize;
+    margin: auto;
     font-size: 1.7rem;
     border: 1px $blue solid;
     overflow-x: auto;

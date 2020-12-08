@@ -7,18 +7,20 @@ import './main.scss';
 const Main = () => (
   <main className="main">
     <p className="requirement">
-      <b><h3>
-        AVERTISSEMENT
-      </h3></b>
+      <b>
+        <h3>
+          AVERTISSEMENT
+        </h3>
+      </b>
       Ce site internet a été developpé à des fins purement éducatives
-      et n'est pas prévu pour servir de suivi aux personnes diabétiques
+      et n'est pas prévu pour servir réellement de suivi aux personnes diabétiques
     </p>
     <h2> Avec Diabetica je peux gérer facilement mon diabète</h2>
 
     <ul className="main-list">
       <li>Je crée un compte</li>
-      <li>J'entre mes glyémies, Diabetica m'informe
-        si elles sont trop hautes ou trop basses
+      <li>J'entre mes glycémies <br />
+        Diabetica m'informe si elles sont trop hautes ou trop basses
       </li>
       <li>J'ai une vue d'ensemble de mes glycémies</li>
       <li>Je peux envoyer même envoyer mes résultats à mon médecin</li>
