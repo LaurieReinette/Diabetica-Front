@@ -48,6 +48,7 @@ const Subscribe = ({
             type="password"
             onChange={changeField}
             value={passwordNew}
+            label="Mot de passe*"
             required
           />
           <Field
@@ -56,6 +57,7 @@ const Subscribe = ({
             type="password"
             onChange={changeField}
             value={passwordCheck}
+            label="Confirmez votre mot de passe*"
             required
           />
           <Field
@@ -64,6 +66,7 @@ const Subscribe = ({
             placeholder="Prénom"
             onChange={changeField}
             value={firstname}
+            label="Prénom*"
             required
           />
           <Field
@@ -72,58 +75,66 @@ const Subscribe = ({
             placeholder="Nom de famille"
             onChange={changeField}
             value={lastname}
+            label="Nom de famille*"
             required
           />
 
-          <p className="treatment-type-form">Type de traitement*</p>*
-          <div>
-            <label htmlFor="treatment-yes">
-              Insulino Requiérent
-              <input
-                type="radio"
-                name="treatment-yes"
-                id="treatment-yes"
-                value="Insulino-requiérent"
-                checked={treatment === 'Insulino-requiérent'}
-                onChange={catchTreatment}
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="treatment-non">
-              Non Insulino requiérent
-              <input
-                type="radio"
-                name="treatment-non"
-                id="treatment-non"
-                value="Non insulino-requiérent"
-                checked={treatment === 'Non insulino-requiérent'}
-                onChange={catchTreatment}
-              />
-            </label>
+          <div className="treatment-labels">
+            <p className="treatment-type-form">Type de traitement*</p>
+            <div>
+              <label htmlFor="treatment-yes">
+                Insulino Requiérent
+                <input
+                  type="radio"
+                  name="treatment-yes"
+                  id="treatment-yes"
+                  value="Insulino-requiérent"
+                  checked={treatment === 'Insulino-requiérent'}
+                  onChange={catchTreatment}
+                />
+              </label>
+            </div>
+            <div>
+              <label htmlFor="treatment-non">
+                Non Insulino requiérent
+                <input
+                  type="radio"
+                  name="treatment-non"
+                  id="treatment-non"
+                  value="Non insulino-requiérent"
+                  checked={treatment === 'Non insulino-requiérent'}
+                  onChange={catchTreatment}
+                />
+              </label>
+            </div>
           </div>
           <Field
             name="targetMin"
-            type="text"
-            placeholder="Cible Minimale"
+            type="number"
+            step="0.10"
+            placeholder="Cible Minimale recommandée par votre médecin (g/L)"
             onChange={changeField}
             value={targetMin}
+            label="Cible Minimale (g/L)*"
             required
           />
           <Field
             name="targetMax"
-            type="text"
-            placeholder="Cible Maximale"
+            type="number"
+            placeholder="Cible Maximale recommandée par votre médecin (g/L)"
             onChange={changeField}
             value={targetMax}
+            step="0.10"
+            label="Cible Maximale (g/L)*"
             required
           />
           <Field
             name="doctorName"
             type="text"
-            placeholder="Nom du médecin"
+            placeholder="Pour Dr Martin, écrire Martin"
             onChange={changeField}
             value={doctorName}
+            label="Nom du médecin"
             required
           />
           <Field
@@ -132,6 +143,7 @@ const Subscribe = ({
             placeholder="Email du médecin"
             onChange={changeField}
             value={doctorEmail}
+            label="Email du médecin"
             required
           />
           <button type="submit"> Je crée mon compte</button>

@@ -9,51 +9,56 @@
   }
   form {
     font-size: 2rem;
+    word-wrap: break-word;
     label {
       display: inline-block;
       margin: 5px 0;
-      
     }
-    input {
-      display: inline-block;
-      margin-right: 6px;
-      font-size: 1.7rem;
+
+    input, .treatment-labels{
+      font-size: 1.4rem;
+      padding: 3rem 1rem;
+      width: 100%;
+      word-wrap: break-word;
       background-color: rgb(196, 213, 236, 0.6);
     }
-    #targetMin, #targetMax {
-      width: 80px;
+
+    .treatment-labels{
+      width: 95%;
+      margin: auto;
+      font-weight: 700;
+      color: #999;
+      font-size: .7em;
+      text-transform: uppercase;
+      font-family: 'Dosis', sans-serif;
+      animation: labelSlideUpAndShow .3s;
+      border-radius: .3em;
+      text-align: left;
     }
+
     button {
       font-size: 1.7rem;
       margin: 15px 0;
     }
   }
+
+  @keyframes labelSlideUpAndShow{
+    0% {
+      transform: translateY(1em);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0em);
+      opacity: 1;
+    }
+  }
   @media screen and (min-width: 769px) and (max-width: 1200px) {   
-    font-size: 1.5rem;
-    #email{
-      font-size: 1.4rem;
-      margin: 15px auto;
-      width: 90%;
-    }
-    button{
-      margin:0px;
-      font-size: 1.6rem;
-    }
+
 
   }
   
   
-  @media screen and (min-width: 481px) and (max-width: 768px) {   
-    font-size: 1.5rem;
-    #email{
-      font-size: 1.4rem;
-      margin: 15px auto;
-      width: 90%;
-    }
-    button{
-      margin:0px;
-      font-size: 1.6rem;
-    }
+  @media screen and (min-width: 481px) and (max-width: 768px) { 
 
 
    
@@ -61,17 +66,13 @@
  
 
   @media screen and (max-width: 480px) {
-    font-size: 1rem;
-
-    #email{
-      font-size: 1.4rem;
-      margin: 15px auto;
-      width: 90%;
+    margin: 5px 0;
+    form {
+      input {
+        font-size: 1.3rem;
+        word-wrap: break-word;
+      }
+      font-size: 1.5rem;
     }
-    button{
-      margin:0px;
-      font-size: 1.6rem;
-    }
-  }
-
+}
 }
