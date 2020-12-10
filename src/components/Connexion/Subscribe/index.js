@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 
+import Field from './Field';
+
 import './subscribe.scss';
 
 const Subscribe = ({
@@ -16,48 +18,18 @@ const Subscribe = ({
   doctorEmail,
   loader,
   logged,
+  changeField,
+  changeFieldTreatment,
+
   // createAccount,
   sendCreateAccount,
-  changeFieldPasswordNew,
-  changeFieldPasswordCheck,
-  changeFieldFirstname,
-  changeFieldLastname,
-  changeFieldTreatment,
-  changeFieldTargetMin,
-  changeFieldTargetMax,
-  changeFieldDoctorName,
-  changeFieldDoctorEmail,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     sendCreateAccount();
   };
-  const catchFieldpasswordNew = (evt) => {
-    changeFieldPasswordNew(evt.target.value);
-  };
-  const catchFieldpasswordCheck = (evt) => {
-    changeFieldPasswordCheck(evt.target.value);
-  };
-  const catchFieldFirstname = (evt) => {
-    changeFieldFirstname(evt.target.value);
-  };
-  const catchFieldLastname = (evt) => {
-    changeFieldLastname(evt.target.value);
-  };
   const catchTreatment = (evt) => {
     changeFieldTreatment(evt.target.value);
-  };
-  const catchFieldTargetMin = (evt) => {
-    changeFieldTargetMin(evt.target.value);
-  };
-  const catchFieldTargetMax = (evt) => {
-    changeFieldTargetMax(evt.target.value);
-  };
-  const catchFieldDoctorName = (evt) => {
-    changeFieldDoctorName(evt.target.value);
-  };
-  const catchFieldDoctorEmail = (evt) => {
-    changeFieldDoctorEmail(evt.target.value);
   };
 
   return (
@@ -70,58 +42,40 @@ const Subscribe = ({
       {!logged && (
       <div className="subscrire-div">
         <form className="form" onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="passwordNew">
-              Entrer votre mot de passe*
-              <input
-                type="password"
-                name="passwordNew"
-                id="passwordNew"
-                value={passwordNew}
-                onChange={catchFieldpasswordNew}
-                required
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="passwordCheck">
-              Confirmez votre mot de passe*
-              <input
-                type="password"
-                name="passwordCheck"
-                id="passwordCheck"
-                value={passwordCheck}
-                onChange={catchFieldpasswordCheck}
-                required
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="firstname">
-              Prénom*
-              <input
-                type="text"
-                name="firstname"
-                id="firstname"
-                value={firstname}
-                onChange={catchFieldFirstname}
-                required
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="lastname">
-              Nom de famille*
-              <input
-                type="text"
-                name="lastname"
-                id="lastname"
-                value={lastname}
-                onChange={catchFieldLastname}
-              />
-            </label>
-          </div>
-          <p className="treatment-type-form">Type de traitement*</p>
+          <Field
+            name="passwordNew"
+            placeholder="Mot de passe"
+            type="password"
+            onChange={changeField}
+            value={passwordNew}
+            required
+          />
+          <Field
+            name="passwordCheck"
+            placeholder="Confirmez votre mot de passe"
+            type="password"
+            onChange={changeField}
+            value={passwordCheck}
+            required
+          />
+          <Field
+            name="firstname"
+            type="text"
+            placeholder="Prénom"
+            onChange={changeField}
+            value={firstname}
+            required
+          />
+          <Field
+            name="lastname"
+            type="text"
+            placeholder="Nom de famille"
+            onChange={changeField}
+            value={lastname}
+            required
+          />
+
+          <p className="treatment-type-form">Type de traitement*</p>*
           <div>
             <label htmlFor="treatment-yes">
               Insulino Requiérent
@@ -148,58 +102,38 @@ const Subscribe = ({
               />
             </label>
           </div>
-          <div>
-            <label htmlFor="targetMin" className="targetMin">
-              Glycémie miminimale recommandée par mon médecin (g/L)*
-              <input
-                type="number"
-                step="0.10"
-                name="targetMin"
-                id="targetMin"
-                value={targetMin}
-                onChange={catchFieldTargetMin}
-                required
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="targetMax" className="targetMax">
-              Glycémie maximale recommandée par mon médecin (g/L)*
-              <input
-                type="number"
-                step="0.10"
-                id="targetMax"
-                value={targetMax}
-                onChange={catchFieldTargetMax}
-                required
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="doctorName">
-              Nom de votre médecin
-              <input
-                type="text"
-                placeholder="Pour Docteur Martin, entrez Martin"
-                name="doctorName"
-                id="doctorName"
-                value={doctorName}
-                onChange={catchFieldDoctorName}
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="doctorEmail">
-              Email de votre médecin
-              <input
-                type="email"
-                name="doctorEmail"
-                id="doctorEmail"
-                value={doctorEmail}
-                onChange={catchFieldDoctorEmail}
-              />
-            </label>
-          </div>
+          <Field
+            name="targetMin"
+            type="text"
+            placeholder="Cible Minimale"
+            onChange={changeField}
+            value={targetMin}
+            required
+          />
+          <Field
+            name="targetMax"
+            type="text"
+            placeholder="Cible Maximale"
+            onChange={changeField}
+            value={targetMax}
+            required
+          />
+          <Field
+            name="doctorName"
+            type="text"
+            placeholder="Nom du médecin"
+            onChange={changeField}
+            value={doctorName}
+            required
+          />
+          <Field
+            name="doctorEmail"
+            type="email"
+            placeholder="Email du médecin"
+            onChange={changeField}
+            value={doctorEmail}
+            required
+          />
           <button type="submit"> Je crée mon compte</button>
         </form>
       </div>
@@ -221,15 +155,6 @@ Subscribe.propTypes = {
   targetMax: PropTypes.string.isRequired,
   doctorName: PropTypes.string.isRequired,
   doctorEmail: PropTypes.string.isRequired,
-  changeFieldPasswordNew: PropTypes.func.isRequired,
-  changeFieldPasswordCheck: PropTypes.func.isRequired,
-  changeFieldFirstname: PropTypes.func.isRequired,
-  changeFieldLastname: PropTypes.func.isRequired,
-  changeFieldTreatment: PropTypes.func.isRequired,
-  changeFieldTargetMin: PropTypes.func.isRequired,
-  changeFieldTargetMax: PropTypes.func.isRequired,
-  changeFieldDoctorName: PropTypes.func.isRequired,
-  changeFieldDoctorEmail: PropTypes.func.isRequired,
 };
 
 export default Subscribe;
