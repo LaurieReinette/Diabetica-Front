@@ -9,9 +9,9 @@ export default [
     label: 'Connexion / Créer un compte',
     id: 2,
   },
-  {
-    route: '/a-propos',
-    label: 'A propos',
-    id: 3,
-  },
+  // {
+  //   route: '/a-propos',
+  //   label: 'A propos',
+  //   id: 3,
+  // },
 ];

@@ -1,10 +1,13 @@
+@import 'src/styles/vars';
+
 .loader {
   position: absolute;
   left:0px;
   top:0px;
   height: 100vh;
   width: 100vw;
-  background-color: rgba(15, 255, 243, 0.3);
+  z-index: 10;
+  background-color: rgba($color: grey, $alpha: 0.3);
 }
 .Loader-logos{
   position: relative;

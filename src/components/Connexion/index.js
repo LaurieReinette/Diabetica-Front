@@ -24,7 +24,6 @@ const Connexion = ({
     changeFieldEmail(evt.target.value);
   };
 
-
   return (
     <div className="connexion">
       <h2>
@@ -34,10 +33,19 @@ const Connexion = ({
       <div className="connexion">
         <form className="form" onSubmit={handleSubmit}>
           <div className="form-mail">
-            <label htmlFor="email">Entrer votre adresse mail: </label>
-            <input type="email" name="email" id="email" value={username} onChange={catchFieldEmail} required />
+            <label htmlFor="email">
+              Entrer votre adresse mail:
+              <input
+                type="email"
+                name="email"
+                id="email"
+                value={username}
+                onChange={catchFieldEmail}
+                required
+              />
+            </label>
+            <button type="submit"> Continuer</button>
           </div>
-          <button type="submit"> Continuer</button>
         </form>
       </div>
       )}
@@ -50,8 +58,6 @@ const Connexion = ({
 
 Connexion.propTypes = {
   username: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired,
-  sendAuth: PropTypes.func.isRequired,
   changeFieldEmail: PropTypes.func.isRequired,
   sendTestMail: PropTypes.func.isRequired,
   emailIsKnown: PropTypes.bool.isRequired,

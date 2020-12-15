@@ -1,11 +1,8 @@
 @import 'src/styles/vars';
 
 .footer {
-  background-color: $mainColor;
-  font-size: 1.5em;
-  // height: 100px;
+  background-color: rgba($color: $blue, $alpha: 0.9);  font-size: 1.5em;
 
-  // max-height: 150px;
   .footer-logos {
     position: relative;
     top: 50%;

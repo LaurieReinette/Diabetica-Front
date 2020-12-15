@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
+import { checkPasswordLenght, checkBothPasswords } from 'src/utils/functions';
 
+
+import Field from './Field';
 import './subscribe.scss';
 
 const Subscribe = ({
@@ -16,48 +19,31 @@ const Subscribe = ({
   doctorEmail,
   loader,
   logged,
+  changeField,
+  changeFieldTreatment,
+  saveError,
+  getErrorDetectedFalse,
+  emptyErrors,
+
   // createAccount,
   sendCreateAccount,
-  changeFieldPasswordNew,
-  changeFieldPasswordCheck,
-  changeFieldFirstname,
-  changeFieldLastname,
-  changeFieldTreatment,
-  changeFieldTargetMin,
-  changeFieldTargetMax,
-  changeFieldDoctorName,
-  changeFieldDoctorEmail,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    sendCreateAccount();
-  };
-  const catchFieldpasswordNew = (evt) => {
-    changeFieldPasswordNew(evt.target.value);
-  };
-  const catchFieldpasswordCheck = (evt) => {
-    changeFieldPasswordCheck(evt.target.value);
-  };
-  const catchFieldFirstname = (evt) => {
-    changeFieldFirstname(evt.target.value);
-  };
-  const catchFieldLastname = (evt) => {
-    changeFieldLastname(evt.target.value);
+    if (checkPasswordLenght(passwordNew) && checkBothPasswords(passwordNew, passwordCheck)) {
+      sendCreateAccount();
+    }
+    else if (!checkPasswordLenght(passwordNew)) {
+      window.scrollTo(0, 0);
+      saveError('Le mot de passe est trop court');
+    }
+    else if (!checkBothPasswords(passwordNew, passwordCheck)) {
+      window.scrollTo(0, 0);
+      saveError(' Les mots de passe ne correspondent pas');
+    }
   };
   const catchTreatment = (evt) => {
     changeFieldTreatment(evt.target.value);
-  };
-  const catchFieldTargetMin = (evt) => {
-    changeFieldTargetMin(evt.target.value);
-  };
-  const catchFieldTargetMax = (evt) => {
-    changeFieldTargetMax(evt.target.value);
-  };
-  const catchFieldDoctorName = (evt) => {
-    changeFieldDoctorName(evt.target.value);
-  };
-  const catchFieldDoctorEmail = (evt) => {
-    changeFieldDoctorEmail(evt.target.value);
   };
 
   return (
@@ -65,141 +51,115 @@ const Subscribe = ({
       <h2>
         C'est parti, je crée un compte
       </h2>
+      <p>* champs obligatoires</p>
       {logged && <Redirect to="/mon-compte" />}
       {!logged && (
-      <div className="subscrire">
+      <div className="subscrire-div">
         <form className="form" onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="passwordNew">
-              Entrer votre mot de passe:
-              <input
-                type="password"
-                name="passwordNew"
-                id="passwordNew"
-                value={passwordNew}
-                onChange={catchFieldpasswordNew}
-                required
-              />
-            </label>
+          <Field
+            name="passwordNew"
+            placeholder="Mot de passe"
+            type="password"
+            onChange={changeField}
+            value={passwordNew}
+            label="Mot de passe*"
+            required
+          />
+          <Field
+            name="passwordCheck"
+            placeholder="Confirmez votre mot de passe"
+            type="password"
+            onChange={changeField}
+            value={passwordCheck}
+            label="Confirmez votre mot de passe*"
+            required
+          />
+          <Field
+            name="firstname"
+            type="text"
+            placeholder="Prénom"
+            onChange={changeField}
+            value={firstname}
+            label="Prénom*"
+            required
+          />
+          <Field
+            name="lastname"
+            type="text"
+            placeholder="Nom de famille"
+            onChange={changeField}
+            value={lastname}
+            label="Nom de famille*"
+            required
+          />
+
+          <div className="treatment-labels">
+          <p className="treatment-type-form">Type de traitement*</p>
+            <div>
+              <label htmlFor="treatment-yes">
+                Insulino Requiérent
+                <input
+                  type="radio"
+                  name="treatment-yes"
+                  id="treatment-yes"
+                  value="Insulino-requiérent"
+                  checked={treatment === 'Insulino-requiérent'}
+                  onChange={catchTreatment}
+                />
+              </label>
+            </div>
+            <div>
+              <label htmlFor="treatment-no">
+                Non Insulino requiérent
+                <input
+                  type="radio"
+                  name="treatment-no"
+                  id="treatment-no"
+                  value="Non insulino-requiérent"
+                  checked={treatment === 'Non insulino-requiérent'}
+                  onChange={catchTreatment}
+                />
+              </label>
+            </div>
           </div>
-          <div>
-            <label htmlFor="passwordCheck">
-              Confirmez votre mot de passe:
-              <input
-                type="password"
-                name="passwordCheck"
-                id="passwordCheck"
-                value={passwordCheck}
-                onChange={catchFieldpasswordCheck}
-                required
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="firstname">
-              Prénom
-              <input
-                type="text"
-                name="firstname"
-                id="firstname"
-                value={firstname}
-                onChange={catchFieldFirstname}
-                required
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="lastname">
-              Nom de famille
-              <input
-                type="text"
-                name="lastname"
-                id="lastname"
-                value={lastname}
-                onChange={catchFieldLastname}
-              />
-            </label>
-          </div>
-          <p className="treatment-type-form">Type de traitement</p>
-          <div>
-            <label htmlFor="treatment-yes">
-              Insulino Requiérent
-              <input
-                type="radio"
-                name="treatment-yes"
-                id="treatment-yes"
-                value="Insulino-requiérent"
-                checked={treatment === 'Insulino-requiérent'}
-                onChange={catchTreatment}
-                required
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="treatment-non">
-              Non Insulino requiérent
-              <input
-                type="radio"
-                name="treatment-non"
-                id="treatment-non"
-                value="Non insulino-requiérent"
-                checked={treatment === 'Non insulino-requiérent'}
-                onChange={catchTreatment}
-                required
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="targetMin">
-              Glycémie maximale recommandée par mon médecin
-              <input
-                type="number"
-                step="0.10"
-                name="targetMin"
-                id="targetMin"
-                value={targetMin}
-                onChange={catchFieldTargetMin}
-                required
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="targetMax">Glycémie maximale recommandée par mon médecin
-              <input
-                type="number"
-                step="0.10"
-                id="targetMax"
-                value={targetMax}
-                onChange={catchFieldTargetMax}
-                required
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="doctorName">
-              Nom de votre médecin
-              <input
-                type="text"
-                placeholder="Pour Docteur Martin, entrez Martin"
-                name="doctorName"
-                id="doctorName"
-                value={doctorName}
-                onChange={catchFieldDoctorName}
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="doctorEmail">
-              Email de votre médecin
-              <input
-                type="email"
-                name="doctorEmail"
-                id="doctorEmail"
-                value={doctorEmail}
-                onChange={catchFieldDoctorEmail}
-              />
-            </label>
-          </div>
+          <Field
+            name="targetMin"
+            type="number"
+            step="0.10"
+            placeholder="Cible minimale"
+            onChange={changeField}
+            value={targetMin}
+            label="Cible minimale recommandée par votre médecin (g/L)*"
+            required
+          />
+          <Field
+            name="targetMax"
+            type="number"
+            placeholder="Cible maximale"
+            onChange={changeField}
+            value={targetMax}
+            step="0.10"
+            label="Cible maximale recommandée par votre médecin (g/L)*"
+            required
+          />
+          <Field
+            name="doctorName"
+            type="text"
+            placeholder="Pour Dr Martin, écrire Martin"
+            onChange={changeField}
+            value={doctorName}
+            label="Nom du médecin"
+            required
+          />
+          <Field
+            name="doctorEmail"
+            type="email"
+            placeholder="Email du médecin"
+            onChange={changeField}
+            value={doctorEmail}
+            label="Email du médecin"
+            required
+          />
           <button type="submit"> Je crée mon compte</button>
         </form>
       </div>
@@ -209,7 +169,6 @@ const Subscribe = ({
 };
 
 Subscribe.propTypes = {
-  // changeField: PropTypes.func.isRequired,
   sendCreateAccount: PropTypes.func.isRequired,
   passwordNew: PropTypes.string.isRequired,
   loader: PropTypes.bool.isRequired,
@@ -222,15 +181,6 @@ Subscribe.propTypes = {
   targetMax: PropTypes.string.isRequired,
   doctorName: PropTypes.string.isRequired,
   doctorEmail: PropTypes.string.isRequired,
-  changeFieldPasswordNew: PropTypes.func.isRequired,
-  changeFieldPasswordCheck: PropTypes.func.isRequired,
-  changeFieldFirstname: PropTypes.func.isRequired,
-  changeFieldLastname: PropTypes.func.isRequired,
-  changeFieldTreatment: PropTypes.func.isRequired,
-  changeFieldTargetMin: PropTypes.func.isRequired,
-  changeFieldTargetMax: PropTypes.func.isRequired,
-  changeFieldDoctorName: PropTypes.func.isRequired,
-  changeFieldDoctorEmail: PropTypes.func.isRequired,
 };
 
 export default Subscribe;

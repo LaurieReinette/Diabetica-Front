@@ -1,0 +1,20 @@
+@import 'src/styles/vars';
+.bloodsugarFormEdition {
+
+  margin:auto;
+  text-transform: none;
+  text-shadow: black 2px 0 10px;
+  .bloodsugarForm {
+    font-size: 1.2rem;
+    padding: 10px;
+    border-radius: 1rem;
+    background-color: rgba($color: grey, $alpha: 0.3);
+    .login-form-button{
+      margin: 10px;
+      padding: 5px 10px;
+      font-family: 'Dosis', sans-serif;
+      font-size: 1.2em;
+      border-radius: 1rem;
+    }
+  }
+}

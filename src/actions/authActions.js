@@ -22,23 +22,9 @@ export const CREATE_ACCOUNT = 'CREATE_ACCOUNT';
 
 export const SEND_CREATE_ACCOUNT = 'SEND_CREATE_ACCOUNT';
 
-export const CHANGE_FIELD_PASSWORDNEW = 'CHANGE_FIELD_PASSWORDNEW';
-
-export const CHANGE_FIELD_PASSWORDCHECK = 'CHANGE_FIELD_PASSWORDCHECK';
-
-export const CHANGE_FIELD_FIRSTNAME = 'CHANGE_FIELD_FIRSTNAME';
-
-export const CHANGE_FIELD_LASTNAME = 'CHANGE_FIELD_LASTNAME';
+export const UPDATE_SUBSCRIBE_FIELD = 'UPDATE_SUBSCRIBE_FIELD';
 
 export const CHANGE_FIELD_TREATMENT = 'CHANGE_FIELD_TREATMENT';
-
-export const CHANGE_FIELD_TARGETMIN = 'CHANGE_FIELD_TARGETMIN';
-
-export const CHANGE_FIELD_TARGETMAX = 'CHANGE_FIELD_TARGETMAX';
-
-export const CHANGE_FIELD_DOCTORNAME = 'CHANGE_FIELD_DOCTORNAME';
-
-export const CHANGE_FIELD_DOCTOREMAIL = 'CHANGE_FIELD_DOCTOREMAIL';
 
 export const HANDLE_LOGOUT = 'HANDLE_LOGOUT';
 
@@ -46,7 +32,6 @@ export const HANDLE_LOGOUT = 'HANDLE_LOGOUT';
 export const sendAuth = () => ({
   type: SEND_AUTH,
 });
-
 
 export const getLoaderFalse = () => ({
   type: GET_LOADER_FALSE,
@@ -97,51 +82,17 @@ export const createAccount = (newValue) => ({
   newValue,
 });
 
-export const changeFieldPasswordNew = (newValue) => ({
-  type: CHANGE_FIELD_PASSWORDNEW,
+export const updateSubscribeField = (newValue, name) => ({
+  type: UPDATE_SUBSCRIBE_FIELD,
   newValue,
+  name,
 });
 
-export const changeFieldPasswordCheck = (newValue) => ({
-  type: CHANGE_FIELD_PASSWORDCHECK,
-  newValue,
-});
-
-export const changeFieldFirstname = (newValue) => ({
-  type: CHANGE_FIELD_FIRSTNAME,
-  newValue,
-});
-
-export const changeFieldLastname = (newValue) => ({
-  type: CHANGE_FIELD_LASTNAME,
-  newValue,
+export const handleLogout = () => ({
+  type: HANDLE_LOGOUT,
 });
 
 export const changeFieldTreatment = (newValue) => ({
   type: CHANGE_FIELD_TREATMENT,
   newValue,
-});
-
-export const changeFieldTargetMin = (newValue) => ({
-  type: CHANGE_FIELD_TARGETMIN,
-  newValue,
-});
-
-export const changeFieldTargetMax = (newValue) => ({
-  type: CHANGE_FIELD_TARGETMAX,
-  newValue,
-});
-
-export const changeFieldDoctorName = (newValue) => ({
-  type: CHANGE_FIELD_DOCTORNAME,
-  newValue,
-});
-
-export const changeFieldDoctorEmail = (newValue) => ({
-  type: CHANGE_FIELD_DOCTOREMAIL,
-  newValue,
-});
-
-export const handleLogout = () => ({
-  type: HANDLE_LOGOUT,
 });

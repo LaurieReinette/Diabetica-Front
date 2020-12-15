@@ -4,19 +4,16 @@ import { connect } from 'react-redux';
 import Subscribe from 'src/components/Connexion/Subscribe';
 
 import {
-  changeFieldPasswordNew,
-  changeFieldPasswordCheck,
-  changeFieldFirstname,
-  changeFieldLastname,
   changeFieldTreatment,
-  changeFieldTargetMin,
-  changeFieldTargetMax,
-  changeFieldDoctorName,
-  changeFieldDoctorEmail,
   createAccount,
   sendCreateAccount,
-
+  updateSubscribeField,
 } from 'src/actions/authActions';
+import {
+  saveError,
+  emptyErrors,
+  getErrorDetectedFalse,
+} from 'src/actions/errorActions';
 
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
@@ -43,32 +40,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  changeFieldPasswordNew: (newValue) => {
-    dispatch(changeFieldPasswordNew(newValue));
-  },
-  changeFieldPasswordCheck: (newValue) => {
-    dispatch(changeFieldPasswordCheck(newValue));
-  },
-  changeFieldFirstname: (newValue) => {
-    dispatch(changeFieldFirstname(newValue));
-  },
-  changeFieldLastname: (newValue) => {
-    dispatch(changeFieldLastname(newValue));
-  },
-  changeFieldTreatment: (newValue) => {
-    dispatch(changeFieldTreatment(newValue));
-  },
-  changeFieldTargetMin: (newValue) => {
-    dispatch(changeFieldTargetMin(newValue));
-  },
-  changeFieldTargetMax: (newValue) => {
-    dispatch(changeFieldTargetMax(newValue));
-  },
-  changeFieldDoctorName: (newValue) => {
-    dispatch(changeFieldDoctorName(newValue));
-  },
-  changeFieldDoctorEmail: (newValue) => {
-    dispatch(changeFieldDoctorEmail(newValue));
+  changeField: (newValue, name) => {
+    dispatch(updateSubscribeField(newValue, name));
   },
   sendCreateAccount: () => {
     dispatch(sendCreateAccount());
@@ -76,6 +49,14 @@ const mapDispatchToProps = (dispatch) => ({
   createAccount: (newValue) => {
     dispatch(createAccount(newValue));
   },
+  changeFieldTreatment: (newValue) => {
+    dispatch(changeFieldTreatment(newValue));
+  },
+  saveError: (data) => {
+    dispatch(emptyErrors());
+    dispatch(saveError(data));
+  },
+ 
 });
 
 // === création de l'assistant

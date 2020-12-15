@@ -10,10 +10,10 @@ const Footer = () => (
   <footer className="footer">
     <div className="footer-logos">
       <a href="https://github.com/LaurieReinette" target="_blank" rel="noopener noreferrer">
-        <img src={github} alt="" />
+        <img src={github} alt="github logo" />
       </a>
       <a href="https://www.linkedin.com/in/lauriereinette/" target="_blank" rel="noopener noreferrer">
-        <img src={linkedin} alt="" />
+        <img src={linkedin} alt="linkeDin logo" />
       </a>
     </div>
 

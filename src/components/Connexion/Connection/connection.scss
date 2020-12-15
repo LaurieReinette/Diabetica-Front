@@ -1,14 +1,60 @@
+@import 'src/styles/vars';
+
+
 .connection {
-  font-size: 1.5em;
+  font-size: 1.7rem;
   margin: 20px;
   h1{
-    color: lightseagreen;
+    color: $blue;
+  }
+  .form-password{
+    margin-top: 20px;
   }
   #password{
-    font-size: 1em;
+    font-size: 1.7rem;
+    text-align: center;
   }
   button{
-    font-size: 0.8em;
-    background-color: lightblue;
+    font-size: 1.7rem;
+    background-color:$blue;
+  }
+
+  @media screen and (min-width: 769px) and (max-width: 1200px) {   
+    font-size: 1.5rem;
+    #password{
+      font-size: 1.7rem;
+      width: 90%;
+      margin: 15px;
+    }
+    button{
+      font-size: 1.6rem;
+    }
+
+  }
+  
+  
+  @media screen and (min-width: 481px) and (max-width: 768px) {   
+    font-size: 1.5rem;
+    #password{
+      font-size: 1.7rem;
+      width: 90%;
+      margin: 15px;
+    }
+    button{
+      font-size: 1.6rem;
+    }   
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 1.5rem;
+    #password{
+      font-size: 1.7rem;
+      width: 90%;
+      margin: 15px;
+    }
+    button{
+      font-size: 1.6rem;
+    }
+    
   }
 }

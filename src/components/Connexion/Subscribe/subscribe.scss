@@ -1,15 +1,95 @@
 @import 'src/styles/vars';
 
 .subscribe {
-  font-size: 1.1em;
-  // max-height: 150px;
+  font-size: 1.6rem;
   margin: 20px;
+  h2 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
   form {
+    font-size: 1.5rem;
+    width: 60%;
+    margin: 10px auto;
+    padding: 10px;
+    background-color:$blue;
+    border-radius: 1rem;
+
+    // .fields-subscribe{
+    //   margin: 1px auto;
+    // }
+
+    .field-input-subscribe {
+      margin: 10px auto;
+      display: block;
+      width: 80%;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+    .field-label-subscribe{
+      display: block;
+
+    }
+    .treatment-labels{
+      background-color: white;
+      margin: 10px auto;
+      display: block;
+      width: 78%;
+      text-align: center;
+      font-size: 1.5rem;
+      border-radius: 0.2rem;
+    }
     label {
       display: inline-block;
+      // margin: 10px 0;
+      padding: 1rem;
+      // margin-top: 10px;
     }
-    input {
-      display: inline-block;
+  }
+  @media screen and (min-width: 769px) and (max-width: 1200px) {   
+
+    margin: 5px 0;
+    form {
+      width: 80%;
+      
+      .field-input-subscribe {
+        width: 80%;
+        font-size: 1.2rem;
+      }
+
+    }
+  }
+  
+  
+  @media screen and (min-width: 481px) and (max-width: 768px) { 
+    margin: 5px 0;
+    form {
+      width: 100%;
+      
+      .field-input-subscribe {
+        width: 80%;
+        font-size: 1.2rem;
+      }
+    }
+   
+  }
+ 
+
+  @media screen and (max-width: 480px) {
+    margin: 5px 0;
+    form {
+      width: 100%;
+
+      .field-input-subscribe {
+        width: 100%;
+        font-size: 1.2rem;
+      }
+      label {
+        display: inline-block;
+        // margin: 10px 0;
+        padding: 0.5rem;
+        // margin-top: 10px;
+      }
     }
   }
 }

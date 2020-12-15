@@ -15,6 +15,10 @@ import {
 } from 'src/actions/authActions';
 
 import {
+  saveBloodsugars,
+} from 'src/actions/userActions';
+
+import {
   saveError,
   getErrorDetectedFalse,
   emptyErrors,
@@ -27,16 +31,18 @@ const authMiddleware = (store) => (next) => (action) => {
     case SEND_TEST_MAIL: {
       const { username } = store.getState().authReducer;
 
-      axios.post('https://127.0.0.1:8000/api/login/check-email', {
+      axios.post('https://diabeticaback.lauriereinette.fr/api/login/check-email', {
         email: username,
       })
         .then((response) => {
           store.dispatch(testEmailKnown(response.data.known));
           store.dispatch(startRegistration(response.data.known));
+          store.dispatch(emptyErrors());
+          store.dispatch(getErrorDetectedFalse());
         })
         .catch((error) => {
           console.warn(error);
-          store.dispatch(saveError('L\'adresse mail n\' pas valide'));
+          store.dispatch(saveError('L\'adresse mail n\'est pas valide'));
           store.dispatch(getLoaderFalse());
         });
       next(action);
@@ -45,7 +51,7 @@ const authMiddleware = (store) => (next) => (action) => {
     case SEND_AUTH: {
       const { username, password } = store.getState().authReducer;
 
-      axios.post('https://127.0.0.1:8000/api/login_check', {
+      axios.post('https://diabeticaback.lauriereinette.fr/api/login_check', {
         username,
         password,
       })
@@ -67,9 +73,19 @@ const authMiddleware = (store) => (next) => (action) => {
     case FETCH_USER_DATAS: {
       const { token } = store.getState().authReducer;
 
-      axios.get('https://127.0.0.1:8000/api/user', { headers: {'Authorization' : `Bearer ${token}`} })
+      axios.get('https://diabeticaback.lauriereinette.fr/api/user', { headers: {'Authorization' : `Bearer ${token}`} })
         .then((response) => {
           store.dispatch(saveUserDatas(response.data));
+        })
+        .catch((error) => {
+          console.warn(error);
+          store.dispatch(saveError('Une erreur s\'est produite, veuillez réessayer'));
+          store.dispatch(getLoaderFalse());
+        });
+      axios.get('https://diabeticaback.lauriereinette.fr/api/user/fetch-bloodsugars', { headers: {'Authorization' : `Bearer ${token}`} })
+        .then((response) => {
+          console.log(response.data);
+          store.dispatch(saveBloodsugars(response.data));
         })
         .catch((error) => {
           console.warn(error);
@@ -91,7 +107,7 @@ const authMiddleware = (store) => (next) => (action) => {
       const { doctorName } = store.getState().authReducer;
       const { doctorEmail } = store.getState().authReducer;
 
-      axios.post('https://127.0.0.1:8000/api/login/signup', {
+      axios.post('https://diabeticaback.lauriereinette.fr/api/login/signup', {
         email: username,
         password: passwordNew,
         checkPassword: passwordCheck,

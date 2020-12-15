@@ -1,18 +1,67 @@
 @import 'src/styles/vars';
 
 .connexion {
-  font-size: 1rem;
+  font-size: 1.6rem;
   margin: 20px;
+  min-height: 100px;
   #email{
-    font-size: 1rem;
-    display: inline-block;
+    font-size: 1.6rem;
+    margin-left: 10px;
+    height: 35px;
+    text-align: center;
 
   }
   button{
-    margin-top: 60px;
-    font-size: 1em;
-    background-color: lightblue;
-    border-radius: 10%;
-    display: inline-block;
+    margin-left: 10px;
+    font-family: 'Dosis', sans-serif;
+    font-size: 1.2rem;
+    background-color: $blue;
+    border-radius: 1rem;
+  }
+
+  @media screen and (min-width: 769px) and (max-width: 1200px) {   
+    font-size: 1.5rem;
+    #email{
+      font-size: 1.4rem;
+      margin: 15px auto;
+      width: 90%;
+    }
+    button{
+      margin:0px;
+      font-size: 1.6rem;
+    }
+
+  }
+  
+  
+  @media screen and (min-width: 481px) and (max-width: 768px) {   
+    font-size: 1.5rem;
+    #email{
+      font-size: 1.4rem;
+      margin: 15px auto;
+      width: 90%;
+    }
+    button{
+      margin:0px;
+      font-size: 1.6rem;
+    }
+
+
+   
+  }
+ 
+
+  @media screen and (max-width: 480px) {
+    font-size: 1.5rem;
+    #email{
+      font-size: 1.4rem;
+      margin: 15px auto;
+      width: 90%;
+    }
+    button{
+      margin:0px;
+      font-size: 1.6rem;
+    }
+    
   }
 }
