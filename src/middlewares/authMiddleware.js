@@ -37,6 +37,8 @@ const authMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           store.dispatch(testEmailKnown(response.data.known));
           store.dispatch(startRegistration(response.data.known));
+          store.dispatch(emptyErrors());
+          store.dispatch(getErrorDetectedFalse());
         })
         .catch((error) => {
           console.warn(error);

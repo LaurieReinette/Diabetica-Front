@@ -3,9 +3,16 @@
 .account {
   width: 100%;
   font-size: 2rem;
-//   margin: 0 auto;
-//   margin: 10px;
-  margin-bottom: 30px;
+
+  background: linear-gradient(360deg, rgba(164, 203, 255, 0.425), #bdfbff);
+  background-size: 400% 400%;
+  -webkit-animation: AnimationName 6.5s ease infinite;
+  animation: AnimationName 6.5s ease infinite;
+  padding-bottom: 30px;
+  
+  h2{
+     font-size: 2.2rem;
+  }
   .targets{
      font-weight: bold;;
   }
@@ -29,14 +36,14 @@
       border-radius: 1rem;
    }
   h2, h3 {
-     margin: 15px;
+     padding: 15px;
 
   }
 
 .table-users{
    overflow-x: scroll;
    width: 90%;
-   margin: 10px auto;
+   margin: 0 auto;
 }
   .display-button{
      background-color: $blue;
@@ -68,7 +75,7 @@
      color: $red;
    }
    .bloodsugar-low {
-     color: rgba(248, 137, 33, 0.7);
+     color: rgb(248, 137, 33);
    }
    tr{
       border: 1px $blue solid;
@@ -136,4 +143,14 @@
        }
     }
  
+}
+@-webkit-keyframes AnimationName {
+   0%{background-position:82% 0%}
+   50%{background-position:19% 100%}
+   100%{background-position:82% 0%}
+}
+@keyframes AnimationName {
+   0%{background-position:82% 0%}
+   50%{background-position:19% 100%}
+   100%{background-position:82% 0%}
 }

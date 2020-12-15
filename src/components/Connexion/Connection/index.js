@@ -10,8 +10,7 @@ const Connection = ({
   sendAuth,
   changeFieldPassword,
   logged,
-  loader,
-  logout,
+  username,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -27,6 +26,9 @@ const Connection = ({
         {logged && <Redirect to="/mon-compte" />}
         {!logged && (
           <form className="form" autoComplete="on" onSubmit={handleSubmit}>
+            <div>
+              Vous avez entré: {username}
+            </div>
             <div className="form-password">
               <label htmlFor="password">
                 Entrer votre mot de passe:
@@ -52,7 +54,6 @@ Connection.propTypes = {
   sendAuth: PropTypes.func.isRequired,
   logged: PropTypes.bool.isRequired,
   changeFieldPassword: PropTypes.func.isRequired,
-  loader: PropTypes.bool.isRequired,
 };
 
 export default Connection;

@@ -27,6 +27,9 @@ const BloodsugarFormEdition = ({
     <div className="bloodsugarFormEdition">
       <div className="bloodsugarForm">
         <form className="login-form-element" onSubmit={handleSubmit}>
+          <p>
+            Modifier ma glycémie:
+          </p>
           <Field
             name="date"
             placeholder="Date"

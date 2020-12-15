@@ -48,7 +48,7 @@ const Account = ({
       <h2>Mon compte Diabetica</h2>
       <h3>Bienvenue {user.firstname} {user.lastname} </h3>
       <p>
-        Mes glycémies doivent être entre: <span className="targets">{user.target_min} et {user.target_max}</span>
+        Mes glycémies doivent être entre: <span className="targets">{user.target_min} et {user.target_max} g/L</span>
       </p>
       <p>
         Mon médécin référent: Docteur {user.doctor_name}

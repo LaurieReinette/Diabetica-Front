@@ -14,11 +14,11 @@ const initialState = {
       label: 'Connexion / Créer un compte',
       id: 2,
     },
-    {
-      route: '/a-propos',
-      label: 'A propos',
-      id: 3,
-    },
+    // {
+    //   route: '/a-propos',
+    //   label: 'A propos',
+    //   id: 3,
+    // },
   ],
   navDatasLogged: [
     {
@@ -31,11 +31,11 @@ const initialState = {
       label: 'Mon compte',
       id: 5,
     },
-    {
-      route: '/a-propos',
-      label: 'A propos',
-      id: 6,
-    },
+    // {
+    //   route: '/a-propos',
+    //   label: 'A propos',
+    //   id: 6,
+    // },
     // {
     //   route: '/deconnexion',
     //   label: 'Deconnexion',

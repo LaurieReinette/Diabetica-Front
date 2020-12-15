@@ -81,7 +81,7 @@ const userReducer = (state = initialState, action = {}) => {
         bloodsugarToEdit: action.bloodsugar,
         date: action.bloodsugar.dateString,
         time: action.bloodsugar.timeString,
-        rate: action.bloodsugar.rate,
+        rate: action.bloodsugar.rate.toString(),
         correction: action.bloodsugar.correction,
         displayEditBloodsugar: true,
         displayBloodsugarFormBool: false,

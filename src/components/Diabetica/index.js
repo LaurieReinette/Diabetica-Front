@@ -8,7 +8,7 @@ import Header from 'src/containers/Header';
 import Nav from 'src/containers/Nav';
 import Connexion from 'src/containers/Connexion';
 import Account from 'src/containers/Account';
-import About from 'src/components/About';
+// import About from 'src/components/About';
 import Main from 'src/components/Main';
 import Footer from 'src/components/Footer';
 import Error from 'src/containers/Error';
@@ -31,7 +31,7 @@ const Diabetica = ({
       <Switch>
         <Route exact path="/" component={Main} />
         <Route path="/connexion-inscription" component={Connexion} />
-        <Route path="/a-propos" component={About} />
+        {/* <Route path="/a-propos" component={About} /> */}
         {logged && <Route path="/mon-compte" component={Account} /> }
         {/* <Route path="/" component={Page404} /> */}
         {logout && <Redirect to="/" />}

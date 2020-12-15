@@ -1,9 +1,11 @@
 .error {
-  background-color: rgba(230, 45, 45, 0.452);
+  background-color: rgba(255, 0, 0, 0.452);
   width: 80%;
-  margin: 0 auto;
+  margin: 10px auto;
+  height: 100px;
 
   p{
-    font-size: 2em;
+    font-size: 2.5em;
+    padding-top: 30px;
   }
 }

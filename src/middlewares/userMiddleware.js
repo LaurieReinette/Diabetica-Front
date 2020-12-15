@@ -74,7 +74,7 @@ const userMiddleware = (store) => (next) => (action) => {
           store.dispatch(saveBloodsugars(response.data));
           store.dispatch(emptyBloodsugarForm());
           store.dispatch(hideEditBloodsugarForm());
-          store.dispatch(writeInformationsModal('Glycémie modifidiée'));
+          store.dispatch(writeInformationsModal('Glycémie modifiée'));
           store.dispatch(getErrorDetectedFalse());
         })
         .catch((error) => {
@@ -90,7 +90,7 @@ const userMiddleware = (store) => (next) => (action) => {
       const { bloodsugarId } = store.getState().userReducer;
 
       axios.delete(`https://diabeticaback.lauriereinette.fr/api/bloodsugar/delete/${bloodsugarId}`, {
-        headers: {'Authorization' : `Bearer ${token}`},
+        headers: { 'Authorization' : `Bearer ${token}` },
       })
         .then((response) => {
           store.dispatch(saveBloodsugars(response.data));

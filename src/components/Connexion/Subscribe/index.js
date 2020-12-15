@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
+import { checkPasswordLenght, checkBothPasswords } from 'src/utils/functions';
+
 
 import Field from './Field';
-
 import './subscribe.scss';
 
 const Subscribe = ({
@@ -20,13 +21,26 @@ const Subscribe = ({
   logged,
   changeField,
   changeFieldTreatment,
+  saveError,
+  getErrorDetectedFalse,
+  emptyErrors,
 
   // createAccount,
   sendCreateAccount,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    sendCreateAccount();
+    if (checkPasswordLenght(passwordNew) && checkBothPasswords(passwordNew, passwordCheck)) {
+      sendCreateAccount();
+    }
+    else if (!checkPasswordLenght(passwordNew)) {
+      window.scrollTo(0, 0);
+      saveError('Le mot de passe est trop court');
+    }
+    else if (!checkBothPasswords(passwordNew, passwordCheck)) {
+      window.scrollTo(0, 0);
+      saveError(' Les mots de passe ne correspondent pas');
+    }
   };
   const catchTreatment = (evt) => {
     changeFieldTreatment(evt.target.value);
@@ -37,7 +51,7 @@ const Subscribe = ({
       <h2>
         C'est parti, je crée un compte
       </h2>
-      <p>* champ obligatoire</p>
+      <p>* champs obligatoires</p>
       {logged && <Redirect to="/mon-compte" />}
       {!logged && (
       <div className="subscrire-div">
@@ -80,7 +94,7 @@ const Subscribe = ({
           />
 
           <div className="treatment-labels">
-            <p className="treatment-type-form">Type de traitement*</p>
+          <p className="treatment-type-form">Type de traitement*</p>
             <div>
               <label htmlFor="treatment-yes">
                 Insulino Requiérent
@@ -95,12 +109,12 @@ const Subscribe = ({
               </label>
             </div>
             <div>
-              <label htmlFor="treatment-non">
+              <label htmlFor="treatment-no">
                 Non Insulino requiérent
                 <input
                   type="radio"
-                  name="treatment-non"
-                  id="treatment-non"
+                  name="treatment-no"
+                  id="treatment-no"
                   value="Non insulino-requiérent"
                   checked={treatment === 'Non insulino-requiérent'}
                   onChange={catchTreatment}
@@ -112,20 +126,20 @@ const Subscribe = ({
             name="targetMin"
             type="number"
             step="0.10"
-            placeholder="Cible Minimale recommandée par votre médecin (g/L)"
+            placeholder="Cible minimale"
             onChange={changeField}
             value={targetMin}
-            label="Cible Minimale (g/L)*"
+            label="Cible minimale recommandée par votre médecin (g/L)*"
             required
           />
           <Field
             name="targetMax"
             type="number"
-            placeholder="Cible Maximale recommandée par votre médecin (g/L)"
+            placeholder="Cible maximale"
             onChange={changeField}
             value={targetMax}
             step="0.10"
-            label="Cible Maximale (g/L)*"
+            label="Cible maximale recommandée par votre médecin (g/L)*"
             required
           />
           <Field

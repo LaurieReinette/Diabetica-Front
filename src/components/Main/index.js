@@ -8,9 +8,7 @@ const Main = () => (
   <main className="main">
     <p className="requirement">
       <b>
-        <h3>
-          AVERTISSEMENT
-        </h3>
+        AVERTISSEMENT
       </b>
       Ce site internet a été developpé à des fins purement éducatives
       et n'est pas prévu pour servir réellement de suivi aux personnes diabétiques

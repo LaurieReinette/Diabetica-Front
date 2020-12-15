@@ -8,8 +8,12 @@ import {
   createAccount,
   sendCreateAccount,
   updateSubscribeField,
-
 } from 'src/actions/authActions';
+import {
+  saveError,
+  emptyErrors,
+  getErrorDetectedFalse,
+} from 'src/actions/errorActions';
 
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
@@ -48,6 +52,11 @@ const mapDispatchToProps = (dispatch) => ({
   changeFieldTreatment: (newValue) => {
     dispatch(changeFieldTreatment(newValue));
   },
+  saveError: (data) => {
+    dispatch(emptyErrors());
+    dispatch(saveError(data));
+  },
+ 
 });
 
 // === création de l'assistant

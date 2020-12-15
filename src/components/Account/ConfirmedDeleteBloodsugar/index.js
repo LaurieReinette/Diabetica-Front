@@ -3,7 +3,6 @@ import React from 'react';
 import './confirmedDeleteBloodsugar.scss';
 
 const ConfirmedDeleteBloodsugar = ({
-  displayConfirmDeleteBloodsugar,
   sendDeleteBloodsugar,
   hideConfirmDeleteBloodsugar,
 }) => {

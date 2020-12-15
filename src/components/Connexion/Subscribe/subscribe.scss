@@ -8,59 +8,69 @@
     margin-bottom: 20px;
   }
   form {
-    font-size: 2rem;
-    word-wrap: break-word;
+    font-size: 1.5rem;
+    width: 60%;
+    margin: 10px auto;
+    padding: 10px;
+    background-color:$blue;
+    border-radius: 1rem;
+
+    // .fields-subscribe{
+    //   margin: 1px auto;
+    // }
+
+    .field-input-subscribe {
+      margin: 10px auto;
+      display: block;
+      width: 80%;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+    .field-label-subscribe{
+      display: block;
+
+    }
+    .treatment-labels{
+      background-color: white;
+      margin: 10px auto;
+      display: block;
+      width: 78%;
+      text-align: center;
+      font-size: 1.5rem;
+      border-radius: 0.2rem;
+    }
     label {
       display: inline-block;
-      margin: 5px 0;
-    }
-
-    input, .treatment-labels{
-      font-size: 1.4rem;
-      padding: 3rem 1rem;
-      width: 100%;
-      word-wrap: break-word;
-      background-color: rgb(196, 213, 236, 0.6);
-    }
-
-    .treatment-labels{
-      width: 95%;
-      margin: auto;
-      font-weight: 700;
-      color: #999;
-      font-size: .7em;
-      text-transform: uppercase;
-      font-family: 'Dosis', sans-serif;
-      animation: labelSlideUpAndShow .3s;
-      border-radius: .3em;
-      text-align: left;
-    }
-
-    button {
-      font-size: 1.7rem;
-      margin: 15px 0;
-    }
-  }
-
-  @keyframes labelSlideUpAndShow{
-    0% {
-      transform: translateY(1em);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0em);
-      opacity: 1;
+      // margin: 10px 0;
+      padding: 1rem;
+      // margin-top: 10px;
     }
   }
   @media screen and (min-width: 769px) and (max-width: 1200px) {   
 
+    margin: 5px 0;
+    form {
+      width: 80%;
+      
+      .field-input-subscribe {
+        width: 80%;
+        font-size: 1.2rem;
+      }
 
+    }
   }
   
   
   @media screen and (min-width: 481px) and (max-width: 768px) { 
-
-
+    margin: 5px 0;
+    form {
+      width: 100%;
+      
+      .field-input-subscribe {
+        width: 80%;
+        font-size: 1.2rem;
+      }
+    }
    
   }
  
@@ -68,11 +78,18 @@
   @media screen and (max-width: 480px) {
     margin: 5px 0;
     form {
-      input {
-        font-size: 1.3rem;
-        word-wrap: break-word;
+      width: 100%;
+
+      .field-input-subscribe {
+        width: 100%;
+        font-size: 1.2rem;
       }
-      font-size: 1.5rem;
+      label {
+        display: inline-block;
+        // margin: 10px 0;
+        padding: 0.5rem;
+        // margin-top: 10px;
+      }
     }
-}
+  }
 }
