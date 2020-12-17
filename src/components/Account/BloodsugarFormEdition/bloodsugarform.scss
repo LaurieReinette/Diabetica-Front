@@ -3,7 +3,9 @@
 
   margin:auto;
   text-transform: none;
-  text-shadow: black 2px 0 10px;
+  input {
+    width: 100%;
+  }
   .bloodsugarForm {
     font-size: 1.2rem;
     padding: 10px;

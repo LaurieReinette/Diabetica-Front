@@ -51,13 +51,13 @@ const Account = ({
         Mes glycémies doivent être entre: <span className="targets">{user.target_min} et {user.target_max} g/L</span>
       </p>
       <p>
-        Mon médécin référent: Docteur {user.doctor_name}
+        Mon médécin référent: <span className="doctor-name">Docteur {user.doctor_name}</span>
         <button
           type="button"
           onClick={handleClickSendBloodsugarsToDoctor}
           className="button-sendbloodsugars"
         >
-          Envoyer mes glycémies à mon médecin
+          Envoyer mes glycémies par mail à mon médecin
         </button>
       </p>
       {displayInformationsModal && <InformationsModal />}

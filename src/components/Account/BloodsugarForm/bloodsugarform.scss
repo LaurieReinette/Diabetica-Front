@@ -5,6 +5,10 @@
   padding: 10px;
   border-radius: 1rem;
   background-color: rgba($color: $blue, $alpha: 0.9);
+
+  input {
+    width: 100%;
+  }
   .login-form-button{
     margin: 10px;
     padding: 5px 10px;

@@ -5,7 +5,7 @@
   width: 70%;
   margin: 20px auto;
   // max-height: 150px;
-  @media screen and (min-width: 769px) and (max-width: 1200px) {   
+  @media screen and (min-width: 767px) and (max-width: 1200px) {   
     font-size: 1.5rem;
 
     .requirement{
@@ -15,7 +15,7 @@
   }
   
   
-  @media screen and (min-width: 481px) and (max-width: 768px) {   
+  @media screen and (min-width: 481px) and (max-width: 767px) {   
     font-size: 1.7rem;
 
   }
