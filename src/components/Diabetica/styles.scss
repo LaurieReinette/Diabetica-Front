@@ -2,5 +2,9 @@
   width: 100%;
   margin: 0 auto;
   text-align: center;
+  position: relative;
+  min-height: 100vh;
+  // doit correspondre à la hauteur du footer, non dynamique, à améliorer
+  padding-bottom: 107px;
 }
 
