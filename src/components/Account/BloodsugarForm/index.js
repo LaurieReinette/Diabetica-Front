@@ -42,7 +42,7 @@ const BloodsugarForm = ({
         <Field
           name="rate"
           type="number"
-          step="0.10"
+          step="0.01"
           placeholder="Taux"
           onChange={changeField}
           value={rate}

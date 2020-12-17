@@ -47,11 +47,13 @@ const Account = ({
     <main className="account">
       <h2>Mon compte Diabetica</h2>
       <h3>Bienvenue {user.firstname} {user.lastname} </h3>
-      <p>
-        Mes glycémies doivent être entre: <span className="targets">{user.target_min} et {user.target_max} g/L</span>
-      </p>
-      <p>
-        Mon médécin référent: <span className="doctor-name">Docteur {user.doctor_name}</span>
+      <div className="user-card">
+        <p>
+          Mes glycémies doivent être entre: <span className="targets">{user.target_min} et {user.target_max} g/L</span>
+        </p>
+        <p>
+          Mon médécin référent: <span className="doctor-name">Docteur {user.doctor_name}</span>
+        </p>
         <button
           type="button"
           onClick={handleClickSendBloodsugarsToDoctor}
@@ -59,7 +61,7 @@ const Account = ({
         >
           Envoyer mes glycémies par mail à mon médecin
         </button>
-      </p>
+      </div>
       {displayInformationsModal && <InformationsModal />}
       {displayConfirmDeleteBloodsugar && <ConfirmedDeleteBloodsugar />}
       <div className="display-bloodsugar">

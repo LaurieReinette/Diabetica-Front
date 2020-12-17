@@ -4,7 +4,7 @@
   // width: 100%;
   font-size: 1.8rem;
   text-align: center;
-  padding: 20px;
+  padding: 25px;
   background-color: rgba($color: $blue, $alpha: 0.9);
   a{
     display: inline-block;
@@ -33,7 +33,7 @@
     }
   }
   
-  @media screen and (min-width: 767px) and (max-width: 1200px) {   
+  @media screen and (min-width: 769px) and (max-width: 1200px) {   
     font-size: 1.8rem;
 
     h1 {
@@ -46,7 +46,7 @@
 
 
   }
-  @media screen and (min-width: 481px) and (max-width: 767px) {   
+  @media screen and (min-width: 481px) and (max-width: 768px) {   
     font-size: 1.8rem;
 
     h1 {

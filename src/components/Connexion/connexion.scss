@@ -3,6 +3,7 @@
 .connexion {
   font-size: 1.6rem;
   margin: 20px;
+  min-height: 100%;
 
   #email{
     font-size: 1.6rem;
@@ -19,7 +20,7 @@
     border-radius: 1rem;
   }
 
-  @media screen and (min-width: 767px) and (max-width: 1200px) {   
+  @media screen and (min-width: 769px) and (max-width: 1200px) {   
     font-size: 1.5rem;
     #email{
       font-size: 1.4rem;
@@ -34,7 +35,7 @@
   }
   
   
-  @media screen and (min-width: 481px) and (max-width: 767px) {   
+  @media screen and (min-width: 481px) and (max-width: 768px) {   
     font-size: 1.5rem;
     #email{
       font-size: 1.4rem;
