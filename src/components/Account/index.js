@@ -11,6 +11,7 @@ import InformationsModal from 'src/containers/InformationsModal';
 
 import trash from 'src/assets/images/trash.png';
 import edition from 'src/assets/images/edition.png';
+import mail from 'src/assets/images/mail.png';
 
 import './account.scss';
 
@@ -59,7 +60,7 @@ const Account = ({
           onClick={handleClickSendBloodsugarsToDoctor}
           className="button-sendbloodsugars"
         >
-          Envoyer mes glycémies par mail à mon médecin
+          📨 Envoyer mes glycémies par mail à mon médecin
         </button>
       </div>
       {displayInformationsModal && <InformationsModal />}

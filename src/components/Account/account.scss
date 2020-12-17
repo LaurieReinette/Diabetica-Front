@@ -140,13 +140,15 @@ font-size: 1.5rem;
           margin: 10px 1px;
           max-width: 100vw;
           font-size: 1.4rem;
-
+          img{
+            width: 20px;
+            height: 20px;
+          }
           td {
             // height: 30px;
             padding: 4px;
             button {
-               padding: 6px 3px;
-               
+               width: 20x;    
             }
          }
      
