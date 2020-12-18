@@ -62,7 +62,7 @@ const Subscribe = ({
             type="password"
             onChange={changeField}
             value={passwordNew}
-            label="Mot de passe*"
+            label="Mot de passe* (8 caractères au minimum)"
             required
           />
           <Field
@@ -94,7 +94,7 @@ const Subscribe = ({
           />
 
           <div className="treatment-labels">
-          <p className="treatment-type-form">Type de traitement*</p>
+            <p className="treatment-type-form">Type de traitement*</p>
             <div>
               <label htmlFor="treatment-yes">
                 Insulino Requiérent

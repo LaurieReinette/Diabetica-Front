@@ -50,7 +50,7 @@ const BloodsugarForm = ({
         <Field
           name="correction"
           type="text"
-          placeholder="Correction effectuée"
+          placeholder="Correction ex:2UI insuline"
           onChange={changeField}
           value={correction}
         />
